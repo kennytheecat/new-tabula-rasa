@@ -38,6 +38,7 @@ if ( post_password_required() ) {
 		</nav><!-- #comment-nav-above -->
 		<?php endif; // check for comment navigation ?>
 
+		<!-- Previous tabula-rasa had a callback called tr_comment() in one of the function files -->
 		<ol class="comment-list">
 			<?php
 				wp_list_comments( array(

@@ -12,9 +12,7 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'new-tabula-rasa' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'new-tabula-rasa' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( __( 'Theme: %1$s by %2$s.', 'new-tabula-rasa' ), 'new-tabula-rasa', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
+			<?php printf( __( 'Site Design by %1$s', 'new-tabula-rasa' ), 'new-tabula-rasa', '<a href="http://third-law.com/" rel="designer">Third Law Web Design</a>' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
