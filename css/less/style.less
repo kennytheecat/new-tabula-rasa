@@ -1,0 +1,91 @@
+/******************************************************************
+Site Name: Tabula Rasa
+Author: Kenny Scott  
+
+Stylesheet: Main Stylesheet
+
+Here's where the magic happens. Here, you'll see we are calling in
+the separate media queries. The base mobile goes outside any query
+and is called at the beginning, after that we call the rest
+of the styles inside media queries.
+******************************************************************/
+
+/******************************************************************
+TABLE OF CONTENTS
+1.0 - Normalize.css
+2.0 - Repeatable Patterns
+3.0 - Site Structure
+4.0 - Header
+	4.1 - Site Header
+	4.2 - Navigation
+5.0 - Content
+  5.1 - Entry Header
+  5.2 - Entry Meta
+  5.3 - Entry Content
+  5.4 - Galleries
+  5.5 - Post Formats
+  5.6 - Attachments
+  5.7 - Post/Paging Navigation
+  5.8 - Author Bio
+  5.9 - Archives
+  5.10 - Search Results/No posts
+  5.11 - 404
+  5.12 - Comments
+  5.13 - Multisite
+6.0 - Sidebar
+  6.1 - Widgets
+7.0 - Footer
+8.0 - Media Queries
+9.0 - Print	
+
+******************************************************************/
+// IMPORTING STYLES //
+
+// import normalize
+@import "_normalize.less";
+
+// import mixins
+@import "_mixins.less";
+
+// styles in base.less
+@import "_base.less";
+
+@media only screen and (min-width: 481px) {
+	@import "_481up.less";
+}
+
+@media only screen and (min-width: 600px) {
+	@import "_600up.less";
+}
+
+@media only screen and (min-width: 768px) {
+	// import grid and layouts
+	@import "_grid.less";
+
+	@import "_768up.less";
+}
+
+@media only screen and (min-width: 1030px) {
+	@import "_1030up.less";
+}
+
+@media only screen and (min-width: 1240px) {
+	@import "_1240up.less";
+}
+
+/*
+RETINA (2x RESOLUTION DEVICES)
+This applies to the retina iPhone (4s) and iPad (2,3) along with
+other displays with a 2x resolution. You can also create a media
+query for retina AND a certain size if you want. Go Nuts.
+*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (min--moz-device-pixel-ratio: 1.5),
+       only screen and (min-device-pixel-ratio: 1.5) {
+
+	@import "_2x.less";
+}
+
+@media print {
+	@import "_print.less";
+}
