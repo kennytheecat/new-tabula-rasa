@@ -1,130 +1,113 @@
 <?php
-/**
- * new-tabula-rasa functions and definitions
- *
- * @package new-tabula-rasa
- */
+/*************************************************************
+ALL CAPS CASE
+**************************************************************/
 
-/**
- * Set the content width based on the theme's design and stylesheet.
- */
-if ( ! isset( $content_width ) ) {
-	$content_width = 640; /* pixels */
-}
+/** Proper Case
+**************************************************************/
 
-if ( ! function_exists( 'new_tabula_rasa_setup' ) ) :
-/**
- * Sets up theme defaults and registers support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which
- * runs before the init hook. The init hook is too late for some features, such
- * as indicating support for post thumbnails.
- */
-function new_tabula_rasa_setup() {
+/** Proper Case **/
 
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on new-tabula-rasa, use a find and replace
-	 * to change 'new-tabula-rasa' to the name of your theme in all the template files
-	 */
-	load_theme_textdomain( 'new-tabula-rasa', get_template_directory() . '/languages' );
+/*
+Comments Single Line
+or Multiple Line
+*/
 
-	// Add default posts and comments RSS feed links to head.
-	add_theme_support( 'automatic-feed-links' );
-
-	/*
-	 * Enable support for Post Thumbnails on posts and pages.
-	 *
-	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
-	 */
-	//add_theme_support( 'post-thumbnails' );
-
-	// This theme uses wp_nav_menu() in one location.
-	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'new-tabula-rasa' ),
-	) );
+/*************************************************************
+FUNCTION TABLE OF CONTENTS
+**************************************************************/
+require_once('inc/functions-base.php');
+/*------------------------------------------------------------------
+LAUNCH TABULA RASA
+	- tr_launch()
+WP_HEAD GOODNESS	
+	- head cleanup (remove rss, uri links, junk css, ect)
+	- remove WP version from RSS
+	- remove WP version from scripts
+	- remove injected CSS for recent comments widget
+	- remove injected CSS from recent comments widget
+	- remove injected CSS from gallery
+SCRIPTS & ENQUEUEING		
+	- modernizer
+	- main stylesheet
+	- IE only stylesheet
+	- comment reply script for threaded comments
+	- scripts.js
+	- mobile menu script
+THEME SUPPORT	
+	- add_theme_support('post-thumbnails')
+	- add_editor_style( get_template_directory_uri() . '/css/editor-style.css' )
+	- add_theme_support( 'custom-background')
+	- add_theme_support('automatic-feed-links')
+	- add_theme_support( 'post-formats') 
+	- add_theme_support( 'menus' )
+	- register_nav_menus( 'The Main Menu', 'The Secondary Menu', 'Footer Links' )
+MENUS & NAVIGATION	
+	- tr_main_nav()
+	- tr_sec_nav()
+	- tr_footer_links()
+	- tr_main_nav_fallback()
+	- tr_sec_nav_fallback()
+	- tr_footer_links_fallback()
+	- tr_register_sidebars( 'Main Sidebar', 'Secondary Widget Area' )
+	- removing <p> from around images
+	- tr_content_nav( $html_id )
+		// Displays navigation to next/previous pages when applicable.		
 	
-	/*
-	 * Switch default core markup for search form, comment form, and comments
-	 * to output valid HTML5.
-	 */
-	add_theme_support( 'html5', array(
-		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
-	) );
+MISC
+	- Custom Header
+	- remove the p from around imgs 
+	- tr_get_the_author_posts_link()
+		// This is a modified the_author_posts_link() which just returns the link.
+	- of_get_option
+		// This function is needed by inc/theme-options-inc
+	- Meta Boxes
+		// This function is needed by inc/metabox
+------------------------------------------------------------------*/
 
-	/*
-	 * Enable support for Post Formats.
-	 * See http://codex.wordpress.org/Post_Formats
-	 */
-	add_theme_support( 'post-formats', array(
-		'aside', 'image', 'video', 'quote', 'link'
-	) );
+require_once('inc/functions-site.php');
+/*------------------------------------------------------------------
+SITE SPECIFIC FUNCTIONS
+	- tr_site_specific_support()
+	- tr_excerpt_more()
+		// This removes the annoying […] to a Read More link
+	- tr_register_site_specific_sidebars()
+	- tr_entry_meta()
+COMMENT LAYOUT 
+	- tr_comment()
+MISC
+	 - remove_default_post_formats()
+	 - Google Analytics
+------------------------------------------------------------------*/
 
-	// Setup the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'new_tabula_rasa_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
-}
-endif; // new_tabula_rasa_setup
-add_action( 'after_setup_theme', 'new_tabula_rasa_setup' );
-
-/**
- * Register widget area.
- *
- * @link http://codex.wordpress.org/Function_Reference/register_sidebar
- */
-function new_tabula_rasa_widgets_init() {
-	register_sidebar( array(
-		'name'          => __( 'Sidebar', 'new-tabula-rasa' ),
-		'id'            => 'sidebar-1',
-		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
-	) );
-}
-add_action( 'widgets_init', 'new_tabula_rasa_widgets_init' );
-
-/**
- * Enqueue scripts and styles.
- */
-function new_tabula_rasa_scripts() {
-	wp_enqueue_style( 'new-tabula-rasa-style', get_stylesheet_uri() );
-
-	wp_enqueue_script( 'new-tabula-rasa-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
-
-	wp_enqueue_script( 'new-tabula-rasa-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'new_tabula_rasa_scripts' );
-
-/**
- * Implement the Custom Header feature.
- */
-//require get_template_directory() . '/inc/custom-header.php';
-
-/**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/inc/template-tags.php';
-
-/**
- * Custom functions that act independently of the theme templates.
- */
-require get_template_directory() . '/inc/extras.php';
-
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
-require get_template_directory() . '/inc/jetpack.php';
+require_once('inc/functions-admin.php'); 
+/*------------------------------------------------------------------
+ADMIN MENU
+	- remove_admin_menus ()
+	- edit_admin_menu_titles()
+	- custom_menu_order($menu_ord)
+WORDPRESS ADMIN BAR
+	- remove admin bar
+	- remove admin bar except admin
+	- remove admin bar from admin area
+	- remove admin bar from from end
+	- remove_admin_bar_links()
+	- custom_adminbar_menu()
+		// Add custom link to admin bar
+	- remove margin from the admin bar
+DASHBOARD WIDGETS
+	- disable_default_dashboard_widgets()
+	- custom_dashboard_widgets()
+CUSTOM LOGIN PAGE
+	- tr_login_css()
+	- tr_login_url()
+	- tr_login_title()
+	- tr_login_redirect()
+CUSTOMIZE ADMIN 
+	- load_custom_wp_admin_style()
+		// Load admin css
+	- tr_custom_admin_footer()
+HELP PAGE
+	-  my_help_menu
+------------------------------------------------------------------*/
+?>
