@@ -6,15 +6,15 @@ Stylesheet: Mixins & Constants Stylesheet
 COLORS
 *********************/
 
-@prim-color      		#ebe16f;
+@prim-color:      	#ebe16f;
 @sec-color:         #fbe3e4;
 @tert-color:      	#e6efc2;
 
 @black:             #444;
-@grey:							#757575;
+@grey:				#757575;
 @white:             #fff;
 
-@text-color:				@black;
+@text-color:		@black;
 
 @link-color:        #21759b;
 @link-hover:        darken(@link-color, 9%);
@@ -27,294 +27,17 @@ TYPOGRAPHY
 @sans-serif:         Helvetica, Arial, sans-serif;
 @serif:              "Georgia", Cambria, Times New Roman, Times, serif; 
 
-/*********************
-REM UNIT MIXINS
-https://github.com/christopher-ramirez/remixings
+/********************
+FOR ADMIN
 *********************/
+@admin-text-color: @text-color;
+@admin-base-color: @prim-color;
+@admin-icon-color: hsl( hue( @admin-base-color ), 7%, 95% );
+@admin-highlight-color: @sec-color;
+@admin-notification-color: #d54e21;
+@admin-action-color: @admin-highlight-color;
 
-/*
-.rem-mixins-test-class {
-    .font-size(10px);
-    .line-height(20px);
-    .margin(10px);
-    .margin(3em);
-    .margin(10px, 20px);
-    .margin(10px, 20%);
-    .margin(0px , 20px);
-    .margin-top(2%);
-    .margin-top(2px);
-    .padding(10px);
-    .padding(3em);
-    .padding(10px, 20px);
-    .padding(10px, 20%);
-    .padding(3em, 20px)
-}
-*/
-
-@base-font-size-px: 10; // root's font size. @base-font-size-px MUST ME AN INTEGER.
-
-@pxtorem-js-function: ~`pxtorem = function(px){ if (typeof rmxsBaseFontSize == 'undefined') rmxsBaseFontSize = @{base-font-size-px}; return (parseInt(px.replace(/(^\d+)(.+$)/i,'$1')) / rmxsBaseFontSize + 'rem') }`;
-
-
-
-// ===== FONT MIXINS =====
-.font-size(@value) {
-    font-size: @value;
-		line-height: @value * 1.5;
-}
-
-.font-size(@value) when (ispixel(@value)) {
-    @rem-value: ~`pxtorem('@{value}')`;
-		@line: (@value * 1.5);
-    @line-rem-value: ~`pxtorem('@{line}')`;
-    font-size: @rem-value;    
-    line-height: @line-rem-value;
-}
-
-.line-height(@value) {
-    line-height: @value;
-}
-
-.line-height(@value) when (ispixel(@value)) {
-    @rem-value: ~`pxtorem('@{value}')`;
-    line-height: @rem-value;
-}
-
-.text-indent(@value) {
-    text-indent: @value;
-}
-
-.text-indent(@value) when (ispixel(@value)) {
-    @rem-value: ~`pxtorem('@{value}')`;
-    text-indent: @rem-value;
-}
-
-
-// ===== MARGIN MIXINS =====
-.margin(@value) {
-    margin: @value;
-}
-
-.margin(@vvalue, @hvalue) {
-    margin: @arguments;
-}
-
-.margin(@value) when (ispixel(@value)) {
-    @rem-value: ~`pxtorem('@{value}')`;
-    margin: @rem-value;
-}
-
-.margin(@vertical, @horizontal) when (ispixel(@vertical)) and (ispixel(@horizontal)) {
-    @rem-vvalue: ~`pxtorem('@{vertical}')`;
-    @rem-hvalue: ~`pxtorem('@{horizontal}')`;
-    margin: @rem-vvalue @rem-hvalue;
-}
-
-.margin(@vertical, @horizontal) when (ispixel(@vertical)) {
-    @rem-value: ~`pxtorem('@{vertical}')`;
-    .margin(@rem-value, @horizontal);
-}
-
-.margin(@vertical, @horizontal) when (ispixel(@horizontal)) {
-    @rem-value: ~`pxtorem('@{horizontal}')`;
-    .margin(@vertical, @rem-value);
-}
-
-.margin-top(@value) {
-    margin-top: @value;
-}
-
-.margin-top(@value) when (ispixel(@value)) {
-    @rem-value: ~`pxtorem('@{value}')`;
-    margin-top: @rem-value;
-}
-
-.margin-right(@value) {
-    margin-right: @value;
-}
-
-.margin-right(@value) when (ispixel(@value)) {
-    @rem-value: ~`pxtorem('@{value}')`;
-    margin-right: @rem-value;
-}
-
-.margin-bottom(@value) {
-    margin-bottom: @value;
-}
-
-.margin-bottom(@value) when (ispixel(@value)) {
-    @rem-value: ~`pxtorem('@{value}')`;
-    margin-bottom: @rem-value;
-}
-
-.margin-left(@value) {
-    margin-left: @value;
-}
-
-.margin-left(@value) when (ispixel(@value)) {
-    @rem-value: ~`pxtorem('@{value}')`;
-    margin-left: @rem-value;
-}
-
-
-// ===== PADDING MIXINS =====
-.padding(@value) {
-    padding: @value;
-}
-
-.padding(@vvalue, @hvalue) {
-    padding: @arguments;
-}
-
-.padding(@value) when (ispixel(@value)) {
-    @rem-value: ~`pxtorem('@{value}')`;
-    padding: @rem-value;
-}
-
-.padding(@vertical, @horizontal) when (ispixel(@vertical)) and (ispixel(@horizontal)) {
-    @rem-vvalue: ~`pxtorem('@{vertical}')`;
-    @rem-hvalue: ~`pxtorem('@{horizontal}')`;
-    padding: @rem-vvalue @rem-hvalue;
-}
-
-.padding(@vertical, @horizontal) when (ispixel(@vertical)) {
-    @rem-value: ~`pxtorem('@{vertical}')`;
-    .padding(@rem-value, @horizontal);
-}
-
-.padding(@vertical, @horizontal) when (ispixel(@horizontal)) {
-    @rem-value: ~`pxtorem('@{horizontal}')`;
-    .padding(@vertical, @rem-value);
-}
-
-.padding-top(@value) {
-    padding-top: @value;
-}
-
-.padding-top(@value) when (ispixel(@value)) {
-    @rem-value: ~`pxtorem('@{value}')`;
-    padding-top: @rem-value;
-}
-
-.padding-right(@value) {
-    padding-right: @value;
-}
-
-.padding-right(@value) when (ispixel(@value)) {
-    @rem-value: ~`pxtorem('@{value}')`;
-    padding-right: @rem-value;
-}
-
-.padding-bottom(@value) {
-    padding-bottom: @value;
-}
-
-.padding-bottom(@value) when (ispixel(@value)) {
-    @rem-value: ~`pxtorem('@{value}')`;
-    padding-bottom: @rem-value;
-}
-
-.padding-left(@value) {
-    padding-left: @value;
-}
-
-.padding-left(@value) when (ispixel(@value)) {
-    @rem-value: ~`pxtorem('@{value}')`;
-    padding-left: @rem-value;
-}
-
-
-// ===== POSITION MIXINS =====
-.height(@value) {
-    height: @value;
-}
-
-.height(@value) when (ispixel(@value)) {
-    @rem-value: ~`pxtorem('@{value}')`;
-    height: @rem-value;
-}
-
-.min-height(@value) {
-    min-height: @value;
-}
-
-.min-height(@value) when (ispixel(@value)) {
-    @rem-value: ~`pxtorem('@{value}')`;
-    min-height: @rem-value;
-}
-
-.max-height(@value) {
-    max-height: @value;
-}
-
-.max-height(@value) when (ispixel(@value)) {
-    @rem-value: ~`pxtorem('@{value}')`;
-    max-height: @rem-value;
-}
-
-
-.width(@value) {
-    width: @value;
-}
-
-.width(@value) when (ispixel(@value)) {
-    @rem-value: ~`pxtorem('@{value}')`;
-    width: @rem-value;
-}
-
-.min-width(@value) {
-    min-width: @value;
-}
-
-.min-width(@value) when (ispixel(@value)) {
-    @rem-value: ~`pxtorem('@{value}')`;
-    min-width: @rem-value;
-}
-
-.max-width(@value) {
-    max-width: @value;
-}
-
-.max-width(@value) when (ispixel(@value)) {
-    @rem-value: ~`pxtorem('@{value}')`;
-    max-width: @rem-value;
-}
-
-.top(@value) {
-    top: @value;
-}
-
-.top(@value) when (ispixel(@value)) {
-    @rem-value: ~`pxtorem('@{value}')`;
-    top: @rem-value;
-}
-
-.left(@value) {
-    left: @value;
-}
-
-.left(@value) when (ispixel(@value)) {
-    @rem-value: ~`pxtorem('@{value}')`;
-    left: @rem-value;
-}
-
-.right(@value) {
-    right: @value;
-}
-
-.right(@value) when (ispixel(@value)) {
-    @rem-value: ~`pxtorem('@{value}')`;
-    right: @rem-value;
-}
-
-.bottom(@value) {
-    bottom: @value;
-}
-
-.bottom(@value) when (ispixel(@value)) {
-    @rem-value: ~`pxtorem('@{value}')`;
-    bottom: @rem-value;
-}
+@import "_remtopx_mixins.less"; 
  
 /*********************
 CLEARFIXIN'

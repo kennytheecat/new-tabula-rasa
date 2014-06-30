@@ -1,62 +1,65 @@
 //Change colors to mod admin theme
 // core variables
 
-@text-color: #fff;
-@base-color: #222;
-@icon-color: hsl( hue( @base-color ), 7%, 95% );
-@highlight-color: #0074a2;
-@notification-color: #d54e21;
-@action-color: @highlight-color;
+@import "_mixins.less"; 
 
-// global
 
+//@admin-text-color: #fff;
+//@admin-base-color: #222;
+//@admin-icon-color: hsl( hue( @admin-base-color ), 7%, 95% );
+//@admin-highlight-color: #0074a2;
+//@admin-notification-color: #d54e21;
+//@admin-action-color: @admin-highlight-color;
+
+// global 
+ 
 @body-background: #f3f3f3;
 
 @link: #0074a2;
 @link-focus: lighten( @link, 10% );
 
-@prim-button-color: @action-color;
-@prim-button-text-color: @text-color;
+@prim-button-color: @admin-action-color;
+@prim-button-text-color: @admin-text-color;
 @sec-button-color: #CCC;
 @sec-button-text-color: #555;
-@form-checked: @highlight-color;
+@form-checked: @admin-highlight-color;
 
 
 // admin menu & admin-bar
 
-@menu-text: @text-color;
-@menu-icon: @icon-color;
-@menu-background: @base-color;
+@menu-text: @admin-text-color;
+@menu-icon: @admin-icon-color;
+@menu-background: @admin-base-color;
 
-@menu-highlight-text: @text-color;
-@menu-highlight-icon: @text-color;
-@menu-highlight-background: @highlight-color;
+@menu-highlight-text: @admin-text-color;
+@menu-highlight-icon: @admin-text-color;
+@menu-highlight-background: @admin-highlight-color;
 
 @menu-current-text: @menu-highlight-text;
 @menu-current-icon: @menu-highlight-icon;
 @menu-current-background: @menu-highlight-background;
 
-@menu-submenu-text: mix( @base-color, @text-color, 30% );
-@menu-submenu-background: darken( @base-color, 7% );
+@menu-submenu-text: mix( @admin-base-color, @admin-text-color, 30% );
+@menu-submenu-background: darken( @admin-base-color, 7% );
 @menu-submenu-background-alt: desaturate( lighten( @menu-background, 7% ), 7% );
 
-@menu-submenu-focus-text: @highlight-color;
-@menu-submenu-current-text: @text-color;
+@menu-submenu-focus-text: @admin-highlight-color;
+@menu-submenu-current-text: @admin-text-color;
 
-@menu-bubble-text: @text-color;
-@menu-bubble-background: @notification-color;
-@menu-bubble-current-text: @text-color;
+@menu-bubble-text: @admin-text-color;
+@menu-bubble-background: @admin-notification-color;
+@menu-bubble-current-text: @admin-text-color;
 @menu-bubble-current-background: @menu-submenu-background;
 
 @menu-collapse-text: @menu-icon;
 @menu-collapse-icon: @menu-icon;
-@menu-collapse-focus-text: @text-color;
+@menu-collapse-focus-text: @admin-text-color;
 @menu-collapse-focus-icon: @menu-highlight-icon;
 
 @adminbar-avatar-frame: lighten( @menu-background, 7% );
 @adminbar-input-background: lighten( @menu-background, 7% );
 
-@menu-customizer-text: mix( @base-color, @text-color, 40% );
+@menu-customizer-text: mix( @admin-base-color, @admin-text-color, 40% );
 
 //Modules
 @module: #fff;
