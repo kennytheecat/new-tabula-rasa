@@ -94,7 +94,7 @@ function post_formats() {
 		)
 	);
 }
-add_action( 'after_setup_theme', 'post-formats' );
+add_action( 'after_setup_theme', 'post_formats' );
 
 // This removes the annoying […] to a Read More link
 function tr_excerpt_more($more) {

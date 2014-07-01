@@ -180,12 +180,12 @@ SCRIPTS & ENQUEUEING
 // loading modernizr and jquery, and reply script
 function tr_scripts_and_styles() {
   global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
-	$wp_styles->add_data( 'tabula_rasa-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet	
+	//$wp_styles->add_data( 'tabula_rasa-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet	
   
 	if (!is_admin()) {
 
     // register main stylesheet
-		wp_enqueue_style( 'new-tabula-rasa-style', get_stylesheet_uri() . '/css/style.css' );
+		wp_enqueue_style( 'new-tabula-rasa-style', get_stylesheet_directory_uri() . '/css/style.css' );
 		
     // ie-only style sheet
     //wp_register_style( 'tabula_rasa-ie-only', get_stylesheet_directory_uri() . '/css/ie.css', array(), '' );
