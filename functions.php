@@ -65,7 +65,7 @@ MISC
 		// This function is needed by inc/metabox
 ------------------------------------------------------------------*/
 
-require_once('inc/functions-site.php');
+require_once('inc/functions-options.php');
 /*------------------------------------------------------------------
 SITE SPECIFIC FUNCTIONS
 	- tr_site_specific_support()
@@ -79,6 +79,8 @@ MISC
 	 - remove_default_post_formats()
 	 - Google Analytics
 ------------------------------------------------------------------*/
+
+require_once('inc/functions-site.php');
 
 require_once('inc/functions-admin.php'); 
 /*------------------------------------------------------------------

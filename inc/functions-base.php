@@ -245,28 +245,6 @@ function tr_theme_support() {
 		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
 	) );
 
-	// Setup the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'new_tabula_rasa_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
-
-	// adding post format support
-	//See http://codex.wordpress.org/Post_Formats
-	add_theme_support( 'post-formats',
-		array(
-			'aside',             // title less blurb
-			// 'audio',             // audio
-			// 'chat',               // chat transcript
-			// 'gallery',           // gallery of images
-			'image',             // an image
-			'link',              // quick link to other site
-			'quote',             // a quick quote
-			//'status',            // a Facebook like status update
-			'video'             // video
-		)
-	);
-
 	// wp menus
 	add_theme_support( 'menus' );
 
