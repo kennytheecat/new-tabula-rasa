@@ -220,7 +220,7 @@ function tr_scripts_and_styles() {
     wp_enqueue_script( 'tabula_rasa-js' );
   }
 }
-//add_action( 'wp_enqueue_scripts', 'new_tabula_rasa_scripts' );
+add_action( 'wp_enqueue_scripts', 'tr_scripts_and_styles' );
 
 /*********************
 THEME SUPPORT
