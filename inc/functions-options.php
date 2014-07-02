@@ -167,7 +167,7 @@ function tr_scripts_and_styles_options() {
 	if (!is_admin()) {
 
   }
-  wp_enqueue_style( 'google-fonts', 'http://fonts.googleapis.com/css?family=Open+Sans:400,700|Open+Sans+Condensed:700' );
+  wp_enqueue_style( 'google-fonts', 'http://fonts.googleapis.com/css?family=PT+Serif|Open+Sans:400,700|Open+Sans+Condensed:700' );
   wp_enqueue_style( 'font-awesome',  'http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
 }
 add_action( 'wp_enqueue_scripts', 'tr_scripts_and_styles_options' );

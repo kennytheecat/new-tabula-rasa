@@ -867,7 +867,7 @@ body {
   line-height: 24px;
   font-size: 1.6rem;
   line-height: 2.4rem;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
   text-rendering: optimizeLegibility;
   color: #444444;
 }
@@ -900,7 +900,7 @@ h5,
 .h5,
 h6,
 .h6 {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Open Sans Condensed", Helvetica, Arial, sans-serif;
   text-rendering: optimizelegibility;
   clear: both;
 }
