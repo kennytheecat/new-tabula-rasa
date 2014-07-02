@@ -1194,8 +1194,8 @@ header#masthead .site-header
 }
 .main-navigation {
   clear: both;
-  display: block
-	width: 100%;
+  display: block;
+  width: 100%;
 }
 .nav-menu {
   border-top: 2px solid #757575;
@@ -1408,6 +1408,9 @@ Stylesheet: 600up Stylesheet
 ******************************************************************/
   .menu-toggle {
     display: none;
+  }
+  .main-navigation ul.nav-menu {
+    display: block;
   }
   .wrap {
     max-width: 1000px;
