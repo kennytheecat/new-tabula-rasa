@@ -338,6 +338,9 @@ header#masthead .site-header
 			display: none;
 			float: left;
 			padding: 0;
+			background: @white;
+			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);	
+			border-top: 2px solid @grey;		
 			
 			li {
 					
@@ -346,7 +349,7 @@ header#masthead .site-header
 					
 					&:hover,
 					&:focus {
-						background: @white;
+						background: @grey;
 					}
 					&:link {}
 				}
@@ -362,20 +365,23 @@ header#masthead .site-header
 					top: 0;
 					border: none;
 				}
+				&:hover > a {
+					font-weight: normal;
+				}				
 			}
 		}
-		&:hover > ul {
+		&:hover > ul,
+		&:active > ul,
+		&:focus > ul {
 			display: block;
 			left: auto;
-			background: @white;
-			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+
 			top: auto;
 			.padding-left(10px);
 			.margin-left(-10px);
-			border-top: 2px solid @grey;
 		}
 		&:hover > a {
-			background: @grey;
+			font-weight: bold;
 		}
 	} /* end .nav-menu li */
 	
@@ -383,27 +389,72 @@ header#masthead .site-header
 	li.current-menu-item,
 	li.current_page_item,
 	li.current_page_ancestor {
-		& > a {
-			background: @grey;
+		 & > a {
+			//background: @grey;
+			font-weight: bold;
 		}
 	}  
 	ul .current_page_parent,
 	.current_page_parent .current_page_item > a {
-		background: @grey;
+		//background: @grey;
 	}
 	/* end current highlighters */			
 } /* end .nav-menu ul */
 
 /** Mobile Menu **/
 
-.menu-toggle,
+.menu-toggle{
+  display: block;
+  .height(40px);;
+  .padding(0, 10px);
+  font-weight: normal;
+  .font-size(14px);
+  text-decoration: none;	
+}
 .main-navigation.toggled .nav-menu {
-	//display: block;
+	display: inline-block;
 }
 
 .nav-menu {
-	//display: none;
+	display: none;
 }
+
+/** Social Menu
+******************************************************************/
+.menu-social ul {
+    float: right;
+    text-align: center;
+    list-style: none;  
+
+  li {
+    position: relative;
+    display:  inline-block;    
+
+    a:before {
+	    display: inline-block;
+	    padding: 0 5px;
+	    vertical-align: top;
+	    font-family: 'FontAwesome';
+	    font-size: 20px;
+	    color: @grey;
+	    -webkit-font-smoothing: antialiased;
+	    content: '\f0c0';
+		}
+	} 
+}
+.menu-social li a[href*="facebook.com"]::before { content: '\f09a'; }
+.menu-social li a[href*="twitter.com"]::before { content: '\f099'; }
+.menu-social li a[href*="dribbble.com"]::before { content: '\f17d'; }
+.menu-social li a[href*="plus.google.com"]::before { content: '\f0d5'; }
+.menu-social li a[href*="pinterest.com"]::before { content: '\f0d2'; }
+.menu-social li a[href*="github.com"]::before { content: '\f09b'; }
+.menu-social li a[href*="tumblr.com"]::before { content: '\f173'; }
+.menu-social li a[href*="youtube.com"]::before { content: '\f167'; }
+.menu-social li a[href*="flickr.com"]::before { content: '\f16e'; }
+.menu-social li a[href*="vimeo.com"]::before { content: '\f194'; }
+.menu-social li a[href*="instagram.com"]::before { content: '\f16d'; }
+.menu-social li a[href*="linkedin.com"]::before { content: '\f0e1'; }
+
 
 /******************************************************************
 POSTS & CONTENT STYLES

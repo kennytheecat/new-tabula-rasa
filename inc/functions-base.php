@@ -198,9 +198,17 @@ function tr_scripts_and_styles() {
 		//adding scripts file in the footer
 		wp_enqueue_script( 'tabula_rasa-js', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery' ), '', true );
 			
-		wp_enqueue_script( 'new-tabula-rasa-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+		//wp_enqueue_script( 'new-tabula-rasa-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
 		wp_enqueue_script( 'new-tabula-rasa-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+
+		wp_enqueue_script( 'superfish', get_template_directory_uri() . '/js/superfish.min.js', array( 'jquery' ), '20140703', true );
+		wp_enqueue_script( 'superfish-settings', get_template_directory_uri() . '/js/superfish-settings.js', array('superfish'), '20140703', true );
+
+		wp_enqueue_script( 'mmenu-js', get_template_directory_uri() . '/js/jquery.mmenu.min.js', array( 'jquery' ), '20140703', true );
+		wp_enqueue_script( 'mmenu-settings', get_template_directory_uri() . '/js/mmenu-settings.js', array('mmenu-js'), '20140703', true );
+		wp_enqueue_style( 'mmenu-css', get_template_directory_uri() . '/css/jquery.mmenu.css' );
+                
 
 		// modernizr (without media query polyfill)
 		wp_enqueue_script( 'tabula_rasa-modernizr', get_stylesheet_directory_uri() . '/js/modernizr.custom.min.js', array(), '2.5.3', false );
@@ -252,6 +260,7 @@ function tr_theme_support() {
 	register_nav_menus(
 		array(
 			'primary' => __( 'Primary Menu', 'tabula-rasa' ),   // main nav in header
+			'social' => __( 'Social Menu', 'tabula-rasa'),
 		//	'sec-nav' => __( 'The Secondary Menu', 'tabula-rasa' ),   // secondary nav in header
 		//	'footer-links' => __( 'Footer Links', 'tabula-rasa' ) // secondary nav in footer
 		)

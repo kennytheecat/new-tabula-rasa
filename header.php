@@ -45,7 +45,8 @@
 			<nav id="site-navigation" class="main-navigation" role="navigation">
 				<button class="menu-toggle"><?php _e( 'Primary Menu', 'new-tabula-rasa' ); ?></button>
 				<!-- used to use tr_main_nav() from bones. switched back to _s. unneeded arguments -->
-				<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu') ); ?>
+				<?php tr_social_menu(); ?>
 			</nav><!-- #site-navigation -->
 		</div><!-- .inner-header -->
 	</header><!-- #masthead -->
