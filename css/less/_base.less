@@ -69,6 +69,7 @@ body {
 .site {}
 .site-header {}
 .site-content {
+	clear: both;
 	overflow: hidden;
 	
 	.content-area {
@@ -306,19 +307,25 @@ header#masthead .site-header
 .main-navigation {
 	clear: both;
 	display: block;
-	width: 100%;
 }
 .nav-menu {
 	border-top: 2px solid @grey;
 	border-bottom: 2px solid @grey;
+	list-style: none;
+	margin: 0;
+	padding-left: 0;	
+	width: 100%;
+	display: inline-block;
 	
 	li {
 		float: left;
 		position: relative;
+		display: inline-block;
 		
 		a {
 			display: block;
-			text-decoration: none;			
+			text-decoration: none;	
+			.padding(10px);
 		}
 		&:first-child {}
 		&:last-child {}
@@ -326,31 +333,49 @@ header#masthead .site-header
 		.sub-menu,
 		.children {
 			position: absolute;
-			.top(15px);
-			.left(-100px);
-			z-index: 99999;	
+			left: 0;
+			z-index: 99999;
+			display: none;
+			float: left;
+			padding: 0;
 			
 			li {
+					
 				a {
 					.width(200px);
+					
 					&:hover,
-					&:focus {}
+					&:focus {
+						background: @white;
+					}
 					&:link {}
 				}
 				&:first-child {}
 				&:last-child {}
 				
 				ul {
-					.left(-100px);
-					z-index: 99999;	
+					left: 100%;
+					top: 0;
 				}
 				&:hover > ul {
-					left: auto;
+					left: 100%;
+					top: 0;
+					border: none;
 				}
 			}
 		}
 		&:hover > ul {
+			display: block;
 			left: auto;
+			background: @white;
+			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+			top: auto;
+			.padding-left(10px);
+			.margin-left(-10px);
+			border-top: 2px solid @grey;
+		}
+		&:hover > a {
+			background: @grey;
 		}
 	} /* end .nav-menu li */
 	
@@ -358,17 +383,26 @@ header#masthead .site-header
 	li.current-menu-item,
 	li.current_page_item,
 	li.current_page_ancestor {
-		a {}
-	}  /* end current highlighters */			
+		& > a {
+			background: @grey;
+		}
+	}  
+	ul .current_page_parent,
+	.current_page_parent .current_page_item > a {
+		background: @grey;
+	}
+	/* end current highlighters */			
 } /* end .nav-menu ul */
 
 /** Mobile Menu **/
+
 .menu-toggle,
 .main-navigation.toggled .nav-menu {
-	display: block;
+	//display: block;
 }
-.main-navigation ul {
-	display: none;
+
+.nav-menu {
+	//display: none;
 }
 
 /******************************************************************
@@ -409,6 +443,8 @@ POSTS & CONTENT STYLES
 .entry-footer {
 	a {}
 }
+.comment-navigation,
+.paging-navigation,
 .post-navigation {
 	clear: both;
 	oveflow: hidden;
