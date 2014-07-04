@@ -4,15 +4,15 @@
 
 jQuery(document).ready(function($){
 
-    $(".nav-menu").mmenu({
+    $(".mmenu-toggle").mmenu({
        // options
     }, {
        // configuration
        clone: true
     });
 
-	  $(".menu-toggle").click(function() {
-	  	$(".nav-menu").trigger("open.mm");
+	  $(".mobile-menu").click(function() {
+	  	$(".mmenu-toggle").trigger("open.mm");
 	  });
 
 });

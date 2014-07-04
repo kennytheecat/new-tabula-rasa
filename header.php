@@ -36,19 +36,32 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'new-tabula-rasa' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
-		<div class="inner-header">
-			<div class="site-branding">
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+		<div class="mobile-menu">
+				<i class="fa fa-bars"></i>
+				<a href="#menu-container" class="screen-reader-text"><?php _e( 'Menu', 'tabula-rasa' ); ?></a>
+		</div>
+		<div class="site-branding">
+			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+		</div>
+		<div class="search-mobile">
+			<i class="fa fa-search"></i>
+			<a href="#search-container" class="screen-reader-text"><?php _e( 'Search', 'my-simone' ); ?></a>		
+		</div>
+		<nav id="site-navigation" class="main-navigation" role="navigation">
+			<!-- used to use tr_main_nav() from bones. switched back to _s. unneeded arguments -->
+			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container_class' => 'mmenu-toggle', 'menu_class' => 'nav-menu') ); ?>
+			<div class="search-not-mobile">
+			<i class="fa fa-search"></i>
+			<a href="#search-container" class="screen-reader-text"><?php _e( 'Search', 'my-simone' ); ?></a>
+			</div>				
+			<?php //tr_social_menu(); ?>
+		</nav><!-- #site-navigation -->
+		<div id="search-container" class="search-box-wrapper">
+			<div class="search-box">
+				<?php get_search_form(); ?>
 			</div>
-
-			<nav id="site-navigation" class="main-navigation" role="navigation">
-				<button class="menu-toggle"><?php _e( 'Primary Menu', 'new-tabula-rasa' ); ?></button>
-				<!-- used to use tr_main_nav() from bones. switched back to _s. unneeded arguments -->
-				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu') ); ?>
-				<?php tr_social_menu(); ?>
-			</nav><!-- #site-navigation -->
-		</div><!-- .inner-header -->
+		</div>
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

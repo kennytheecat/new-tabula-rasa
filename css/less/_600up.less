@@ -12,9 +12,71 @@ Stylesheet: 600up Stylesheet
 }
 
 /* Small menu */
-.menu-toggle {
+.mobile-menu {
 	display: none;
 }
 .nav-menu {
+	display: inline-block;
+}
+
+
+/******************************************************************
+HEADER & NAVIGATION
+******************************************************************/
+
+/** Site Header
+-------------------------------------------------------------- */
+.site-header {
+	.margin-top(20px);
+}	
+.site-branding {
+	background: url(../images/buffy-banner.png) no-repeat;
+	.height(150px);
+	.padding(10px);
+	width: 100%;
+	color: @white;
+		
+	.site-title {
+		text-align: left;
+	}
+	.site-description {	
+		display: block;
+	}
+	a {
+		color: @white;
+	}	
+}
+
+/* Main Navigation
+**************************************************************/
+.main-navigation {
+	.margin-top(20px);
+	display: inline-block;
+	width: 100%;
+	border-top: 2px solid @grey;
+	border-bottom: 2px solid @grey;	
+	
+	.mmenu-toggle {
+		.height(44px);
+		display: inline;
+	}
+	.nav-menu {
+		display: inline-block;
+		float: left;
+		width: auto;
+	}
+	.search-not-mobile {
+		display: inline-block;
+		float: right;
+		.padding-top(5px);
+	}
+}
+
+/* Header Search Bar
+******************************************************************/
+.search-mobile {
+	display: none;
+}
+.search-not-mobile {
 	display: inline-block;
 }

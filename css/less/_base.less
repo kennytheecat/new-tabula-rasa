@@ -286,31 +286,31 @@ header#masthead .site-header
 					li 
 						.children
 *****************************************************************/
-.site-header {
-
-	.inner-header {
-		background: url(../images/buffy-banner-350.png) no-repeat;
-		height: 100%;
-	}
-}	
+.site-header {}	
 .site-branding {
+	width: 80%;
+	display: inline;
+	float: left;
 	
 	.site-title {
-		.font-size(24px);
+		margin: 0;
+		text-align: center;
 	}
 	.site-description {	
+		display: none;
 	}
 	a {
 		text-decoration: none;
 	}	
 }
+
+/* Main Navigation
+**************************************************************/
 .main-navigation {
 	clear: both;
 	display: block;
 }
 .nav-menu {
-	border-top: 2px solid @grey;
-	border-bottom: 2px solid @grey;
 	list-style: none;
 	margin: 0;
 	padding-left: 0;	
@@ -375,13 +375,11 @@ header#masthead .site-header
 		&:focus > ul {
 			display: block;
 			left: auto;
-
 			top: auto;
-			.padding-left(10px);
-			.margin-left(-10px);
 		}
 		&:hover > a {
-			font-weight: bold;
+			background: @grey;
+			color: @white;
 		}
 	} /* end .nav-menu li */
 	
@@ -389,8 +387,7 @@ header#masthead .site-header
 	li.current-menu-item,
 	li.current_page_item,
 	li.current_page_ancestor {
-		 & > a {
-			//background: @grey;
+		& > a {
 			font-weight: bold;
 		}
 	}  
@@ -401,15 +398,17 @@ header#masthead .site-header
 	/* end current highlighters */			
 } /* end .nav-menu ul */
 
-/** Mobile Menu **/
-
-.menu-toggle{
+/* Mobile Menu 
+******************************************************************/
+.mobile-menu{
   display: block;
-  .height(40px);;
-  .padding(0, 10px);
-  font-weight: normal;
-  .font-size(14px);
-  text-decoration: none;	
+  .font-size(21px);
+  text-decoration: none;
+	.font-size(21px);
+	width: 10%;
+	display: inline;
+	float: left;
+	text-align: center;
 }
 .main-navigation.toggled .nav-menu {
 	display: inline-block;
@@ -418,7 +417,9 @@ header#masthead .site-header
 .nav-menu {
 	display: none;
 }
-
+.mm-list > li {
+	width: 100%;
+}
 /** Social Menu
 ******************************************************************/
 .menu-social ul {
@@ -455,6 +456,53 @@ header#masthead .site-header
 .menu-social li a[href*="instagram.com"]::before { content: '\f16d'; }
 .menu-social li a[href*="linkedin.com"]::before { content: '\f0e1'; }
 
+/* Header Search Bar
+******************************************************************/
+.search-mobile,
+.search-not-mobile {
+	float: right;
+	color: @grey;
+	text-align: center;
+	cursor: pointer;
+	.font-size(21px);
+	width: 10%;
+	display: inline;
+	text-align: center;
+	
+	&:hover,
+	&:active {}
+}
+.search-not-mobile {
+	display: none;
+}
+input[type="search"] {
+	box-sizing: border-box;
+	width: 100%;
+}
+.search-box-wrapper {
+	z-index: 2;
+	width: 100%;
+}
+.search-box {
+	.padding(5px);
+	background: @grey;
+	
+	.search-field {
+		.padding(5px);
+		.font-size(16px);
+		background-color: @white;
+		border: 0;
+	}
+}
+.error404 .search-submit,
+.search .search-submit,
+.search-box .search-submit { 
+    display: none; 
+}
+.main-navigation .search-toggle,
+.search-box-wrapper {
+	display: none;
+}
 
 /******************************************************************
 POSTS & CONTENT STYLES
