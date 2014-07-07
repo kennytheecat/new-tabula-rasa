@@ -545,19 +545,26 @@ POSTS & CONTENT STYLES
 .comment-navigation,
 .paging-navigation,
 .post-navigation {
-	clear: both;
-	oveflow: hidden;
+	.padding(10px, 0);
+	margin: 0;
+	.margin-bottom(20px);
+	list-style-type: none;
+	background: @grey;
 	
-	.nav-links {
-		.nav-previous {
-			float: left;
-			width: 50%;		
-		}
-		.nav-next {
-			float: right;
-			text-align: right;
-			width: 50%;		
-		}
+	& .current {
+		font-weight: bold;
+	}	
+	li {
+		display: inline;
+	}	
+	a.page-numbers,
+	span.page-numbers {
+	 .padding(3px, 7px);
+	 color: @white;
+	 
+	 &:hover {
+		color: @white;
+	 }
 	}
 }
 
