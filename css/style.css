@@ -481,6 +481,15 @@ BOX SHADOW
 /*********************
 BUTTONS
 *********************/
+body {
+  width: 100%;
+}
+.first {
+  margin-left: 0px;
+}
+.last {
+  margin-right: 0px;
+}
 /******************************************************************
 Site Name: Tabula Rasa
 Author: Kenny Scott
@@ -834,10 +843,7 @@ body {
   word-wrap: break-word;
 }
 .site-content .widget-area {
-  padding: 10px;
-  padding: 1rem;
-  list-style: none;
-  background-color: #FFFEFE;
+  display: none;
 }
 .site-footer {
   clear: both;
@@ -1383,7 +1389,9 @@ POSTS & CONTENT STYLES
   margin-bottom: 20px;
   margin-bottom: 2rem;
   list-style-type: none;
-  background: #757575;
+  border-top: 1px solid #757575;
+  border-bottom: 1px solid #757575;
+  overflow: hidden;
 }
 .comment-navigation .current,
 .paging-navigation .current,
@@ -1414,6 +1422,42 @@ POSTS & CONTENT STYLES
 .paging-navigation span.page-numbers:hover,
 .post-navigation span.page-numbers:hover {
   color: #ffffff;
+}
+.comment-navigation .nav-previous,
+.paging-navigation .nav-previous,
+.post-navigation .nav-previous {
+  width: 50%;
+  float: left;
+  padding-right: 15%;
+}
+.comment-navigation .nav-next,
+.paging-navigation .nav-next,
+.post-navigation .nav-next {
+  width: 50%;
+  float: right;
+  padding-left: 15%;
+  text-align: right;
+}
+.comment-navigation .nav-indicator,
+.paging-navigation .nav-indicator,
+.post-navigation .nav-indicator {
+  margin-bottom: 5px;
+  margin-bottom: 0.5rem;
+}
+.comment-navigation .nav-title,
+.paging-navigation .nav-title,
+.post-navigation .nav-title {
+  font-weight: bold;
+}
+.comment-navigation .nav-title a,
+.paging-navigation .nav-title a,
+.post-navigation .nav-title a {
+  text-decoration: none;
+}
+.comment-navigation .nav-title a:hover,
+.paging-navigation .nav-title a:hover,
+.post-navigation .nav-title a:hover {
+  text-decoration: underline;
 }
 /******************************************************************
 COMMENT STYLES
@@ -1534,15 +1578,6 @@ Stylesheet: 481up Stylesheet
 ******************************************************************/
 }
 @media only screen and (min-width: 600px) {
-  body {
-    width: 100%;
-  }
-  .first {
-    margin-left: 0px;
-  }
-  .last {
-    margin-right: 0px;
-  }
   /******************************************************************
 Site Name: Tabula Rasa
 Author: Kenny Scott
@@ -1633,6 +1668,28 @@ Site Name: Tabula Rasa
 Author: Kenny Scott
 Stylesheet: 768up Stylesheet
 ******************************************************************/
+  .site-content .content-area {
+    display: inline;
+    float: left;
+    width: 66%;
+    margin: 0 1%;
+    margin-left: 0px;
+  }
+  .site-content .widget-area {
+    display: block;
+    display: inline;
+    float: left;
+    width: 32%;
+    margin: 0 1%;
+    margin-right: 0px;
+    padding: 10px;
+    padding: 1rem;
+    list-style: none;
+    background-color: #FFFEFE;
+  }
+  .site-footer {
+    clear: both;
+  }
 }
 @media only screen and (min-width: 1030px) {
   /******************************************************************

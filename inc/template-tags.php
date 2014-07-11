@@ -74,8 +74,8 @@ function new_tabula_rasa_post_nav() {
 		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'new-tabula-rasa' ); ?></h1>
 		<div class="nav-links">
 			<?php
-				previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span>&nbsp;%title', 'Previous post link', '_s' ) );
-				next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title&nbsp;<span class="meta-nav">&rarr;</span>', 'Next post link',     '_s' ) );
+			previous_post_link( '<div class="nav-previous"><div class="nav-indicator">' . _x( 'Previous Post:', 'Previous post', 'tabula-rasa' ) . '</div><div class="nav-title">%link</div></div>', '%title' );
+			next_post_link( '<div class="nav-next"><div class="nav-indicator">' . _x( 'Next Post:', 'Next post', 'tabula-rasa' ) . '</div><div class="nav-title">%link</div></div>', '%title' );              
 			?>
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->

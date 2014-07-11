@@ -80,9 +80,7 @@ body {
 	}
 	
 	.widget-area {
-		.padding(10px);
-		list-style: none;
-		background-color: #FFFEFE;
+		display: none;
 	}
 }
 .site-footer {
@@ -549,7 +547,9 @@ POSTS & CONTENT STYLES
 	margin: 0;
 	.margin-bottom(20px);
 	list-style-type: none;
-	background: @grey;
+	border-top: 1px solid @grey;
+	border-bottom: 1px solid @grey;
+	overflow: hidden;
 	
 	& .current {
 		font-weight: bold;
@@ -565,6 +565,31 @@ POSTS & CONTENT STYLES
 	 &:hover {
 		color: @white;
 	 }
+	}
+	.nav-previous {
+		width: 50%;
+		float: left;
+		padding-right: 15%;	
+	}
+	.nav-next {
+		width: 50%;	
+		float: right;
+		padding-left: 15%;
+		text-align: right;	
+	}
+	.nav-indicator {
+		.margin-bottom(5px);
+	}
+	.nav-title {
+		font-weight: bold;
+		
+		a {
+			text-decoration: none;
+			
+			&:hover {
+				text-decoration: underline;
+			}
+		}
 	}
 }
 
