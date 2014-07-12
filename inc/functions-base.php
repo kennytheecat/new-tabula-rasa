@@ -300,24 +300,34 @@ function tr_filter_ptags_on_images($content){
    return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
 }
 
-/** the_author_posts_link()
-**************************************************************/
-/*
-This is a modified the_author_posts_link() which just returns the link.
-This is necessary to allow usage of the usual l10n process with printf().
+/** FROM _S EXTRAS
+**************************************************************//**
+ * Filters wp_title to print a neat <title> tag based on what is being viewed.
+ *
+ * @param string $title Default title text for current view.
+ * @param string $sep Optional separator.
+ * @return string The filtered title.
  */
- /*
-function tr_get_the_author_posts_link() {
-	global $authordata;
-	if ( !is_object( $authordata ) )
-		return false;
-	$link = sprintf(
-		'<a href="%1$s" title="%2$s" rel="author">%3$s</a>',
-		get_author_posts_url( $authordata->ID, $authordata->user_nicename ),
-		esc_attr( sprintf( __( 'Posts by %s', 'tabula-rasa' ), get_the_author() ) ), // No further l10n needed, core will take care of this one
-		get_the_author()
-	);
-	return $link;
+function new_tabula_rasa_wp_title( $title, $sep ) {
+	if ( is_feed() ) {
+		return $title;
+	}
+	global $page, $paged;
+
+	// Add the blog name
+	$title .= get_bloginfo( 'name', 'display' );
+
+	// Add the blog description for the home/front page.
+	$site_description = get_bloginfo( 'description', 'display' );
+	if ( $site_description && ( is_home() || is_front_page() ) ) {
+		$title .= " $sep $site_description";
+	}
+
+	// Add a page number if necessary:
+	if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
+		$title .= " $sep " . sprintf( __( 'Page %s', 'new-tabula-rasa' ), max( $paged, $page ) );
+	}
+	return $title;
 }
-*/
+add_filter( 'wp_title', 'new_tabula_rasa_wp_title', 10, 2 );
 ?>

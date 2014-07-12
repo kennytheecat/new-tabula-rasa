@@ -65,7 +65,7 @@ MISC
 		// This function is needed by inc/metabox
 ------------------------------------------------------------------*/
 
-require_once('inc/functions-options.php');
+require_once('inc/functions-settings.php');
 /*------------------------------------------------------------------
 SITE SPECIFIC FUNCTIONS
 	- tr_site_specific_support()
