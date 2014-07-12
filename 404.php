@@ -2,7 +2,7 @@
 /**
  * The template for displaying 404 pages (Not Found).
  *
- * @package new-tabula-rasa
+ * @package tabula-rasa
  */
 
 get_header(); ?>

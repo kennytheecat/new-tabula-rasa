@@ -4,7 +4,7 @@
  *
  * Displays all of the <head> section and everything up till <div id="content">
  *
- * @package new-tabula-rasa
+ * @package tabula-rasa
  */
 ?>
 <!DOCTYPE html>
@@ -33,7 +33,7 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
-	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'new-tabula-rasa' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'tabula-rasa' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
 		<div class="mobile-menu">
@@ -46,14 +46,14 @@
 		</div>
 		<div class="search-mobile">
 			<i class="fa fa-search"></i>
-			<a href="#search-container" class="screen-reader-text"><?php _e( 'Search', 'my-simone' ); ?></a>		
+			<a href="#search-container" class="screen-reader-text"><?php _e( 'Search', 'tabula-rasa' ); ?></a>		
 		</div>
 		<nav id="site-navigation" class="main-navigation" role="navigation">
 			<!-- used to use tr_main_nav() from bones. switched back to _s. unneeded arguments -->
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container_class' => 'mmenu-toggle', 'menu_class' => 'nav-menu') ); ?>
 			<div class="search-not-mobile">
 			<i class="fa fa-search"></i>
-			<a href="#search-container" class="screen-reader-text"><?php _e( 'Search', 'my-simone' ); ?></a>
+			<a href="#search-container" class="screen-reader-text"><?php _e( 'Search', 'tabula-rasa' ); ?></a>
 			</div>				
 			<?php //tr_social_menu(); ?>
 		</nav><!-- #site-navigation -->

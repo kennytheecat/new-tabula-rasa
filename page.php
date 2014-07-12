@@ -7,7 +7,7 @@
  * and that other 'pages' on your WordPress site will use a
  * different template.
  *
- * @package new-tabula-rasa
+ * @package tabula-rasa
  */
 
 get_header(); ?>

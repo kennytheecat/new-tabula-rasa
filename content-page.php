@@ -2,7 +2,7 @@
 /**
  * The template used for displaying page content in page.php
  *
- * @package new-tabula-rasa
+ * @package tabula-rasa
  */
 ?>
 
@@ -15,12 +15,12 @@
 		<?php the_content(); ?>
 		<?php
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'new-tabula-rasa' ),
+				'before' => '<div class="page-links">' . __( 'Pages:', 'tabula-rasa' ),
 				'after'  => '</div>',
 			) );
 		?>
 	</div><!-- .entry-content -->
 	<footer class="entry-footer">
-		<?php edit_post_link( __( 'Edit', 'new-tabula-rasa' ), '<span class="edit-link">', '</span>' ); ?>
+		<?php edit_post_link( __( 'Edit', 'tabula-rasa' ), '<span class="edit-link">', '</span>' ); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

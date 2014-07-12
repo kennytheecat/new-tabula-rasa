@@ -77,9 +77,9 @@ MISC
 LAUNCH TABULA RASA
 **************************************************************/
 
-/** new_tabula_rasa_setup()
+/** tr_setup()
 ***************************************************************/
-if ( ! function_exists( 'new_tabula_rasa_setup' ) ) :
+if ( ! function_exists( 'tr_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -87,7 +87,7 @@ if ( ! function_exists( 'new_tabula_rasa_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function new_tabula_rasa_setup() {
+function tr_setup() {
 	// launching operation cleanup
 	add_action('init', 'tr_head_cleanup');
 	// remove WP version from RSS
@@ -110,8 +110,8 @@ function new_tabula_rasa_setup() {
 	// cleaning up random code around images
 	add_filter('the_content', 'tr_filter_ptags_on_images');
 }
-endif; // new_tabula_rasa_setup
-add_action( 'after_setup_theme', 'new_tabula_rasa_setup' );
+endif; // tr_setup
+add_action( 'after_setup_theme', 'tr_setup' );
 
 /*************************************************************
 WP_HEAD GOODNESS
@@ -174,64 +174,6 @@ function tr_gallery_style($css) {
 }
 
 /*********************
-SCRIPTS & ENQUEUEING
-*********************/
-
-// loading modernizr and jquery, and reply script
-function tr_scripts_and_styles() {
-  global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
-	//$wp_styles->add_data( 'tabula_rasa-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet	
-  
-	if (!is_admin()) {
-
-    // register main stylesheet
-		wp_enqueue_style( 'new-tabula-rasa-style', get_stylesheet_directory_uri() . '/css/style.css' );
-		
-    // ie-only style sheet
-    //wp_register_style( 'tabula_rasa-ie-only', get_stylesheet_directory_uri() . '/css/ie.css', array(), '' );
-
-    // comment reply script for threaded comments
-		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-			wp_enqueue_script( 'comment-reply' );
-		}
-
-		//adding scripts file in the footer
-		wp_enqueue_script( 'tabula_rasa-js', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery' ), '', true );
-			
-		//wp_enqueue_script( 'new-tabula-rasa-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
-
-		wp_enqueue_script( 'new-tabula-rasa-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
-
-		wp_enqueue_script( 'superfish', get_template_directory_uri() . '/js/superfish.min.js', array( 'jquery' ), '20140703', true );
-		wp_enqueue_script( 'superfish-settings', get_template_directory_uri() . '/js/superfish-settings.js', array('superfish'), '20140703', true );
-
-		wp_enqueue_script( 'mmenu-js', get_template_directory_uri() . '/js/jquery.mmenu.min.js', array( 'jquery' ), '20140703', true );
-		wp_enqueue_script( 'mmenu-settings', get_template_directory_uri() . '/js/mmenu-settings.js', array('mmenu-js'), '20140703', true );
-		wp_enqueue_style( 'mmenu-css', get_template_directory_uri() . '/css/jquery.mmenu.css' );
-     
-		wp_enqueue_script( 'hide-search', get_template_directory_uri() . '/js/hide-search.js', array( 'jquery' ), '20140703', true );
-
-		// modernizr (without media query polyfill)
-		wp_enqueue_script( 'tabula_rasa-modernizr', get_stylesheet_directory_uri() . '/js/modernizr.custom.min.js', array(), '2.5.3', false );
-		//dont know if this styled right
-		/*	if ( is_singular() && wp_attachment_is_image() ) {
-			wp_enqueue_script( 'Tabula Rasa-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20120202' );
-		} */
-
-		
-    // enqueue styles and scripts
-   // wp_enqueue_script( 'tabula_rasa-modernizr' );
-   // wp_enqueue_style( 'tabula_rasa-stylesheet' );
-   // wp_enqueue_style('tabula_rasa-ie-only');
-
-    // I recommend using a plugin to call jQuery using the google cdn. That way it stays cached and your site will load faster.
-    wp_enqueue_script( 'jquery' );
-    wp_enqueue_script( 'tabula_rasa-js' );
-  }
-}
-add_action( 'wp_enqueue_scripts', 'tr_scripts_and_styles' );
-
-/*********************
 THEME SUPPORT
 *********************/
 
@@ -240,7 +182,7 @@ function tr_theme_support() {
 
 	// Make theme available for translation.
 	// Translations can be filed in the /languages/ directory.
-	load_theme_textdomain( 'new-tabula-rasa', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'tabula-rasa', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -308,7 +250,7 @@ function tr_filter_ptags_on_images($content){
  * @param string $sep Optional separator.
  * @return string The filtered title.
  */
-function new_tabula_rasa_wp_title( $title, $sep ) {
+function tr_wp_title( $title, $sep ) {
 	if ( is_feed() ) {
 		return $title;
 	}
@@ -325,9 +267,9 @@ function new_tabula_rasa_wp_title( $title, $sep ) {
 
 	// Add a page number if necessary:
 	if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
-		$title .= " $sep " . sprintf( __( 'Page %s', 'new-tabula-rasa' ), max( $paged, $page ) );
+		$title .= " $sep " . sprintf( __( 'Page %s', 'tabula-rasa' ), max( $paged, $page ) );
 	}
 	return $title;
 }
-add_filter( 'wp_title', 'new_tabula_rasa_wp_title', 10, 2 );
+add_filter( 'wp_title', 'tr_wp_title', 10, 2 );
 ?>

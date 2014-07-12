@@ -2,7 +2,7 @@
 /**
  * The template for displaying Search Results pages.
  *
- * @package new-tabula-rasa
+ * @package tabula-rasa
  */
 
 get_header(); ?>
@@ -13,7 +13,7 @@ get_header(); ?>
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
-				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'new-tabula-rasa' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'tabula-rasa' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 			</header><!-- .page-header -->
 
 			<?php /* Start the Loop */ ?>
@@ -30,7 +30,7 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-			<?php new_tabula_rasa_paging_nav(); ?>
+			<?php tr_paging_nav(); ?>
 
 		<?php else : ?>
 

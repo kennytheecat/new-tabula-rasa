@@ -43,6 +43,55 @@ MISC
 /** Site Specific Functions
 **************************************************************/
 
+/*********************
+SCRIPTS & ENQUEUEING
+*********************/
+
+// loading modernizr and jquery, and reply script
+function tr_scripts_and_styles() {
+  global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
+	//$wp_styles->add_data( 'tabula_rasa-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet	
+  
+	if (!is_admin()) {
+
+    // register main stylesheet
+		wp_enqueue_style( 'tabula-rasa-style', get_stylesheet_directory_uri() . '/css/style.css' );
+		
+    // ie-only style sheet
+    //wp_register_style( 'tabula_rasa-ie-only', get_stylesheet_directory_uri() . '/css/ie.css', array(), '' );
+
+    // comment reply script for threaded comments
+		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+			wp_enqueue_script( 'comment-reply' );
+		}
+
+		//adding scripts file in the footer
+		wp_enqueue_script( 'tabula_rasa-js', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery' ), '', true );
+			
+		//wp_enqueue_script( 'tabula-rasa-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+
+		wp_enqueue_script( 'tabula-rasa-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+
+		wp_enqueue_script( 'superfish', get_template_directory_uri() . '/js/superfish.min.js', array( 'jquery' ), '20140703', true );
+		wp_enqueue_script( 'superfish-settings', get_template_directory_uri() . '/js/superfish-settings.js', array('superfish'), '20140703', true );
+
+		wp_enqueue_script( 'mmenu-js', get_template_directory_uri() . '/js/jquery.mmenu.min.js', array( 'jquery' ), '20140703', true );
+		wp_enqueue_script( 'mmenu-settings', get_template_directory_uri() . '/js/mmenu-settings.js', array('mmenu-js'), '20140703', true );
+		wp_enqueue_style( 'mmenu-css', get_template_directory_uri() . '/css/jquery.mmenu.css' );
+     
+		wp_enqueue_script( 'hide-search', get_template_directory_uri() . '/js/hide-search.js', array( 'jquery' ), '20140703', true );
+
+		// modernizr (without media query polyfill)
+		//wp_enqueue_script( 'tabula_rasa-modernizr', get_stylesheet_directory_uri() . '/js/modernizr.custom.min.js', array(), '2.5.3', false );
+
+    // I recommend using a plugin to call jQuery using the google cdn. That way it stays cached and your site will load faster.
+    wp_enqueue_script( 'jquery' );
+    wp_enqueue_script( 'tabula_rasa-js' );
+  }
+}
+add_action( 'wp_enqueue_scripts', 'tr_scripts_and_styles' );
+
+
 /** Set content width **/
 if ( ! isset( $content_width ) ) {
 	$content_width = 640; /* pixels */
@@ -173,28 +222,28 @@ add_action( 'wp_enqueue_scripts', 'tr_scripts_and_styles_options' );
 /**
  * Adds custom classes to the array of body classes.
  */
-function new_tabula_rasa_body_classes( $classes ) {
+function tr_body_classes( $classes ) {
 	// Adds a class of group-blog to blogs with more than 1 published author.
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
 	}
 	return $classes;
 }
-add_filter( 'body_class', 'new_tabula_rasa_body_classes' );
+add_filter( 'body_class', 'tr_body_classes' );
 
 /**
  * Custom template tags for this theme.
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package new-tabula-rasa
+ * @package tabula-rasa
  */
 
-if ( ! function_exists( 'new_tabula_rasa_paging_nav' ) ) :
+if ( ! function_exists( 'tr_paging_nav' ) ) :
 /**
  * Display navigation to next/previous set of posts when applicable.
  */
-function new_tabula_rasa_paging_nav() {
+function tr_paging_nav() {
 	// Don't print empty markup if there's only one page.
 	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
 		return;
@@ -223,8 +272,8 @@ function new_tabula_rasa_paging_nav() {
 		'current'  => $paged,
 		'mid_size' => 2,
 		'add_args' => array_map( 'urlencode', $query_args ),
-		'prev_text' => __( '? Previous', 'my-simone' ),
-		'next_text' => __( 'Next ?', 'my-simone' ),
+		'prev_text' => __( '? Previous', 'tabula-rasa' ),
+		'next_text' => __( 'Next ?', 'tabula-rasa' ),
         'type'      => 'list',
 	) );
 
@@ -232,7 +281,7 @@ function new_tabula_rasa_paging_nav() {
 
 	?>
 	<nav class="navigation paging-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'my-simone' ); ?></h1>
+		<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'tabula-rasa' ); ?></h1>
 			<?php echo $links; ?>
 	</nav><!-- .navigation -->
 	<?php
@@ -240,11 +289,11 @@ function new_tabula_rasa_paging_nav() {
 }
 endif;
 
-if ( ! function_exists( 'new_tabula_rasa_post_nav' ) ) :
+if ( ! function_exists( 'tr_post_nav' ) ) :
 /**
  * Display navigation to next/previous post when applicable.
  */
-function new_tabula_rasa_post_nav() {
+function tr_post_nav() {
 	// Don't print empty markup if there's nowhere to navigate.
 	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
 	$next     = get_adjacent_post( false, '', false );
@@ -254,7 +303,7 @@ function new_tabula_rasa_post_nav() {
 	}
 	?>
 	<nav class="navigation post-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'new-tabula-rasa' ); ?></h1>
+		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'tabula-rasa' ); ?></h1>
 		<div class="nav-links">
 			<?php
 			previous_post_link( '<div class="nav-previous"><div class="nav-indicator">' . _x( 'Previous Post:', 'Previous post', 'tabula-rasa' ) . '</div><div class="nav-title">%link</div></div>', '%title' );
@@ -266,11 +315,11 @@ function new_tabula_rasa_post_nav() {
 }
 endif;
 
-if ( ! function_exists( 'new_tabula_rasa_posted_on' ) ) :
+if ( ! function_exists( 'tr_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  */
-function new_tabula_rasa_posted_on() {
+function tr_posted_on() {
 	$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 		$time_string .= '<time class="updated" datetime="%3$s">%4$s</time>';
@@ -284,12 +333,12 @@ function new_tabula_rasa_posted_on() {
 	);
 
 	$posted_on = sprintf(
-		_x( 'Posted on %s', 'post date', 'new-tabula-rasa' ),
+		_x( 'Posted on %s', 'post date', 'tabula-rasa' ),
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
 
 	$byline = sprintf(
-		_x( 'by %s', 'post author', 'new-tabula-rasa' ),
+		_x( 'by %s', 'post author', 'tabula-rasa' ),
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
@@ -303,8 +352,8 @@ endif;
  *
  * @return bool
  */
-function new_tabula_rasa_categorized_blog() {
-	if ( false === ( $all_the_cool_cats = get_transient( 'new_tabula_rasa_categories' ) ) ) {
+function tr_categorized_blog() {
+	if ( false === ( $all_the_cool_cats = get_transient( 'tr_categories' ) ) ) {
 		// Create an array of all the categories that are attached to posts.
 		$all_the_cool_cats = get_categories( array(
 			'fields'     => 'ids',
@@ -317,25 +366,25 @@ function new_tabula_rasa_categorized_blog() {
 		// Count the number of categories that are attached to the posts.
 		$all_the_cool_cats = count( $all_the_cool_cats );
 
-		set_transient( 'new_tabula_rasa_categories', $all_the_cool_cats );
+		set_transient( 'tr_categories', $all_the_cool_cats );
 	}
 
 	if ( $all_the_cool_cats > 1 ) {
-		// This blog has more than 1 category so new_tabula_rasa_categorized_blog should return true.
+		// This blog has more than 1 category so tr_categorized_blog should return true.
 		return true;
 	} else {
-		// This blog has only 1 category so new_tabula_rasa_categorized_blog should return false.
+		// This blog has only 1 category so tr_categorized_blog should return false.
 		return false;
 	}
 }
 
 /**
- * Flush out the transients used in new_tabula_rasa_categorized_blog.
+ * Flush out the transients used in tr_categorized_blog.
  */
-function new_tabula_rasa_category_transient_flusher() {
+function tr_category_transient_flusher() {
 	// Like, beat it. Dig?
-	delete_transient( 'new_tabula_rasa_categories' );
+	delete_transient( 'tr_categories' );
 }
-add_action( 'edit_category', 'new_tabula_rasa_category_transient_flusher' );
-add_action( 'save_post',     'new_tabula_rasa_category_transient_flusher' );
+add_action( 'edit_category', 'tr_category_transient_flusher' );
+add_action( 'save_post',     'tr_category_transient_flusher' );
 ?>

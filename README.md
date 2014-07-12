@@ -1,2 +1,2 @@
-new-tabula-rasa
+tabula-rasa
 ===============
