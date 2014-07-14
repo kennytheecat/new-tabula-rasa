@@ -846,7 +846,7 @@ html {
 
 }
 body {
-  background: #fff;
+  background: #ebe16f;
   /* Fallback for when there is no custom background color defined. */
 
   font-size: 16px;
@@ -1256,7 +1256,7 @@ header#masthead .site-header
 }
 .nav-menu li:hover > a {
   background: #757575;
-  color: #ffffff;
+  color: #21759b;
 }
 .nav-menu li.current-menu-item > a,
 .nav-menu li.current_page_item > a,
@@ -1713,7 +1713,6 @@ OTHER PAGES
     padding: 10px;
     padding: 1rem;
     list-style: none;
-    background-color: #FFFEFE;
   }
   .site-footer {
     clear: both;
