@@ -100,7 +100,13 @@ if ( ! isset( $content_width ) ) {
 /**************************************************************
 INCLUDES
 **************************************************************/
-//require_once('inc/custom-post-type.php'); 
+/** Custom Post TYpes
+**************************************************************/
+//require_once('custom-post-type.php'); 
+
+/** Meta Boxes
+**************************************************************/
+//require_once('metabox/metabox-functions.php'); 
 
 function post_formats() {
 	// adding post format support
@@ -199,9 +205,7 @@ function theme_options() {
 add_action( 'after_setup_theme', 'theme_options' );
 //require_once('inc/theme-options.php');
 
-/** Meta Boxes
-**************************************************************/
-//require_once('inc/metabox/metabox-functions.php'); 
+
 
 function tr_scripts_and_styles_options() { 
 	if (!is_admin()) {}
