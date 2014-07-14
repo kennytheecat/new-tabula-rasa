@@ -201,13 +201,6 @@ add_action( 'after_setup_theme', 'theme_options' );
 
 /** Meta Boxes
 **************************************************************/
-/** This function is needed by inc/metabox **/
-function be_initialize_cmb_meta_boxes() {
-	if ( !class_exists( 'cmb_Meta_Box' ) ) {
-		require_once( 'metabox/init.php' );
-	}
-}
-//add_action( 'init', 'be_initialize_cmb_meta_boxes', 9999 );
 //require_once('inc/metabox/metabox-functions.php'); 
 
 function tr_scripts_and_styles_options() { 

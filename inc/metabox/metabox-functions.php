@@ -5,7 +5,7 @@
  * @category YourThemeOrPlugin
  * @package  Metaboxes
  * @license  http://www.opensource.org/licenses/gpl-license.php GPL v2.0 (or later)
- * @link     https://github.com/jaredatch/Custom-Metaboxes-and-Fields-for-WordPress
+ * @link     https://github.com/webdevstudios/Custom-Metaboxes-and-Fields-for-WordPress
  */
 
 add_filter( 'cmb_meta_boxes', 'cmb_sample_metaboxes' );
@@ -20,206 +20,123 @@ function cmb_sample_metaboxes( array $meta_boxes ) {
 	// Start with an underscore to hide fields from custom fields list
 	$prefix = '_cmb_';
 
-	$meta_boxes[] = array(
-		'id'         => 'test_metabox',
-		'title'      => 'Test Metabox',
-		'pages'      => array( 'page', ), // Post type
+	/**
+	 * Sample metabox to demonstrate each field type included
+	 */
+	$meta_boxes['church-fathers-meta'] = array(
+		'id'         => 'church-fathers-meta',
+		'title'      => __( 'Church Father Quotes ', 'tabula-rasa' ),
+		'pages'      => array( 'post', ), // Post type
 		'context'    => 'normal',
 		'priority'   => 'high',
 		'show_names' => true, // Show field names on the left
+		// 'cmb_styles' => true, // Enqueue the CMB stylesheet on the frontend
 		'fields'     => array(
 			array(
-				'name' => 'Test Text',
-				'desc' => 'field description (optional)',
-				'id'   => $prefix . 'test_text',
-				'type' => 'text',
-			),
-			array(
-				'name' => 'Test Text Small',
-				'desc' => 'field description (optional)',
-				'id'   => $prefix . 'test_textsmall',
-				'type' => 'text_small',
-			),
-			array(
-				'name' => 'Test Text Medium',
-				'desc' => 'field description (optional)',
-				'id'   => $prefix . 'test_textmedium',
-				'type' => 'text_medium',
-			),
-			array(
-				'name' => 'Test Date Picker',
-				'desc' => 'field description (optional)',
-				'id'   => $prefix . 'test_textdate',
-				'type' => 'text_date',
-			),
-			array(
-				'name' => 'Test Date Picker (UNIX timestamp)',
-				'desc' => 'field description (optional)',
-				'id'   => $prefix . 'test_textdate_timestamp',
-				'type' => 'text_date_timestamp',
-			),
-			array(
-				'name' => 'Test Date/Time Picker Combo (UNIX timestamp)',
-				'desc' => 'field description (optional)',
-				'id'   => $prefix . 'test_datetime_timestamp',
-				'type' => 'text_datetime_timestamp',
-			),
-			array(
-	            'name' => 'Test Time',
-	            'desc' => 'field description (optional)',
-	            'id'   => $prefix . 'test_time',
-	            'type' => 'text_time',
-	        ),
-			array(
-				'name' => 'Test Money',
-				'desc' => 'field description (optional)',
-				'id'   => $prefix . 'test_textmoney',
-				'type' => 'text_money',
-			),
-			array(
-	            'name' => 'Test Color Picker',
-	            'desc' => 'field description (optional)',
-	            'id'   => $prefix . 'test_colorpicker',
-	            'type' => 'colorpicker',
-				'std'  => '#ffffff'
-	        ),
-			array(
-				'name' => 'Test Text Area',
-				'desc' => 'field description (optional)',
-				'id'   => $prefix . 'test_textarea',
+				'name' => __( 'Quote', 'tabula-rasa' ),
+				'desc' => __( '', 'tabula-rasa' ),
+				'id'   => $prefix . 'church_fathers_quote',
 				'type' => 'textarea',
-			),
-			array(
-				'name' => 'Test Text Area Small',
-				'desc' => 'field description (optional)',
-				'id'   => $prefix . 'test_textareasmall',
-				'type' => 'textarea_small',
-			),
-			array(
-				'name' => 'Test Text Area Code',
-				'desc' => 'field description (optional)',
-				'id'   => $prefix . 'test_textarea_code',
-				'type' => 'textarea_code',
-			),
-			array(
-				'name' => 'Test Title Weeeee',
-				'desc' => 'This is a title description',
-				'id'   => $prefix . 'test_title',
-				'type' => 'title',
-			),
-			array(
-				'name'    => 'Test Select',
-				'desc'    => 'field description (optional)',
-				'id'      => $prefix . 'test_select',
-				'type'    => 'select',
-				'options' => array(
-					array( 'name' => 'Option One', 'value' => 'standard', ),
-					array( 'name' => 'Option Two', 'value' => 'custom', ),
-					array( 'name' => 'Option Three', 'value' => 'none', ),
-				),
-			),
-			array(
-				'name'    => 'Test Radio inline',
-				'desc'    => 'field description (optional)',
-				'id'      => $prefix . 'test_radio_inline',
-				'type'    => 'radio_inline',
-				'options' => array(
-					array( 'name' => 'Option One', 'value' => 'standard', ),
-					array( 'name' => 'Option Two', 'value' => 'custom', ),
-					array( 'name' => 'Option Three', 'value' => 'none', ),
-				),
-			),
-			array(
-				'name'    => 'Test Radio',
-				'desc'    => 'field description (optional)',
-				'id'      => $prefix . 'test_radio',
-				'type'    => 'radio',
-				'options' => array(
-					array( 'name' => 'Option One', 'value' => 'standard', ),
-					array( 'name' => 'Option Two', 'value' => 'custom', ),
-					array( 'name' => 'Option Three', 'value' => 'none', ),
-				),
-			),
-			array(
-				'name'     => 'Test Taxonomy Radio',
-				'desc'     => 'Description Goes Here',
-				'id'       => $prefix . 'text_taxonomy_radio',
-				'type'     => 'taxonomy_radio',
-				'taxonomy' => '', // Taxonomy Slug
-			),
-			array(
-				'name'     => 'Test Taxonomy Select',
-				'desc'     => 'Description Goes Here',
-				'id'       => $prefix . 'text_taxonomy_select',
-				'type'     => 'taxonomy_select',
-				'taxonomy' => '', // Taxonomy Slug
-			),
-			array(
-				'name'		=> 'Test Taxonomy Multi Checkbox',
-				'desc'		=> 'field description (optional)',
-				'id'		=> $prefix . 'test_multitaxonomy',
-				'type'		=> 'taxonomy_multicheck',
-				'taxonomy'	=> '', // Taxonomy Slug
-			),
-			array(
-				'name' => 'Test Checkbox',
-				'desc' => 'field description (optional)',
-				'id'   => $prefix . 'test_checkbox',
-				'type' => 'checkbox',
-			),
-			array(
-				'name'    => 'Test Multi Checkbox',
-				'desc'    => 'field description (optional)',
-				'id'      => $prefix . 'test_multicheckbox',
-				'type'    => 'multicheck',
-				'options' => array(
-					'check1' => 'Check One',
-					'check2' => 'Check Two',
-					'check3' => 'Check Three',
-				),
-			),
-			array(
-				'name'    => 'Test wysiwyg',
-				'desc'    => 'field description (optional)',
-				'id'      => $prefix . 'test_wysiwyg',
-				'type'    => 'wysiwyg',
-				'options' => array(	'textarea_rows' => 5, ),
-			),
-			array(
-				'name' => 'Test Image',
-				'desc' => 'Upload an image or enter an URL.',
-				'id'   => $prefix . 'test_image',
-				'type' => 'file',
-			),
-			array(
-				'name' => 'oEmbed',
-				'desc' => 'Enter a youtube, twitter, or instagram URL. Supports services listed at <a href="http://codex.wordpress.org/Embeds">http://codex.wordpress.org/Embeds</a>.',
-				'id'   => $prefix . 'test_embed',
-				'type' => 'oembed',
 			),
 		),
 	);
 
-	$meta_boxes[] = array(
-		'id'         => 'about_page_metabox',
-		'title'      => 'About Page Metabox',
-		'pages'      => array( 'page', ), // Post type
+		$meta_boxes['featured-video-meta'] = array(
+		'id'         => 'featured-video-meta',
+		'title'      => __( 'Featured Video ', 'tabula-rasa' ),
+		'pages'      => array( 'post', ), // Post type
 		'context'    => 'normal',
 		'priority'   => 'high',
 		'show_names' => true, // Show field names on the left
-		'show_on'    => array( 'key' => 'id', 'value' => array( 2, ), ), // Specific post IDs to display this metabox
-		'fields' => array(
+		// 'cmb_styles' => true, // Enqueue the CMB stylesheet on the frontend
+		'fields'     => array(
 			array(
-				'name' => 'Test Text',
-				'desc' => 'field description (optional)',
-				'id'   => $prefix . 'test_text',
-				'type' => 'text',
+				'name' => __( 'Title', 'tabula-rasa' ),
+				'desc' => __( '', 'tabula-rasa' ),
+				'id'   => $prefix . 'video_title',
+				'type' => 'text_medium',
 			),
-		)
+			array(
+				'name' => __( 'Link', 'tabula-rasa' ),
+				'desc' => __( '', 'tabula-rasa' ),
+				'id'   => $prefix . 'video_link',
+				'type' => 'text_medium',
+			),			
+		),
 	);
 
-	// Add other metaboxes as needed
+	/**
+	 * Repeatable Field Groups
+	 */
+	$meta_boxes['amazon-products'] = array(
+		'id'         => 'amazon-products',
+		'title'      => __( 'Amazon Products', 'tabula-rasa' ),
+		'pages'      => array( 'post', ),
+		'fields'     => array(
+			array(
+				'id'          => $prefix . 'amazon-products',
+				'type'        => 'group',
+				'description' => __( '', 'tabula-rasa' ),
+				'options'     => array(
+					'group_title'   => __( 'Product # {#}', 'tabula-rasa' ), // {#} gets replaced by row number
+					'add_button'    => __( 'Add Another Product', 'tabula-rasa' ),
+					'remove_button' => __( 'Remove Product', 'tabula-rasa' ),
+					'sortable'      => true, // beta
+				),
+				// Fields array works the same, except id's only need to be unique for this group. Prefix is not needed.
+				'fields'      => array(
+					array(
+						'name' => 'Title',
+						'id'   => 'amazon_title',
+						'type' => 'text',
+						// 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
+					),
+					array(
+						'name' => 'Link',
+						'description' => '',
+						'id'   => 'amazon_link',
+						'type' => 'text',
+					),
+				),
+			),
+		),
+	);
+	
+	$meta_boxes['further_reading'] = array(
+		'id'         => 'further-reading',
+		'title'      => __( 'Further Reading', 'tabula-rasa' ),
+		'pages'      => array( 'post', ),
+		'fields'     => array(
+			array(
+				'id'          => $prefix . 'further-reading',
+				'type'        => 'group',
+				'description' => __( '', 'tabula-rasa' ),
+				'options'     => array(
+					'group_title'   => __( 'Link # {#}', 'tabula-rasa' ), // {#} gets replaced by row number
+					'add_button'    => __( 'Add Another Link', 'tabula-rasa' ),
+					'remove_button' => __( 'Remove Link', 'tabula-rasa' ),
+					'sortable'      => true, // beta
+				),
+				// Fields array works the same, except id's only need to be unique for this group. Prefix is not needed.
+				'fields'      => array(
+					array(
+						'name' => 'Title',
+						'id'   => 'link_title',
+						'type' => 'text',
+						// 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
+					),
+					array(
+						'name' => 'Link',
+						'description' => '',
+						'id'   => 'link_link',
+						'type' => 'text',
+					),
+				),
+			),
+		),
+	);	
 
+	// Add other metaboxes as needed
 	return $meta_boxes;
 }
 
@@ -231,5 +148,4 @@ function cmb_initialize_cmb_meta_boxes() {
 
 	if ( ! class_exists( 'cmb_Meta_Box' ) )
 		require_once 'init.php';
-
 }
