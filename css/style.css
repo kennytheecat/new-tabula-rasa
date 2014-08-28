@@ -825,7 +825,7 @@ html {
   /* Keeps page centered in all browsers regardless of content height */
 }
 body {
-  background: #ebe16f;
+  background: #dddddd;
   /* Fallback for when there is no custom background color defined. */
   font-size: 16px;
   line-height: 24px;

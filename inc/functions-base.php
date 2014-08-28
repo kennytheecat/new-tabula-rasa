@@ -204,8 +204,8 @@ function tr_theme_support() {
 		array(
 			'primary' => __( 'Primary Menu', 'tabula-rasa' ),   // main nav in header
 			'social' => __( 'Social Menu', 'tabula-rasa'),
-		//	'sec-nav' => __( 'The Secondary Menu', 'tabula-rasa' ),   // secondary nav in header
-		//	'footer-links' => __( 'Footer Links', 'tabula-rasa' ) // secondary nav in footer
+			'sec-nav' => __( 'The Secondary Menu', 'tabula-rasa' ),   // secondary nav in header
+			'footer-links' => __( 'Footer Links', 'tabula-rasa' ) // secondary nav in footer
 		)
 	);
 	

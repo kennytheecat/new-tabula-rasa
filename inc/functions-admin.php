@@ -238,6 +238,45 @@ add_filter('login_headertitle', 'tr_login_title');
 
 
 /*************************************************************
+LOGIN REDIRECT 
+**************************************************************/
+// Redirect user from admin area except certain roles
+function only_admins_login_area( $redirect_to, $request, $user ) {
+	global $user;
+	if ( isset( $user->roles ) && is_array( $user->roles ) ) {
+		//check for admins
+		if ( in_array( 'administrator', $user->roles ) ) {
+			// Redirect to default admin area
+			return $redirect_to;
+		}
+	}
+	return home_url();
+}
+//add_filter( 'login_redirect', 'only_admins_login_area', 10, 3 );
+
+// Remove Access to wp-admin from certain roles
+function redirect_user_on_role() {
+	global $current_user;
+	get_currentuserinfo();
+
+	//If login user role is Subscriber
+	if ($current_user->user_level == 0)  {
+		wp_redirect( home_url() ); exit;
+	}
+
+	//If login user role is Contributor
+	if ($current_user->user_level > 1) {
+		wp_redirect( home_url() ); exit;
+	}
+
+	//If login user role is Editor
+	if ($current_user->user_level > 8) {
+		wp_redirect( home_url() ); exit;
+	}
+}
+//add_action('admin_init', 'redirect_user_on_role');
+
+/*************************************************************
 CUSTOMIZE ADMIN 
 **************************************************************/
 

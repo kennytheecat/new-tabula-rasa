@@ -51,6 +51,9 @@ SCRIPTS & ENQUEUEING
 function tr_scripts_and_styles() {
   global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
 	//$wp_styles->add_data( 'tabula_rasa-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet	
+	// FONTS
+  wp_enqueue_style( 'google-fonts', 'http://fonts.googleapis.com/css?family=PT+Serif|Open+Sans:400,700|Open+Sans+Condensed:700' );
+  wp_enqueue_style( 'font-awesome',  'http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');		
   
 	if (!is_admin()) {
 
@@ -74,23 +77,29 @@ function tr_scripts_and_styles() {
 
 		wp_enqueue_script( 'superfish', get_template_directory_uri() . '/js/superfish.min.js', array( 'jquery' ), '20140703', true );
 		wp_enqueue_script( 'superfish-settings', get_template_directory_uri() . '/js/superfish-settings.js', array('superfish'), '20140703', true );
+		
+		wp_enqueue_script( 'prefix-fitvids', get_template_directory_uri() . '/js/jquery.fitvids.js', array( 'jquery' ), '1.0.0', true );
 
 		wp_enqueue_script( 'mmenu-js', get_template_directory_uri() . '/js/jquery.mmenu.min.js', array( 'jquery' ), '20140703', true );
 		wp_enqueue_script( 'mmenu-settings', get_template_directory_uri() . '/js/mmenu-settings.js', array('mmenu-js'), '20140703', true );
 		wp_enqueue_style( 'mmenu-css', get_template_directory_uri() . '/css/jquery.mmenu.css' );
      
 		wp_enqueue_script( 'hide-search', get_template_directory_uri() . '/js/hide-search.js', array( 'jquery' ), '20140703', true );
-
 		// modernizr (without media query polyfill)
 		//wp_enqueue_script( 'tabula_rasa-modernizr', get_stylesheet_directory_uri() . '/js/modernizr.custom.min.js', array(), '2.5.3', false );
-
-    // I recommend using a plugin to call jQuery using the google cdn. That way it stays cached and your site will load faster.
-    wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'tabula_rasa-js' );
   }
+	// I recommend using a plugin to call jQuery using the google cdn. That way it stays cached and your site will load faster.
+	wp_enqueue_script( 'jquery' );	
 }
 add_action( 'wp_enqueue_scripts', 'tr_scripts_and_styles' );
 
+function tr_scripts_and_styles_options() { 
+	if (!is_admin()) {}
+  wp_enqueue_style( 'google-fonts', 'http://fonts.googleapis.com/css?family=PT+Serif|Open+Sans:400,700|Open+Sans+Condensed:700' );
+  wp_enqueue_style( 'font-awesome',  'http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
+}
+add_action( 'wp_enqueue_scripts', 'tr_scripts_and_styles_options' );
 
 /** Set content width **/
 if ( ! isset( $content_width ) ) {
@@ -209,14 +218,6 @@ function theme_options() {
 add_action( 'after_setup_theme', 'theme_options' );
 //require_once('inc/theme-options.php');
 
-
-
-function tr_scripts_and_styles_options() { 
-	if (!is_admin()) {}
-  wp_enqueue_style( 'google-fonts', 'http://fonts.googleapis.com/css?family=PT+Serif|Open+Sans:400,700|Open+Sans+Condensed:700' );
-  wp_enqueue_style( 'font-awesome',  'http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
-}
-add_action( 'wp_enqueue_scripts', 'tr_scripts_and_styles_options' );
 
 /* FROM _S
 ********************************************************************************/
