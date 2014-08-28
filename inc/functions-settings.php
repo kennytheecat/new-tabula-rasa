@@ -49,8 +49,8 @@ SCRIPTS & ENQUEUEING
 
 // loading modernizr and jquery, and reply script
 function tr_scripts_and_styles() {
-  global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
-	//$wp_styles->add_data( 'tabula_rasa-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet	
+	global $post;
+	
 	// FONTS
   wp_enqueue_style( 'google-fonts', 'http://fonts.googleapis.com/css?family=PT+Serif|Open+Sans:400,700|Open+Sans+Condensed:700' );
   wp_enqueue_style( 'font-awesome',  'http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');		
@@ -61,7 +61,9 @@ function tr_scripts_and_styles() {
 		wp_enqueue_style( 'tabula-rasa-style', get_stylesheet_directory_uri() . '/css/style.css' );
 		
     // ie-only style sheet
-    //wp_register_style( 'tabula_rasa-ie-only', get_stylesheet_directory_uri() . '/css/ie.css', array(), '' );
+		global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
+		$wp_styles->add_data( 'tabula_rasa-ie-only', 'conditional', 'lte IE 9' ); // add conditional wrapper around ie stylesheet		
+    wp_enqueue_style( 'tabula_rasa-ie-only', get_stylesheet_directory_uri() . '/css/ie.css', array(), '' );
 
     // comment reply script for threaded comments
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -89,17 +91,17 @@ function tr_scripts_and_styles() {
 		//wp_enqueue_script( 'tabula_rasa-modernizr', get_stylesheet_directory_uri() . '/js/modernizr.custom.min.js', array(), '2.5.3', false );
     wp_enqueue_script( 'tabula_rasa-js' );
   }
+	//if( is_page('my-page') ) {}
+  // if( is_single() )
+  // if( is_home() )
+  // if( 'cpt-name' == get_post_type() )
+	// For shortcodes
+	//if( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'custom-shortcode') ) {}
+	 
 	// I recommend using a plugin to call jQuery using the google cdn. That way it stays cached and your site will load faster.
 	wp_enqueue_script( 'jquery' );	
 }
 add_action( 'wp_enqueue_scripts', 'tr_scripts_and_styles' );
-
-function tr_scripts_and_styles_options() { 
-	if (!is_admin()) {}
-  wp_enqueue_style( 'google-fonts', 'http://fonts.googleapis.com/css?family=PT+Serif|Open+Sans:400,700|Open+Sans+Condensed:700' );
-  wp_enqueue_style( 'font-awesome',  'http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
-}
-add_action( 'wp_enqueue_scripts', 'tr_scripts_and_styles_options' );
 
 /** Set content width **/
 if ( ! isset( $content_width ) ) {
@@ -147,6 +149,11 @@ function tr_excerpt_more($more) {
 	return '...  <a class="excerpt-read-more" href="'. get_permalink($post->ID) . '" title="'. __('Read', 'tabula_rasa') . get_the_title($post->ID).'">'. __('Read more &raquo;', 'tabula_rasa') .'</a>';
 }	
 add_filter('excerpt_more', 'tr_excerpt_more');
+
+/*************************************************************
+POST THUMBNAILS
+**************************************************************/
+//add_image_size( $name, $width, $height, $crop );
 
 /*************************************************************
 MISC

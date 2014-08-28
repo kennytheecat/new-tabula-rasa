@@ -4,8 +4,12 @@
  *
  * @package tabula-rasa
  */
-
-get_header(); ?>
+?>
+<?php 
+if ( class_exists( 'Clean_404_Email' ) )
+	new Clean_404_Email;
+?>	
+<?php get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
