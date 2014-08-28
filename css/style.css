@@ -38,6 +38,111 @@ TABLE OF CONTENTS
 9.0 - Print	
 
 ******************************************************************/
+/*--------------------------------------------------------------
+Mixins
+--------------------------------------------------------------*/
+/*********************
+REM UNIT MIXINS
+https://github.com/christopher-ramirez/remixings
+*********************/
+/*
+.rem-mixins-test-class {
+    .font-size(10px);
+    .line-height(20px);
+    .margin(10px);
+    .margin(3em);
+    .margin(10px, 20px);
+    .margin(10px, 20%);
+    .margin(0px , 20px);
+    .margin-top(2%);
+    .margin-top(2px);
+    .padding(10px);
+    .padding(3em);
+    .padding(10px, 20px);
+    .padding(10px, 20%);
+    .padding(3em, 20px)
+}
+*/
+/******************************************************************
+Mixins - Settings
+******************************************************************/
+/*********************
+COLORS
+*********************/
+/*********************
+TYPOGRAPHY
+*********************/
+/********************
+FOR ADMIN
+*********************/
+/******************************************************************
+Mixins - Functions
+******************************************************************/
+/*********************
+CLEARFIXIN'
+*********************/
+.clearfix {
+  zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+/*********************
+TOOLS
+*********************/
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  /* Not needed for modern webkit but still used by Blackberry Browser 7.0; see http://caniuse.com/#search=box-sizing */
+  -moz-box-sizing: border-box;
+  /* Still needed for Firefox 28; see http://caniuse.com/#search=box-sizing */
+  box-sizing: border-box;
+}
+.image-replacement {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+/*********************
+BORDER RADIUS
+*********************/
+/* 
+NOTE: For older browser support (and some mobile), 
+don't use the shorthand to define *different* corners. 
+
+USAGE: .border-radius(4px); 
+
+*/
+/*********************
+CSS3 GRADIENTS
+*********************/
+/* .css-gradient(#dfdfdf,#f8f8f8); */
+/*********************
+BOX SHADOW
+*********************/
+/* .boxShadow(0,0,4px,0,#444); */
+/* .boxShadow(none); */
+/*********************
+BUTTONS
+*********************/
+body {
+  width: 100%;
+}
+.first {
+  margin-left: 0px;
+}
+.last {
+  margin-right: 0px;
+}
+/*--------------------------------------------------------------
+1.0 - Normalize
+--------------------------------------------------------------*/
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
@@ -394,430 +499,10 @@ td,
 th {
   padding: 0;
 }
-/******************************************************************
-Stylesheet: Mixins & Constants Stylesheet
-******************************************************************/
-/*********************
-COLORS
-*********************/
-/*********************
-TYPOGRAPHY
-*********************/
-/********************
-FOR ADMIN
-*********************/
-/*********************
-REM UNIT MIXINS
-https://github.com/christopher-ramirez/remixings
-*********************/
-/*
-.rem-mixins-test-class {
-    .font-size(10px);
-    .line-height(20px);
-    .margin(10px);
-    .margin(3em);
-    .margin(10px, 20px);
-    .margin(10px, 20%);
-    .margin(0px , 20px);
-    .margin-top(2%);
-    .margin-top(2px);
-    .padding(10px);
-    .padding(3em);
-    .padding(10px, 20px);
-    .padding(10px, 20%);
-    .padding(3em, 20px)
-}
-*/
-/*********************
-CLEARFIXIN'
-*********************/
-.clearfix {
-  zoom: 1;
-}
-.clearfix:before,
-.clearfix:after {
-  content: "";
-  display: table;
-}
-.clearfix:after {
-  clear: both;
-}
-/*********************
-TOOLS
-*********************/
-*,
-*:before,
-*:after {
-  -webkit-box-sizing: border-box;
-  /* Not needed for modern webkit but still used by Blackberry Browser 7.0; see http://caniuse.com/#search=box-sizing */
-  -moz-box-sizing: border-box;
-  /* Still needed for Firefox 28; see http://caniuse.com/#search=box-sizing */
-  box-sizing: border-box;
-}
-.image-replacement {
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-}
-/*********************
-BORDER RADIUS
-*********************/
-/* 
-NOTE: For older browser support (and some mobile), 
-don't use the shorthand to define *different* corners. 
-
-USAGE: .border-radius(4px); 
-
-*/
-/*********************
-CSS3 GRADIENTS
-*********************/
-/* .css-gradient(#dfdfdf,#f8f8f8); */
-/*********************
-BOX SHADOW
-*********************/
-/* .boxShadow(0,0,4px,0,#444); */
-/* .boxShadow(none); */
-/*********************
-BUTTONS
-*********************/
-body {
-  width: 100%;
-}
-.first {
-  margin-left: 0px;
-}
-.last {
-  margin-right: 0px;
-}
-/******************************************************************
-Site Name: Tabula Rasa
-Author: Kenny Scott
-Stylesheet: Base Mobile Stylesheet
-
->>> TABLE OF CONTENTS
-- REPEATABLE PATTERNS
-- LAYOUT & GRID STYLES
-	- Page Structure
-	- Typography and Elements
-	- Links	
-- HEADER & NAVIGATION
-	- Site Header
-	- Navigation
-- POSTS & CONTENT STYLES
-	- Entry Header
-	- Entry Meta
-	- Entry Content
-	- Galleries
-	- Attachments
-	- Paging Navigation
-- OTHER PAGES
-	- Archives
-	- Search Results
-	- 404
-	- Everything Else
-- COMMENT STYLES
-- COMMENT FORM STYLES
-- SIDEBARS & ASIDES
-	- Widget 1
-	- Widget 2
-- FOOTER STYLES
-******************************************************************/
-/******************************************************************
-REPEATABLE PATTERNS
-******************************************************************/
-/******************************************************************
-REPEATABLE PATTERNS
-******************************************************************/
-p {
-  -webkit-hyphens: auto;
-  -epub-hyphens: auto;
-  -moz-hyphens: auto;
-  hyphens: auto;
-}
-/* Small headers
--------------------------------------------------------------- */
-.archive-title,
-.page-title,
-.widget-title,
-.entry-content th,
-.comment-content th {
-  font-size: 11px;
-  line-height: 16.5px;
-  font-size: 1.1rem;
-  line-height: 1.6rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #636363;
-}
-/* Shared Post Format styling
--------------------------------------------------------------- */
-article.format-quote footer.entry-meta,
-article.format-link footer.entry-meta,
-article.format-status footer.entry-meta {
-  font-size: 11px;
-  line-height: 16.5px;
-  font-size: 1.1rem;
-  line-height: 1.6rem;
-}
-/* Form fields, general styles first
--------------------------------------------------------------- */
-button,
-input,
-textarea {
-  border: 1px solid #ccc;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  font-family: inherit;
-  padding: 6px;
-  padding: 0.6rem;
-}
-button,
-input {
-  line-height: normal;
-}
-textarea {
-  font-size: 100%;
-  overflow: auto;
-  vertical-align: top;
-}
-/* Reset non-text input types
--------------------------------------------------------------- */
-input[type="checkbox"],
-input[type="radio"],
-input[type="file"],
-input[type="hidden"],
-input[type="image"],
-input[type="color"] {
-  border: 0;
-  border-radius: 0;
-  padding: 0;
-}
-/* Buttons
--------------------------------------------------------------- */
-input[type="submit"],
-input[type="button"],
-input[type="reset"],
-article.post-password-required input[type=submit],
-li.bypostauthor cite span {
-  padding: 6px 10px;
-  padding: 0.6rem 10px;
-  padding: 6px 1rem;
-  padding: 0.6rem 1rem;
-  font-size: 11px;
-  line-height: 16.5px;
-  font-size: 1.1rem;
-  line-height: 1.6rem;
-  font-weight: normal;
-  color: #7c7c7c;
-  background-color: #e6e6e6;
-  background-repeat: repeat-x;
-  background-image: -moz-linear-gradient(top, #f4f4f4, #e6e6e6);
-  background-image: -ms-linear-gradient(top, #f4f4f4, #e6e6e6);
-  background-image: -webkit-linear-gradient(top, #f4f4f4, #e6e6e6);
-  background-image: -o-linear-gradient(top, #f4f4f4, #e6e6e6);
-  background-image: linear-gradient(top, #f4f4f4, #e6e6e6);
-  border: 1px solid #d2d2d2;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  box-shadow: 0 1px 2px rgba(64, 64, 64, 0.1);
-}
-button,
-input[type="submit"],
-input[type="button"],
-input[type="reset"] {
-  cursor: pointer;
-}
-button[disabled],
-input[disabled] {
-  cursor: default;
-}
-button:hover,
-input[type="submit"]:hover,
-input[type="button"]:hover,
-input[type="reset"]:hover,
-article.post-password-required input[type=submit]:hover {
-  color: #5e5e5e;
-  background-color: #ebebeb;
-  background-repeat: repeat-x;
-  background-image: -moz-linear-gradient(top, #f9f9f9, #ebebeb);
-  background-image: -ms-linear-gradient(top, #f9f9f9, #ebebeb);
-  background-image: -webkit-linear-gradient(top, #f9f9f9, #ebebeb);
-  background-image: -o-linear-gradient(top, #f9f9f9, #ebebeb);
-  background-image: linear-gradient(top, #f9f9f9, #ebebeb);
-}
-button:active,
-input[type="submit"]:active,
-input[type="button"]:active,
-input[type="reset"]:active {
-  color: #757575;
-  background-color: #e1e1e1;
-  background-repeat: repeat-x;
-  background-image: -moz-linear-gradient(top, #ebebeb, #e1e1e1);
-  background-image: -ms-linear-gradient(top, #ebebeb, #e1e1e1);
-  background-image: -webkit-linear-gradient(top, #ebebeb, #e1e1e1);
-  background-image: -o-linear-gradient(top, #ebebeb, #e1e1e1);
-  background-image: linear-gradient(top, #ebebeb, #e1e1e1);
-  box-shadow: inset 0 0 8px 2px #c6c6c6, 0 1px 0 0 #f4f4f4;
-  border: none;
-}
-li.bypostauthor cite span {
-  color: #fff;
-  background-color: #21759b;
-  background-image: none;
-  border: 1px solid #1f6f93;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  border-radius: 2px;
-  box-shadow: none;
-  padding: 0;
-}
-/** Responsive images 
--------------------------------------------------------------- */
-.entry-content img,
-.comment-content img,
-.widget img {
-  max-width: 100%;
-  /* Fluid images for posts, comments, and widgets */
-}
-img[class*="align"],
-img[class*="wp-image-"],
-img[class*="attachment-"] {
-  height: auto;
-  /* Make sure images with WordPress-added height and width attributes are scaled correctly */
-}
-img.size-full,
-img.size-large,
-img.header-image,
-img.wp-post-image {
-  max-width: 100%;
-  height: auto;
-  /* Make sure images with WordPress-added height and width attributes are scaled correctly */
-}
-/** Images
--------------------------------------------------------------- */
-.alignleft {
-  float: left;
-}
-.alignright {
-  float: right;
-}
-.aligncenter {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-.entry-content img,
-.comment-content img,
-.widget img,
-img.header-image,
-.author-avatar img,
-img.wp-post-image {
-  /* Add fancy borders to all WordPress-added images but not things like badges and icons and the like */
-  border-radius: 3px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-}
-.wp-caption {
-  max-width: 100%;
-  /* Keep wide captions from overflowing their container. */
-  padding: 4px;
-  padding: 0.4rem;
-}
-.wp-caption .wp-caption-text,
-.gallery-caption,
-.entry-caption {
-  font-style: italic;
-  font-size: 12px;
-  line-height: 18px;
-  font-size: 1.2rem;
-  line-height: 1.8rem;
-  color: #757575;
-}
-img.wp-smiley,
-.rsswidget img {
-  border: 0;
-  border-radius: 0;
-  box-shadow: none;
-  margin-bottom: 0;
-  margin-top: 0;
-  padding: 0;
-}
-.entry-content dl.gallery-item {
-  margin: 0;
-}
-.gallery-item a,
-.gallery-caption {
-  width: 90%;
-}
-.gallery-item a {
-  display: block;
-}
-.gallery-caption a {
-  display: inline;
-}
-.gallery-columns-1 .gallery-item a {
-  max-width: 100%;
-  width: auto;
-}
-.gallery .gallery-icon img {
-  height: auto;
-  max-width: 90%;
-  padding: 5%;
-}
-.gallery-columns-1 .gallery-icon img {
-  padding: 3%;
-}
 /*--------------------------------------------------------------
-6.0 Accessibility
+2.0 Typography
 --------------------------------------------------------------*/
-/* Text meant only for screen readers */
-.screen-reader-text {
-  clip: rect(1px, 1px, 1px, 1px);
-  position: absolute !important;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-  right: 0;
-}
-.screen-reader-text:hover,
-.screen-reader-text:active,
-.screen-reader-text:focus {
-  background-color: #f1f1f1;
-  border-radius: 3px;
-  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-  clip: auto !important;
-  color: #21759b;
-  display: block;
-  font-size: 14px;
-  font-weight: bold;
-  height: auto;
-  left: 5px;
-  line-height: normal;
-  padding: 15px 23px 14px;
-  text-decoration: none;
-  top: 5px;
-  width: auto;
-  z-index: 100000;
-  /* Above WP toolbar */
-}
-/******************************************************************
-LAYOUT & GRID STYLES
-******************************************************************/
-/* Page Structure
--------------------------------------------------------------- */
-/*
-body
-	#page .site
-		> header#masthead .site-header
-		+ #content .site-content
-			>#primary .content-area
-				>main#main .site-main
-					>article
-			+#secondary .widget-area .aside1
-			+.widget-area .aside2
-		+footer#colophon .site-footer
+/** Typography 
 -------------------------------------------------------------- */
 html {
   font-size: 62.5%;
@@ -835,21 +520,6 @@ body {
   text-rendering: optimizeLegibility;
   color: #444444;
 }
-.site-content {
-  clear: both;
-  overflow: hidden;
-}
-.site-content .content-area .site-main {
-  word-wrap: break-word;
-}
-.site-content .widget-area {
-  display: none;
-}
-.site-footer {
-  clear: both;
-}
-/** Typography and Elements
--------------------------------------------------------------- */
 h1,
 .h1,
 h2,
@@ -922,6 +592,96 @@ h6,
   font-size: 1.2rem;
   line-height: 1.8rem;
 }
+p {
+  -webkit-hyphens: auto;
+  -epub-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+blockquote {
+  margin-bottom: 12px;
+  margin-bottom: 1.2rem;
+  padding: 12px;
+  padding: 1.2rem;
+  font-style: italic;
+}
+code {
+  font-family: Consolas, Monaco, Lucida Console, monospace;
+  font-size: 12px;
+  line-height: 18px;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+}
+del {
+  color: #444444;
+}
+pre {
+  border: 1px solid #757575;
+  color: #757575;
+  font-family: Consolas, Monaco, Lucida Console, monospace;
+  font-size: 12px;
+  line-height: 18px;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  overflow: auto;
+}
+pre code {
+  display: block;
+}
+ins {
+  background: #757575;
+  text-decoration: none;
+}
+abbr,
+dfn,
+acronym {
+  border-bottom: 1px dotted #757575;
+  cursor: help;
+}
+/*--------------------------------------------------------------
+3.0 Elements
+--------------------------------------------------------------*/
+/** Elements
+-------------------------------------------------------------- */
+hr {
+  background-color: #757575;
+  border: 0;
+  height: 1px;
+  height: 0.1rem;
+}
+img {
+  height: auto;
+  /* Make sure images are scaled correctly. */
+  max-width: 100%;
+  /* Adhere to container width. */
+}
+/* Make sure videos and embeds fit their containers */
+embed,
+iframe,
+video,
+object {
+  max-width: 100%;
+  height: auto;
+}
+/* Responsiveness for Youtube and Vimeo */
+/* Must wrap frame in <div class="responsive-iframe-container"> */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  padding-top: 3rem;
+  height: 0;
+  overflow: hidden;
+}
+.video-container iframe,
+.video-container object,
+.video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 ul,
 ol {
   list-style: none;
@@ -944,12 +704,8 @@ ol ul {
 ul ol {
   margin-bottom: 0;
 }
-blockquote {
-  margin-bottom: 12px;
-  margin-bottom: 1.2rem;
-  padding: 12px;
-  padding: 1.2rem;
-  font-style: italic;
+dl dt {
+  font-weight: bold;
 }
 table {
   border-bottom: 1px solid #757575;
@@ -990,81 +746,46 @@ table tr td {
   font-weight: normal;
   text-align: left;
 }
-dl dt {
-  font-weight: bold;
+/*--------------------------------------------------------------
+4.0 Forms
+--------------------------------------------------------------*/
+/* Form fields, general styles first
+-------------------------------------------------------------- */
+button,
+input,
+select,
+textarea {
+  border: 1px solid #ccc;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  font-family: inherit;
+  padding: 6px;
+  padding: 0.6rem;
 }
-img {
-  height: auto;
-  /* Make sure images are scaled correctly. */
-  max-width: 100%;
-  /* Adhere to container width. */
+button,
+input {
+  line-height: normal;
 }
-/* Make sure videos and embeds fit their containers */
-embed,
-iframe,
-video,
-object {
-  max-width: 100%;
-  height: auto;
-}
-/* Responsiveness for Youtube and Vimeo */
-/* Must wrap frame in <div class="responsive-iframe-container"> */
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  padding-top: 30px;
-  padding-top: 3rem;
-  height: 0;
-  overflow: hidden;
-}
-.video-container iframe,
-.video-container object,
-.video-container embed {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-hr {
-  background-color: #757575;
-  border: 0;
-  height: 1px;
-  height: 0.1rem;
-}
-code {
-  font-family: Consolas, Monaco, Lucida Console, monospace;
-  font-size: 12px;
-  line-height: 18px;
-  font-size: 1.2rem;
-  line-height: 1.8rem;
-}
-del {
-  color: #444444;
-}
-pre {
-  border: 1px solid #757575;
-  color: #757575;
-  font-family: Consolas, Monaco, Lucida Console, monospace;
-  font-size: 12px;
-  line-height: 18px;
-  font-size: 1.2rem;
-  line-height: 1.8rem;
+textarea {
+  font-size: 100%;
   overflow: auto;
+  vertical-align: top;
 }
-pre code {
-  display: block;
+/* Reset non-text input types
+-------------------------------------------------------------- */
+input[type="checkbox"],
+input[type="radio"],
+input[type="file"],
+input[type="hidden"],
+input[type="image"],
+input[type="color"] {
+  border: 0;
+  border-radius: 0;
+  padding: 0;
 }
-ins {
-  background: #757575;
-  text-decoration: none;
-}
-abbr,
-dfn,
-acronym {
-  border-bottom: 1px dotted #757575;
-  cursor: help;
-}
+/* Buttons
+-------------------------------------------------------------- */
 button,
 input[type="button"],
 input[type="reset"],
@@ -1111,19 +832,321 @@ input[type="submit"]:focus {
   background-image: -o-linear-gradient(top, #d0d0d0, #c4c4c4);
   background-image: linear-gradient(to bottom, #d0d0d0, #c4c4c4);
 }
-/** Links
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+article.post-password-required input[type=submit],
+li.bypostauthor cite span {
+  padding: 6px 10px;
+  padding: 0.6rem 10px;
+  padding: 6px 1rem;
+  padding: 0.6rem 1rem;
+  font-size: 11px;
+  line-height: 16.5px;
+  font-size: 1.1rem;
+  line-height: 1.6rem;
+  font-weight: normal;
+  color: #7c7c7c;
+  background-color: #e6e6e6;
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(top, #f4f4f4, #e6e6e6);
+  background-image: -ms-linear-gradient(top, #f4f4f4, #e6e6e6);
+  background-image: -webkit-linear-gradient(top, #f4f4f4, #e6e6e6);
+  background-image: -o-linear-gradient(top, #f4f4f4, #e6e6e6);
+  background-image: linear-gradient(top, #f4f4f4, #e6e6e6);
+  border: 1px solid #d2d2d2;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(64, 64, 64, 0.1);
+}
+button,
+input[type="submit"],
+input[type="button"],
+input[type="reset"] {
+  cursor: pointer;
+}
+button[disabled],
+input[disabled] {
+  cursor: default;
+}
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+article.post-password-required input[type=submit]:hover {
+  color: #5e5e5e;
+  background-color: #ebebeb;
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(top, #f9f9f9, #ebebeb);
+  background-image: -ms-linear-gradient(top, #f9f9f9, #ebebeb);
+  background-image: -webkit-linear-gradient(top, #f9f9f9, #ebebeb);
+  background-image: -o-linear-gradient(top, #f9f9f9, #ebebeb);
+  background-image: linear-gradient(top, #f9f9f9, #ebebeb);
+}
+button:active,
+input[type="submit"]:active,
+input[type="button"]:active,
+input[type="reset"]:active {
+  color: #757575;
+  background-color: #e1e1e1;
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(top, #ebebeb, #e1e1e1);
+  background-image: -ms-linear-gradient(top, #ebebeb, #e1e1e1);
+  background-image: -webkit-linear-gradient(top, #ebebeb, #e1e1e1);
+  background-image: -o-linear-gradient(top, #ebebeb, #e1e1e1);
+  background-image: linear-gradient(top, #ebebeb, #e1e1e1);
+  box-shadow: inset 0 0 8px 2px #c6c6c6, 0 1px 0 0 #f4f4f4;
+  border: none;
+}
+/*--------------------------------------------------------------
+12.0 Media
+--------------------------------------------------------------*/
+/** Responsive images 
 -------------------------------------------------------------- */
-a {
+.entry-content img,
+.comment-content img,
+.widget img {
+  max-width: 100%;
+  /* Fluid images for posts, comments, and widgets */
+}
+img[class*="align"],
+img[class*="wp-image-"],
+img[class*="attachment-"] {
+  height: auto;
+  /* Make sure images with WordPress-added height and width attributes are scaled correctly */
+}
+img.size-full,
+img.size-large,
+img.header-image,
+img.wp-post-image {
+  max-width: 100%;
+  height: auto;
+  /* Make sure images with WordPress-added height and width attributes are scaled correctly */
+}
+/* Make sure embeds and iframes fit their containers */
+embed,
+iframe,
+object {
+  max-width: 100%;
+}
+/** Images
+-------------------------------------------------------------- */
+.entry-content img,
+.comment-content img,
+.widget img,
+img.header-image,
+.author-avatar img,
+img.wp-post-image {
+  /* Add fancy borders to all WordPress-added images but not things like badges and icons and the like */
+  border-radius: 3px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+.wp-caption {
+  max-width: 100%;
+  /* Keep wide captions from overflowing their container. */
+  padding: 4px;
+  padding: 0.4rem;
+}
+.wp-caption .wp-caption-text,
+.gallery-caption,
+.entry-caption {
+  font-style: italic;
+  font-size: 12px;
+  line-height: 18px;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  color: #757575;
+}
+img.wp-smiley,
+.rsswidget img {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0;
+}
+/*--------------------------------------------------------------
+12.2 Galleries
+--------------------------------------------------------------*/
+.gallery {
+  margin-bottom: 1.5em;
+}
+.gallery-item {
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  width: 100%;
+}
+.gallery-columns-2 .gallery-item {
+  max-width: 50%;
+}
+.gallery-columns-3 .gallery-item {
+  max-width: 33.33%;
+}
+.gallery-columns-4 .gallery-item {
+  max-width: 25%;
+}
+.gallery-columns-5 .gallery-item {
+  max-width: 20%;
+}
+.gallery-columns-6 .gallery-item {
+  max-width: 16.66%;
+}
+.gallery-columns-7 .gallery-item {
+  max-width: 14.28%;
+}
+.gallery-columns-8 .gallery-item {
+  max-width: 12.5%;
+}
+.gallery-columns-9 .gallery-item {
+  max-width: 11.11%;
+}
+.gallery-caption {
+  display: block;
+}
+/*--------------------------------------------------------------
+12.1 Captions
+--------------------------------------------------------------*/
+.wp-caption {
+  margin-bottom: 1.5em;
+  max-width: 100%;
+}
+.wp-caption img[class*="wp-image-"] {
+  
+}@include center-block;
+.wp-caption .wp-caption-text {
+  margin: 0.8075em 0;
+}
+.wp-caption-text {
+  text-align: center;
+}
+/*--------------------------------------------------------------
+6.0 Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers */
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  right: 0;
+}
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
   color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+  /* Above WP toolbar */
 }
-a:visited {
-  color: #21759b;
+/*--------------------------------------------------------------
+7.0 Alignments
+--------------------------------------------------------------*/
+.alignleft {
+  float: left;
 }
-a:active,
-a :hover,
-a :focus {
-  color: #195875;
+.alignright {
+  float: right;
 }
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+/*--------------------------------------------------------------
+8.0 Partials
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+10.0 Content
+--------------------------------------------------------------*/
+/******************************************************************
+Site Name: Tabula Rasa
+Author: Kenny Scott
+Stylesheet: Base Mobile Stylesheet
+
+>>> TABLE OF CONTENTS
+- REPEATABLE PATTERNS
+- LAYOUT & GRID STYLES
+	- Page Structure
+	- Typography and Elements
+	- Links	
+- HEADER & NAVIGATION
+	- Site Header
+	- Navigation
+- POSTS & CONTENT STYLES
+	- Entry Header
+	- Entry Meta
+	- Entry Content
+	- Galleries
+	- Attachments
+	- Paging Navigation
+- OTHER PAGES
+	- Archives
+	- Search Results
+	- 404
+	- Everything Else
+- COMMENT STYLES
+- COMMENT FORM STYLES
+- SIDEBARS & ASIDES
+	- Widget 1
+	- Widget 2
+- FOOTER STYLES
+******************************************************************/
+/******************************************************************
+Partials
+******************************************************************/
+/*--------------------------------------------------------------
+5.0 Layout
+--------------------------------------------------------------*/
+/******************************************************************
+LAYOUT & GRID STYLES
+******************************************************************/
+/* Page Structure
+-------------------------------------------------------------- */
+/*
+body
+	#page .site
+		> header#masthead .site-header
+		+ #content .site-content
+			>#primary .content-area
+				>main#main .site-main
+					>article
+			+#secondary .widget-area .aside1
+			+.widget-area .aside2
+		+footer#colophon .site-footer
+-------------------------------------------------------------- */
+.site-content {
+  clear: both;
+  overflow: hidden;
+}
+.site-content .content-area .site-main {
+  word-wrap: break-word;
+}
+.site-content .widget-area {
+  display: none;
+}
+.site-footer {
+  clear: both;
+}
+/*--------------------------------------------------------------
+5.0 Header
+--------------------------------------------------------------*/
 /******************************************************************
 HEADER & NAVIGATION
 ******************************************************************/
@@ -1156,6 +1179,26 @@ header#masthead .site-header
 .site-branding a {
   text-decoration: none;
 }
+/*--------------------------------------------------------------
+5.0 Navigation
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+5.1 Links
+--------------------------------------------------------------*/
+a {
+  color: #21759b;
+}
+a:visited {
+  color: #21759b;
+}
+a:active,
+a :hover,
+a :focus {
+  color: #195875;
+}
+/*--------------------------------------------------------------
+5.2 Menus
+--------------------------------------------------------------*/
 /* Main Navigation
 **************************************************************/
 .main-navigation {
@@ -1368,6 +1411,9 @@ input[type="search"] {
 .search-box-wrapper {
   display: none;
 }
+/*--------------------------------------------------------------
+10.1 Posts and pages
+--------------------------------------------------------------*/
 /******************************************************************
 POSTS & CONTENT STYLES
 ******************************************************************/
@@ -1459,6 +1505,38 @@ POSTS & CONTENT STYLES
 .post-navigation .nav-title a:hover {
   text-decoration: underline;
 }
+/*--------------------------------------------------------------
+10.2 Asides
+--------------------------------------------------------------*/
+/******************************************************************
+SIDEBARS & ASIDES
+******************************************************************/
+/*
+#secondary .widget-area
+	aside .widget
+******************************************************************/
+.widget-area .widget {
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+  word-wrap: break-word;
+}
+.widget-area .widget a {
+  color: #21759b;
+}
+.widget-area .widget ul {
+  list-style: none;
+}
+.widget-area .widget ul li {
+  /* deep nesting */
+}
+.widget-area #s {
+  width: 53.66666666666%;
+  /* define a width to avoid dropping a wider submit button */
+}
+/*--------------------------------------------------------------
+10.3 Comments
+--------------------------------------------------------------*/
 /******************************************************************
 COMMENT STYLES
 ******************************************************************/
@@ -1521,32 +1599,9 @@ COMMENT STYLES
 .comments-area .comment-respond .comment-form .required {
   color: red;
 }
-/******************************************************************
-SIDEBARS & ASIDES
-******************************************************************/
-/*
-#secondary .widget-area
-	aside .widget
-******************************************************************/
-.widget-area .widget {
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  hyphens: auto;
-  word-wrap: break-word;
-}
-.widget-area .widget a {
-  color: #21759b;
-}
-.widget-area .widget ul {
-  list-style: none;
-}
-.widget-area .widget ul li {
-  /* deep nesting */
-}
-.widget-area #s {
-  width: 53.66666666666%;
-  /* define a width to avoid dropping a wider submit button */
-}
+/*--------------------------------------------------------------
+Footer
+--------------------------------------------------------------*/
 /******************************************************************
 FOOTER STYLES
 ******************************************************************/
@@ -1557,6 +1612,9 @@ footer#colophon .site-footer
 .site-footer {
   clear: both;
 }
+/*--------------------------------------------------------------
+Other Pages
+--------------------------------------------------------------*/
 /******************************************************************
 OTHER PAGES
 ******************************************************************/
@@ -1570,188 +1628,9 @@ OTHER PAGES
 -------------------------------------------------------------- */
 /** Page 
 -------------------------------------------------------------- */
-@media only screen and (min-width: 481px) {
-  /******************************************************************
-Site Name: Tabula Rasa
-Author: Kenny Scott
-Stylesheet: 481up Stylesheet
-******************************************************************/
-}
-@media only screen and (min-width: 600px) {
-  /******************************************************************
-Site Name: Tabula Rasa
-Author: Kenny Scott
-Stylesheet: 600up Stylesheet
-******************************************************************/
-  .wrap {
-    max-width: 1000px;
-    max-width: 100rem;
-    margin: 0 auto 0;
-  }
-  .site {
-    max-width: 1000px;
-    max-width: 100rem;
-    margin: 0 auto 0;
-  }
-  /* Small menu */
-  .mobile-menu {
-    display: none;
-  }
-  .nav-menu {
-    display: inline-block;
-  }
-  /******************************************************************
-HEADER & NAVIGATION
-******************************************************************/
-  /** Site Header
--------------------------------------------------------------- */
-  .site-header {
-    margin-top: 20px;
-    margin-top: 2rem;
-  }
-  .site-branding {
-    background: url(../images/buffy-banner.png) no-repeat;
-    height: 150px;
-    height: 15rem;
-    padding: 10px;
-    padding: 1rem;
-    width: 100%;
-    color: #ffffff;
-  }
-  .site-branding .site-title {
-    text-align: left;
-  }
-  .site-branding .site-description {
-    display: block;
-  }
-  .site-branding a {
-    color: #ffffff;
-  }
-  /* Main Navigation
-**************************************************************/
-  .main-navigation {
-    margin-top: 20px;
-    margin-top: 2rem;
-    display: inline-block;
-    width: 100%;
-    border-top: 2px solid #757575;
-    border-bottom: 2px solid #757575;
-  }
-  .main-navigation .mmenu-toggle {
-    height: 44px;
-    height: 4.4rem;
-    display: inline;
-  }
-  .main-navigation .nav-menu {
-    display: inline-block;
-    float: left;
-    width: auto;
-  }
-  .main-navigation .search-not-mobile {
-    display: inline-block;
-    float: right;
-    padding-top: 5px;
-    padding-top: 0.5rem;
-  }
-  /* Header Search Bar
-******************************************************************/
-  .search-mobile {
-    display: none;
-  }
-  .search-not-mobile {
-    display: inline-block;
-  }
-}
-@media only screen and (min-width: 768px) {
-  /******************************************************************
-Site Name: Tabula Rasa
-Author: Kenny Scott
-Stylesheet: 768up Stylesheet
-******************************************************************/
-  .site-content .content-area {
-    display: inline;
-    float: left;
-    width: 66%;
-    margin: 0 1%;
-    margin-left: 0px;
-  }
-  .site-content .widget-area {
-    display: block;
-    display: inline;
-    float: left;
-    width: 32%;
-    margin: 0 1%;
-    margin-right: 0px;
-    padding: 10px;
-    padding: 1rem;
-    list-style: none;
-  }
-  .site-footer {
-    clear: both;
-  }
-}
-@media only screen and (min-width: 1030px) {
-  /******************************************************************
-Site Name: Tabula Rasa
-Author: Kenny Scott
-Stylesheet: 1030up Stylesheet
-******************************************************************/
-}
-@media only screen and (min-width: 1240px) {
-  /******************************************************************
-Site Name: Tabula Rasa
-Author: Kenny Scott
-Stylesheet: 1240up Stylesheet
-******************************************************************/
-}
-/*
-RETINA (2x RESOLUTION DEVICES)
-This applies to the retina iPhone (4s) and iPad (2,3) along with
-other displays with a 2x resolution. You can also create a media
-query for retina AND a certain size if you want. Go Nuts.
-*/
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
-  /******************************************************************
-Site Name: 
-Author: 
-
-Stylesheet: Retina Screens & Devices Stylesheet
-
-When handling retina screens you need to make adjustments, especially
-if you're not using font icons. Here you can add them in one neat
-place.
-
-******************************************************************/
-  /* 
-
-EXAMPLE 
-Let's say you have an image and you need to make sure it looks ok
-on retina screens. Let's say we have an icon which dimension are
-24px x 24px. In your regular stylesheets, it would look something
-like this:
-
-.icon {
-	width: 24px;
-	height: 24px;
-	background: url(img/test.png) no-repeat;
-}
-
-For retina screens, we have to make some adjustments, so that image
-doesn't look blurry. So, taking into account the image above and the
-dimensions, this is what we would put in our retina stylesheet:
-
-.icon {
-	background: url(img/test@2x.png) no-repeat;
-	background-size: 24px 24px;
-}
-
-So, you would create the same icon, but at double the resolution, meaning 
-it would be 48px x 48px. You'd name it the same, but with a @2x at the end
-(this is pretty standard practice). Set the background image so it matches
-the original dimensions and you are good to go. 
-
-*/
-}
+/*--------------------------------------------------------------
+Print Settings
+--------------------------------------------------------------*/
 @media print {
   /******************************************************************
 Site Name: Tabula Rasa

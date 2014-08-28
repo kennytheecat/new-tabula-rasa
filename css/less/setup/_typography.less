@@ -1,0 +1,85 @@
+/** Typography 
+-------------------------------------------------------------- */
+html{
+	font-size: 62.5%;
+	overflow-y: scroll; /* Keeps page centered in all browsers regardless of content height */
+}
+body {
+	background: @prim-color; /* Fallback for when there is no custom background color defined. */
+	.font-size(16px);
+	font-family: @sans-serif;
+	text-rendering: optimizeLegibility;
+	color: @text-color;
+}
+
+//** HEADINGS **//
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+	font-family: @heading-font;
+	text-rendering: optimizelegibility;
+	clear: both;
+	a {
+		text-decoration: none;
+	}
+}
+h1, .h1 {
+	.font-size(21px);
+}
+h2, .h2 {
+	.font-size(18px);
+}
+h3, .h3 {
+	.font-size(16px);
+}
+h4, .h4 {
+	.font-size(14px);
+}
+h5, .h5 {
+	.font-size(13px);
+}
+h6, .h6 {
+	.font-size(12px);
+}
+
+//** COPY **//
+// proper formatting (http://blog.fontdeck.com/post/9037028497/hyphens) 
+p {
+	-webkit-hyphens: auto;
+	-epub-hyphens:   auto;
+	-moz-hyphens:    auto;
+  hyphens:         auto;
+}
+p {}
+blockquote {
+	.margin-bottom(12px);
+	.padding(12px);
+	font-style: italic;	
+}
+code {
+	font-family: Consolas, Monaco, Lucida Console, monospace;
+	.font-size(12px);
+}
+del {
+	color: @black;
+}
+pre {
+	border: 1px solid @grey;
+	color: @grey;
+	font-family: Consolas, Monaco, Lucida Console, monospace;
+	.font-size(12px);
+	overflow: auto;
+
+	code { 
+		display: block; 
+	}
+}
+address {}	
+ins {
+	background: @grey;
+	text-decoration: none;
+}	
+abbr,
+dfn,
+acronym {
+	border-bottom: 1px dotted @grey;
+	cursor: help;
+}

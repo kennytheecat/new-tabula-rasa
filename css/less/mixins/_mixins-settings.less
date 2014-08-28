@@ -1,0 +1,40 @@
+/******************************************************************
+Mixins - Settings
+******************************************************************/
+
+/*********************
+COLORS
+*********************/
+@prim-color:      	#ddd;
+@sec-color:         #fbe3e4;
+@tert-color:      	#e6efc2;
+
+@black:             #444;
+@grey:							#757575;
+@white:             #fff;
+
+@text-color:				@black;
+
+@link-color:        #21759b;
+@link-hover:        darken(@link-color, 9%);
+
+@button-color:     	#68C;
+
+/*********************
+TYPOGRAPHY
+*********************/
+@sans-serif:         "Open Sans", Helvetica, Arial, sans-serif;
+@serif:              "PT Serif", Georgia, Cambria, Times New Roman, Times, serif; 
+@body-font:						@sans-serif;
+@heading-font:				"Open Sans Condensed", Helvetica, Arial, sans-serif;
+
+/********************
+FOR ADMIN
+*********************/
+@admin-text-color: @text-color;
+@admin-base-color: @prim-color;
+@admin-icon-color: hsl( hue( @admin-base-color ), 7%, 95% );
+@admin-highlight-color: @sec-color;
+@admin-notification-color: #d54e21;
+@admin-action-color: @admin-highlight-color;
+@import "_mixins-remtopx.less"; 

@@ -39,56 +39,63 @@ TABLE OF CONTENTS
 9.0 - Print	
 
 ******************************************************************/
-// IMPORTING STYLES //
 
-// import normalize
-@import "_normalize.less";
+/*--------------------------------------------------------------
+Mixins
+--------------------------------------------------------------*/
+@import "mixins/_mixins-remtopx.less";
+@import "mixins/_mixins-settings.less"; 
+@import "mixins/_mixins-functions.less";
+@import "mixins/_mixins-grid.less";
 
-// import mixins
-@import "_mixins.less";
+/*--------------------------------------------------------------
+1.0 - Normalize
+--------------------------------------------------------------*/
+@import "setup/_normalize.less";
 
-@import "_grid.less";
+/*--------------------------------------------------------------
+2.0 Typography
+--------------------------------------------------------------*/
+@import "setup/_typography.less";
 
-// styles in base.less
-@import "_base.less";
+/*--------------------------------------------------------------
+3.0 Elements
+--------------------------------------------------------------*/
+@import "setup/_elements.less";
 
-@media only screen and (min-width: 481px) {
-	@import "_481up.less";
-}
+/*--------------------------------------------------------------
+4.0 Forms
+--------------------------------------------------------------*/
+@import "setup/_forms.less";
 
-@media only screen and (min-width: 600px) {
+/*--------------------------------------------------------------
+12.0 Media
+--------------------------------------------------------------*/
+@import "setup/_media.less";
 
-	@import "_600up.less";
-}
+/*--------------------------------------------------------------
+6.0 Accessibility
+--------------------------------------------------------------*/
+@import "modules/_accessibility.less";
 
-@media only screen and (min-width: 768px) {
-	// import grid and layouts
-	
+/*--------------------------------------------------------------
+7.0 Alignments
+--------------------------------------------------------------*/
+@import "modules/_alignments.less";
 
-	@import "_768up.less";
-}
+/*--------------------------------------------------------------
+8.0 Partials
+--------------------------------------------------------------*/
+//@import "modules/_partials.less";
 
-@media only screen and (min-width: 1030px) {
-	@import "_1030up.less";
-}
+/*--------------------------------------------------------------
+10.0 Content
+--------------------------------------------------------------*/
+@import "site/_site.less";
 
-@media only screen and (min-width: 1240px) {
-	@import "_1240up.less";
-}
-
-/*
-RETINA (2x RESOLUTION DEVICES)
-This applies to the retina iPhone (4s) and iPad (2,3) along with
-other displays with a 2x resolution. You can also create a media
-query for retina AND a certain size if you want. Go Nuts.
-*/
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
-       only screen and (min--moz-device-pixel-ratio: 1.5),
-       only screen and (min-device-pixel-ratio: 1.5) {
-
-	@import "_2x.less";
-}
-
+/*--------------------------------------------------------------
+Print Settings
+--------------------------------------------------------------*/
 @media print {
 	@import "_print.less";
 }

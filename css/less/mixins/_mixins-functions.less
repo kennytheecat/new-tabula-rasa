@@ -1,49 +1,10 @@
 /******************************************************************
-Stylesheet: Mixins & Constants Stylesheet
+Mixins - Functions
 ******************************************************************/
 
 /*********************
-COLORS
-*********************/
-
-@prim-color:      	#ddd;
-@sec-color:         #fbe3e4;
-@tert-color:      	#e6efc2;
-
-@black:             #444;
-@grey:				#757575;
-@white:             #fff;
-
-@text-color:		@black;
-
-@link-color:        #21759b;
-@link-hover:        darken(@link-color, 9%);
-
-@button-color:     	#68C;
-/*********************
-TYPOGRAPHY
-*********************/
-
-@sans-serif:         "Open Sans", Helvetica, Arial, sans-serif;
-@serif:              "PT Serif", Georgia, Cambria, Times New Roman, Times, serif; 
-@heading-font:				"Open Sans Condensed", Helvetica, Arial, sans-serif;
-
-/********************
-FOR ADMIN
-*********************/
-@admin-text-color: @text-color;
-@admin-base-color: @prim-color;
-@admin-icon-color: hsl( hue( @admin-base-color ), 7%, 95% );
-@admin-highlight-color: @sec-color;
-@admin-notification-color: #d54e21;
-@admin-action-color: @admin-highlight-color;
-
-@import "_remtopx_mixins.less"; 
- 
-/*********************
 CLEARFIXIN'
 *********************/
-
 // Contain floats: nicolasgallagher.com/micro-clearfix-hack/
 .clearfix {
   zoom: 1;
@@ -54,7 +15,6 @@ CLEARFIXIN'
 /*********************
 TOOLS
 *********************/ 
-
 // BORDER-BOX ALL THE THINGS! (http://paulirish.com/2012/box-sizing-border-box-ftw/)
 *,
 *:before,
@@ -74,7 +34,6 @@ TOOLS
 /*********************
 BORDER RADIUS
 *********************/ 
-
 /* 
 NOTE: For older browser support (and some mobile), 
 don't use the shorthand to define *different* corners. 
@@ -92,7 +51,6 @@ USAGE: .border-radius(4px);
 /*********************
 CSS3 GRADIENTS
 *********************/
-
 /* .css-gradient(#dfdfdf,#f8f8f8); */
 .css-gradient(@from: #dfdfdf, @to: #f8f8f8) {
 	background-color: @to;
@@ -106,7 +64,6 @@ CSS3 GRADIENTS
 /*********************
 BOX SHADOW
 *********************/
-
 /* .boxShadow(0,0,4px,0,#444); */
 .boxShadow(@x: 0, @y: 0, @radius: 4px, @spread: 0, @color: rgba(0,0,0,0.5)) when (isnumber(@x)) {
 	-webkit-box-shadow: @x @y @radius @spread @color;
