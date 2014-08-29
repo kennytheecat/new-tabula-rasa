@@ -111,6 +111,31 @@ a {
 	/* end current highlighters */			
 } /* end .nav-menu ul */
 
+/* Breakpoint - 600 */
+@media only screen and (min-width: 600px) {
+	.main-navigation {
+		.margin-top(20px);
+		display: inline-block;
+		width: 100%;
+		border-top: 2px solid @grey;
+		border-bottom: 2px solid @grey;	
+		
+		.mmenu-toggle {
+			.height(44px);
+			display: inline;
+		}
+		.nav-menu {
+			display: inline-block;
+			float: left;
+			width: auto;
+		}
+		.search-not-mobile {
+			display: inline-block;
+			float: right;
+			.padding-top(5px);
+		}
+	}
+}
 /* Mobile Menu 
 ******************************************************************/
 .mobile-menu{
@@ -133,6 +158,19 @@ a {
 .mm-list > li {
 	width: 100%;
 }
+
+/* Breakpoint - 600 */
+@media only screen and (min-width: 600px) {
+	/* Small menu */
+	.mobile-menu {
+		display: none;
+	}
+	.nav-menu {
+		display: inline-block;
+	}
+}
+
+
 /** Social Menu
 ******************************************************************/
 .menu-social ul {
@@ -215,4 +253,14 @@ input[type="search"] {
 .main-navigation .search-toggle,
 .search-box-wrapper {
 	display: none;
+}
+
+/* Breakpoint - 600 */
+@media only screen and (min-width: 600px) {
+	.search-mobile {
+		display: none;
+	}
+	.search-not-mobile {
+		display: inline-block;
+	}
 }

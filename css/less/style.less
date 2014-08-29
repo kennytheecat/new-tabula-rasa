@@ -2,46 +2,23 @@
 Site Name: Tabula Rasa
 Author: Kenny Scott  
 
-Stylesheet: Main Stylesheet
-
-Here's where the magic happens. Here, you'll see we are calling in
-the separate media queries. The base mobile goes outside any query
-and is called at the beginning, after that we call the rest
-of the styles inside media queries.
-******************************************************************/
-
-/******************************************************************
-TABLE OF CONTENTS
-1.0 - Normalize.css
-2.0 - Repeatable Patterns
-3.0 - Site Structure
-4.0 - Header
-	4.1 - Site Header
-	4.2 - Navigation
-5.0 - Content
-  5.1 - Entry Header
-  5.2 - Entry Meta
-  5.3 - Entry Content
-  5.4 - Galleries
-  5.5 - Post Formats
-  5.6 - Attachments
-  5.7 - Post/Paging Navigation
-  5.8 - Author Bio
-  5.9 - Archives
-  5.10 - Search Results/No posts
-  5.11 - 404
-  5.12 - Comments
-  5.13 - Multisite
-6.0 - Sidebar
-  6.1 - Widgets
-7.0 - Footer
-8.0 - Media Queries
-9.0 - Print	
+/** TABLE OF CONTENTS
+****************************************************************
+MIXINS
+TYPOGRAPHY
+ELEMENTS
+FORMS 
+MEDIA
+ACCESSIBILITY
+ALIGNMENTS
+PARTIALS
+CONTENT
+PRINT SETTINGS
 
 ******************************************************************/
 
 /*--------------------------------------------------------------
-Mixins
+MIXINS
 --------------------------------------------------------------*/
 @import "mixins/_mixins-remtopx.less";
 @import "mixins/_mixins-settings.less"; 
@@ -49,52 +26,52 @@ Mixins
 @import "mixins/_mixins-grid.less";
 
 /*--------------------------------------------------------------
-1.0 - Normalize
+NORMALIZE
 --------------------------------------------------------------*/
 @import "setup/_normalize.less";
 
 /*--------------------------------------------------------------
-2.0 Typography
+TYPOGRAPHY
 --------------------------------------------------------------*/
 @import "setup/_typography.less";
 
 /*--------------------------------------------------------------
-3.0 Elements
+ELEMENTS
 --------------------------------------------------------------*/
 @import "setup/_elements.less";
 
 /*--------------------------------------------------------------
-4.0 Forms
+FORMS 
 --------------------------------------------------------------*/
 @import "setup/_forms.less";
 
 /*--------------------------------------------------------------
-12.0 Media
+MEDIA
 --------------------------------------------------------------*/
 @import "setup/_media.less";
 
 /*--------------------------------------------------------------
-6.0 Accessibility
+ACCESSIBILITY
 --------------------------------------------------------------*/
 @import "modules/_accessibility.less";
 
 /*--------------------------------------------------------------
-7.0 Alignments
+ALIGNMENTS
 --------------------------------------------------------------*/
 @import "modules/_alignments.less";
 
 /*--------------------------------------------------------------
-8.0 Partials
+PARTIALS
 --------------------------------------------------------------*/
-//@import "modules/_partials.less";
+@import "modules/_partials.less";
 
 /*--------------------------------------------------------------
-10.0 Content
+CONTENT
 --------------------------------------------------------------*/
 @import "site/_site.less";
 
 /*--------------------------------------------------------------
-Print Settings
+PRINT SETTINGS
 --------------------------------------------------------------*/
 @media print {
 	@import "_print.less";

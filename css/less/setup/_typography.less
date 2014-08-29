@@ -1,18 +1,4 @@
-/** Typography 
--------------------------------------------------------------- */
-html{
-	font-size: 62.5%;
-	overflow-y: scroll; /* Keeps page centered in all browsers regardless of content height */
-}
-body {
-	background: @prim-color; /* Fallback for when there is no custom background color defined. */
-	.font-size(16px);
-	font-family: @sans-serif;
-	text-rendering: optimizeLegibility;
-	color: @text-color;
-}
-
-//** HEADINGS **//
+/** HEADINGS **/
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 	font-family: @heading-font;
 	text-rendering: optimizelegibility;
@@ -40,7 +26,7 @@ h6, .h6 {
 	.font-size(12px);
 }
 
-//** COPY **//
+/** COPY **/
 // proper formatting (http://blog.fontdeck.com/post/9037028497/hyphens) 
 p {
 	-webkit-hyphens: auto;

@@ -1,6 +1,18 @@
 /******************************************************************
 LAYOUT & GRID STYLES
 ******************************************************************/
+html{
+	font-size: 62.5%;
+	overflow-y: scroll; /* Keeps page centered in all browsers regardless of content height */
+}
+body {
+	background: @prim-color; /* Fallback for when there is no custom background color defined. */
+	.font-size(16px);
+	font-family: @sans-serif;
+	text-rendering: optimizeLegibility;
+	color: @text-color;
+}
+
 /* Page Structure
 -------------------------------------------------------------- */
 /*
@@ -34,4 +46,40 @@ body
 }
 .site-footer {
 	clear: both;
+}
+
+/* Breakpoint - 600 */
+@media only screen and (min-width: 600px) {
+	.wrap {
+		.max-width(1000px); 
+		margin: 0 auto 0;	
+	}
+	.site {
+		.wrap;
+	}
+}
+
+/* Breakpoint - 768 */
+@media only screen and (min-width: 768px) {
+	.site {}
+	.site-header {}
+	.site-content {	
+		.content-area {
+			.column(8);
+			.first;
+			.site-main {}
+		}
+		
+		.widget-area {
+			display: block;
+			.column(4);
+			.last;
+			.padding(10px);
+			list-style: none;
+			
+		}
+	}
+	.site-footer {
+		clear: both;
+	}
 }
