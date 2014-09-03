@@ -1,19 +1,11 @@
 //Mixins - Functions
-/* mixins-functions.less.*/
+/* 
+mixins-functions.less.
+mixins for border-radius and gradients and stuff like that.
+I am sure this is an actual term for this that I should add later
+*/
 
-/*********************
-CLEARFIXIN'
-*********************/
-// Contain floats: nicolasgallagher.com/micro-clearfix-hack/
-.clearfix {
-  zoom: 1;
-	&:before, &:after { content: ""; display: table; }
-	&:after { clear: both; }
-}
-
-/*********************
-TOOLS
-*********************/ 
+/* BORDER BOX */
 // BORDER-BOX ALL THE THINGS! (http://paulirish.com/2012/box-sizing-border-box-ftw/)
 *,
 *:before,
@@ -23,34 +15,18 @@ TOOLS
 	box-sizing:         border-box;
 }
 
-// http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/ 
-.image-replacement {
-	text-indent: 100%;
-	white-space: nowrap;
-	overflow: hidden;
-}
+//BORDER RADIUS 
+//NOTE: For older browser support (and some mobile), don't use the shorthand to define *different* corners. 
+//USAGE: .border-radius(4px); 
 
-/*********************
-BORDER RADIUS
-*********************/ 
-/* 
-NOTE: For older browser support (and some mobile), 
-don't use the shorthand to define *different* corners. 
-
-USAGE: .border-radius(4px); 
-
-*/
 .border-radius(@radius: 4px) {
   -webkit-border-radius: @radius;
      -moz-border-radius: @radius;
           border-radius: @radius;
 }
 
-
-/*********************
-CSS3 GRADIENTS
-*********************/
-/* .css-gradient(#dfdfdf,#f8f8f8); */
+// CSS3 GRADIENTS
+// .css-gradient(#dfdfdf,#f8f8f8);
 .css-gradient(@from: #dfdfdf, @to: #f8f8f8) {
 	background-color: @to;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(@from), to(@to));
@@ -60,25 +36,22 @@ CSS3 GRADIENTS
 	background-image: linear-gradient(to bottom, @from, @to);
 }
 
-/*********************
-BOX SHADOW
-*********************/
-/* .boxShadow(0,0,4px,0,#444); */
+// BOX SHADOW
+// .boxShadow(0,0,4px,0,#444);
 .boxShadow(@x: 0, @y: 0, @radius: 4px, @spread: 0, @color: rgba(0,0,0,0.5)) when (isnumber(@x)) {
 	-webkit-box-shadow: @x @y @radius @spread @color;
 	   -moz-box-shadow: @x @y @radius @spread @color;
 			box-shadow: @x @y @radius @spread @color; 
 }
-/* .boxShadow(none); */
+
+// .boxShadow(none);
 .boxShadow(@x: none) when (iskeyword(@x)) {
 	-webkit-box-shadow: @x;
 	   -moz-box-shadow: @x;
 			box-shadow: @x; 
 }
 
-/*********************
-BUTTONS
-*********************/
+//BUTTONS
 .button(@button-color: #ddd) {
 	border: 1px solid darken(@button-color, 13%);
 	border-top-color: darken(@button-color, 7%);

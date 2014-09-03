@@ -28,24 +28,12 @@ mixins-settings.less.
 Sets up the main vairables for the site.
 Colors, text, and fonts
 */
-/* mixins-functions.less.*/
-/*********************
-CLEARFIXIN'
-*********************/
-.clearfix {
-  zoom: 1;
-}
-.clearfix:before,
-.clearfix:after {
-  content: "";
-  display: table;
-}
-.clearfix:after {
-  clear: both;
-}
-/*********************
-TOOLS
-*********************/
+/* 
+mixins-functions.less.
+mixins for border-radius and gradients and stuff like that.
+I am sure this is an actual term for this that I should add later
+*/
+/* BORDER BOX */
 *,
 *:before,
 *:after {
@@ -55,43 +43,7 @@ TOOLS
   /* Still needed for Firefox 28; see http://caniuse.com/#search=box-sizing */
   box-sizing: border-box;
 }
-.image-replacement {
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-}
-/*********************
-BORDER RADIUS
-*********************/
-/* 
-NOTE: For older browser support (and some mobile), 
-don't use the shorthand to define *different* corners. 
-
-USAGE: .border-radius(4px); 
-
-*/
-/*********************
-CSS3 GRADIENTS
-*********************/
-/* .css-gradient(#dfdfdf,#f8f8f8); */
-/*********************
-BOX SHADOW
-*********************/
-/* .boxShadow(0,0,4px,0,#444); */
-/* .boxShadow(none); */
-/*********************
-BUTTONS
-*********************/
 /* mixins-grid.less.*/
-body {
-  width: 100%;
-}
-.first {
-  margin-left: 0px;
-}
-.last {
-  margin-right: 0px;
-}
 /*--------------------------------------------------------------
 NORMALIZE
 --------------------------------------------------------------*/
@@ -1080,18 +1032,29 @@ body
     float: left;
     width: 66%;
     margin: 0 1%;
+  }
+  .site-content .content-area:first-of-type {
     margin-left: 0px;
+  }
+  .site-content .content-area:last-of-type {
+    margin-right: 0px;
   }
   .site-content .widget-area {
     display: block;
     display: inline;
     float: left;
-    width: 32%;
+    width: 23.5%;
     margin: 0 1%;
-    margin-right: 0px;
+    margin-right: 9.5%;
     padding: 10px;
     padding: 1rem;
     list-style: none;
+  }
+  .site-content .widget-area:first-of-type {
+    margin-left: 0px;
+  }
+  .site-content .widget-area:last-of-type {
+    margin-right: 0px;
   }
   .site-footer {
     clear: both;
