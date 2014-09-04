@@ -4,63 +4,17 @@ hr {
 	.height(1px);
 }
 
-/** LIST **/
-ul, ol {
-	list-style: none;	
+/** Lists **/
+@import "setup/_lists.less";
 
-	li {}
-}
-ul {
-	list-style: disc outside;
-	
-	li {}
-}
-ol {
-	list-style: decimal outside;
-	
-	li {}
-}
-ul ul { margin-bottom: 0; }
-ol ol { margin-bottom: 0; }
-ol ul { margin-bottom: 0; }
-ul ol { margin-bottom: 0; }
-dl {
-	dt {
-		font-weight: bold;
-	}
-	dd {}
-}
+/** Tables **/
+@import "setup/_tables.less";
 
-/** TABLE **/
-table {
-	border-bottom: 1px solid @grey;
-	color: @grey;
-	.font-size(12px);
-	width: 100%;
-	
-	caption {
-		.font-size(16px);
-		font-weight: normal;
-		text-align: left;			
-	}
-	tr {	
-		th {
-			.font-size(11px);
-			font-weight: bold;
-			text-transform: uppercase;
-			color: @grey;
-			text-align: left;
-		}
-		td {
-			border-top: 1px solid @grey;
-			.padding-top(6px);
-			.padding-right(10px);
-			.padding-bottom(6px);
-			.padding-left(0);
-			font-weight: normal;
-			text-align: left;
-		}
-		.even {}
-		.odd{}
-	}
-}
+/** Forms **/
+@import "setup/_forms.less";
+
+/** Buttons **/
+@import "setup/_buttons.less";
+
+/** Links **/
+@import "setup/_links.less";

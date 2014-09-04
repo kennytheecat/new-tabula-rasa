@@ -1,5 +1,3 @@
-/* Form fields, general styles first
--------------------------------------------------------------- */
 button,
 input,
 select,
@@ -19,8 +17,7 @@ textarea {
 	vertical-align: top;
 }
 
-/* Reset non-text input types
--------------------------------------------------------------- */
+/** Reset non-text input types **/
 input[type="checkbox"],
 input[type="radio"],
 input[type="file"],
@@ -30,79 +27,4 @@ input[type="color"] {
 	border: 0;
 	border-radius: 0;
 	.padding(0);
-}
-
-/* Buttons
--------------------------------------------------------------- */
-//**  BUTTON **//
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-	.button();
-}
-
-//.menu-toggle,
-input[type="submit"],
-input[type="button"],
-input[type="reset"],
-article.post-password-required input[type=submit],
-li.bypostauthor cite span {
-	.padding(6px, 10px);
-	.font-size(11px);
-	font-weight: normal;
-	color: #7c7c7c;
-	background-color: #e6e6e6;
-	background-repeat: repeat-x;
-	background-image: -moz-linear-gradient(top, #f4f4f4, #e6e6e6);
-	background-image: -ms-linear-gradient(top, #f4f4f4, #e6e6e6);
-	background-image: -webkit-linear-gradient(top, #f4f4f4, #e6e6e6);
-	background-image: -o-linear-gradient(top, #f4f4f4, #e6e6e6);
-	background-image: linear-gradient(top, #f4f4f4, #e6e6e6);
-	border: 1px solid #d2d2d2;
-	.border-radius(3px);
-	box-shadow: 0 1px 2px rgba(64, 64, 64, 0.1);
-}
-//.menu-toggle,
-button,
-input[type="submit"],
-input[type="button"],
-input[type="reset"] {
-	cursor: pointer;
-}
-button[disabled],
-input[disabled] {
-    cursor: default;
-}
-//.menu-toggle:hover,
-button:hover,
-input[type="submit"]:hover,
-input[type="button"]:hover,
-input[type="reset"]:hover,
-article.post-password-required input[type=submit]:hover {
-	color: #5e5e5e;
-	background-color: #ebebeb;
-	background-repeat: repeat-x;
-	background-image: -moz-linear-gradient(top, #f9f9f9, #ebebeb);
-	background-image: -ms-linear-gradient(top, #f9f9f9, #ebebeb);
-	background-image: -webkit-linear-gradient(top, #f9f9f9, #ebebeb);
-	background-image: -o-linear-gradient(top, #f9f9f9, #ebebeb);
-	background-image: linear-gradient(top, #f9f9f9, #ebebeb);
-}
-//.menu-toggle:active,
-//.menu-toggle.toggled-on,
-button:active,
-input[type="submit"]:active,
-input[type="button"]:active,
-input[type="reset"]:active {
-	color: #757575;
-	background-color: #e1e1e1;
-	background-repeat: repeat-x;
-	background-image: -moz-linear-gradient(top, #ebebeb, #e1e1e1);
-	background-image: -ms-linear-gradient(top, #ebebeb, #e1e1e1);
-	background-image: -webkit-linear-gradient(top, #ebebeb, #e1e1e1);
-	background-image: -o-linear-gradient(top, #ebebeb, #e1e1e1);
-	background-image: linear-gradient(top, #ebebeb, #e1e1e1);
-	box-shadow: inset 0 0 8px 2px #c6c6c6, 0 1px 0 0 #f4f4f4;
-	border: none;
 }
