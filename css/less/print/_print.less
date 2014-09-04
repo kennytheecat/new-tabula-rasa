@@ -2,6 +2,10 @@
 Site Name: Tabula Rasa
 Author: Kenny Scott
 Stylesheet: Print Stylesheet
+
+Sources:
+http://www.webdesignerdepot.com/2010/01/10-tips-for-better-print-style-sheets/
+http://www.smashingmagazine.com/2013/03/08/tips-and-tricks-for-print-style-sheets/
 ******************************************************************/
 * {
 	background: transparent !important;
@@ -10,14 +14,23 @@ Stylesheet: Print Stylesheet
 	filter:none !important;
 	-ms-filter: none !important;
 }
-
+.site-main,
+article {
+	width: 100%; 
+	margin: 0; 
+	float: none;	
+}
 a, a:visited {
-	color: #444 !important;
-	text-decoration: underline;
+	font-weight: bolder; 
+	text-decoration: none; 
+	color: #06c;
 
 	// show links on printed pages
 	&:after {
 		content: " (" attr(href) ")";
+		font-size: 14px;
+		font-weight: normal;
+		color: #06c;
 	}
 
 	// show title too
@@ -31,7 +44,11 @@ a[href^="javascript:"]:after,
 a[href^="#"]:after {
 	content: "";
 }
-
+a:link { 
+	font-weight: bolder; 
+	text-decoration: none; 
+	color: #06c; 
+}
 pre, blockquote {
 	border: 1px solid #999;
 	page-break-inside: avoid;
@@ -41,7 +58,7 @@ thead {
 	display: table-header-group;
 }
 
-tr, img {
+ul, tr, img {
 	page-break-inside: avoid;
 }
 
@@ -49,25 +66,43 @@ img {
 	max-width: 100% !important;
 }
 
-	@page {
-		margin: 200cm;
-	}
+@page :left{ margin: 0.5cm; }
+@page :right{ margin: 0.8cm; }
 
-	p, h2, h3 {
-		orphans: 3;
-		widows: 3;
-	}
+p, h2, h3 {
+	orphans: 3;
+	widows: 3;
+}
+p {
+	font-size: 12pt;
+}
+h2,
+h3 {
+	page-break-after: avoid;
+}
 
-	h2,
-	h3 {
-		page-break-after: avoid;
-	}
+//Force comments section to start a new page that way the user can choose not to print them
+.comments-area {
+	page-break-before: always; 
+}
+// hide content people who print don't need to see
+.mobile-menu,
+.search-mobile,
+.sidebar,
+.widget-area,
+.page-navigation,
+.post-navigation,
+.wp-prev-next,
+.respond-form,
+.comment-respond,
+.site-footer,
+nav {
+	display: none;
+}
 
-	// hide content people who print don't need to see
-	.sidebar,
-	.page-navigation,
-	.wp-prev-next,
-	.respond-form,
-	nav {
-		display: none;
-	}
+@media print and (color) {
+   * {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+   }
+}

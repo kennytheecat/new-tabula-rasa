@@ -1558,6 +1558,9 @@ footer#colophon .site-footer
 Site Name: Tabula Rasa
 Author: Kenny Scott
 Stylesheet: Print Stylesheet
+
+Sources:
+http://www.webdesignerdepot.com/2010/01/10-tips-for-better-print-style-sheets/
 ******************************************************************/
   * {
     background: transparent !important;
@@ -1566,14 +1569,24 @@ Stylesheet: Print Stylesheet
     filter: none !important;
     -ms-filter: none !important;
   }
+  .site-main,
+  article {
+    width: 100%;
+    margin: 0;
+    float: none;
+  }
   a,
   a:visited {
-    color: #444 !important;
-    text-decoration: underline;
+    font-weight: bolder;
+    text-decoration: none;
+    color: #06c;
   }
   a:after,
   a:visited:after {
     content: " (" attr(href) ")";
+    font-size: 12px;
+    font-weight: normal;
+    color: #06c;
   }
   a abbr[title]:after,
   a:visited abbr[title]:after {
@@ -1584,6 +1597,11 @@ Stylesheet: Print Stylesheet
   a[href^="#"]:after {
     content: "";
   }
+  a:link {
+    font-weight: bolder;
+    text-decoration: none;
+    color: #06c;
+  }
   pre,
   blockquote {
     border: 1px solid #999;
@@ -1592,6 +1610,7 @@ Stylesheet: Print Stylesheet
   thead {
     display: table-header-group;
   }
+  ul,
   tr,
   img {
     page-break-inside: avoid;
@@ -1599,8 +1618,11 @@ Stylesheet: Print Stylesheet
   img {
     max-width: 100% !important;
   }
-  @page {
-    margin: 200cm;
+  @page :left {
+    margin: 0.5cm;
+  }
+  @page :right {
+    margin: 0.8cm;
   }
   p,
   h2,
@@ -1608,15 +1630,33 @@ Stylesheet: Print Stylesheet
     orphans: 3;
     widows: 3;
   }
+  p {
+    font-size: 12pt;
+  }
   h2,
   h3 {
     page-break-after: avoid;
   }
+  .comments-area {
+    page-break-before: always;
+  }
+  .mobile-menu,
+  .search-mobile,
   .sidebar,
+  .widget-area,
   .page-navigation,
+  .post-navigation,
   .wp-prev-next,
   .respond-form,
+  .comment-respond,
+  .site-footer,
   nav {
     display: none;
+  }
+}
+@media print and print and (color) {
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 }
