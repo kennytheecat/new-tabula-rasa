@@ -10,19 +10,18 @@ Author: Kenny Scott
 		mixins-functions
 		mixins-grid
 - INITIALIZE
-	NORMALIZE
-	ACCESSIBILITY
-	ALIGNMENTS
-- SETUP		
-	TYPOGRAPHY
+		Normalize
+		Accessibility
+		Alignments
+- TYPOGRAPHY
 		Headings
 		Copy
-	ELEMENTS
+- ELEMENTS
 		Lists
 		Tables
 		Forms
 		Buttons
-	MEDIA
+- MEDIA
 		Images
 		Galleries
 		Captions
@@ -83,31 +82,62 @@ Author: Kenny Scott
 	
 /*==================================================================
 
-	=SETUP
+	=TYPOGRAPHY
 	
 ==================================================================*/
-	/** TYPOGRAPHY
+	/** Headings
 	******************************************************************/
-	@import "setup/_typography.less";
-		//Headings
-		//Copy
+	@import "typography/_headings.less";
 
-	/** ELEMENTS
+	/** Copy
 	******************************************************************/
-	@import "setup/_elements.less";
-		//Lists
-		//Tables
-		//Forms
-		//Buttons
-		//Links
+	@import "typography/_copy.less";
 
-	/** MEDIA
+/*==================================================================
+
+	=ELEMENTS
+	
+==================================================================*/
+	/** Lists and hr
 	******************************************************************/
-	@import "setup/_media.less";
-		//Images
-		//Galleries
-		//Captions
-		//Videos
+	@import "elements/_lists.less";
+
+	/** Tables
+	******************************************************************/
+	@import "elements/_tables.less";
+
+	/** Forms
+	******************************************************************/
+	@import "elements/_forms.less";
+
+	/** Buttons
+	******************************************************************/
+	@import "elements/_buttons.less";
+
+	/** Links
+	******************************************************************/
+	@import "elements/_links.less";
+
+/*==================================================================
+
+	=MEDIA
+	
+==================================================================*/
+	/** Images
+	******************************************************************/
+	@import "media/_images.less";
+
+	/** Galleries 
+	******************************************************************/
+	@import "media/_galleries.less";
+
+	/** Captions 
+	******************************************************************/
+	@import "media/_captions.less";
+
+	/** Videos 
+	******************************************************************/
+	@import "media/_videos.less";
 
 		
 /*==================================================================

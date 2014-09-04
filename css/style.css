@@ -10,19 +10,18 @@ Author: Kenny Scott
 		mixins-functions
 		mixins-grid
 - INITIALIZE
-	NORMALIZE
-	ACCESSIBILITY
-	ALIGNMENTS
-- SETUP		
-	TYPOGRAPHY
+		Normalize
+		Accessibility
+		Alignments
+- TYPOGRAPHY
 		Headings
 		Copy
-	ELEMENTS
+- ELEMENTS
 		Lists
 		Tables
 		Forms
 		Buttons
-	MEDIA
+- MEDIA
 		Images
 		Galleries
 		Captions
@@ -493,12 +492,11 @@ th {
 }
 /*==================================================================
 
-	=SETUP
+	=TYPOGRAPHY
 	
 ==================================================================*/
-/** TYPOGRAPHY
+/** Headings
 	******************************************************************/
-/** HEADINGS **/
 h1,
 .h1,
 h2,
@@ -571,7 +569,8 @@ h6,
   font-size: 1.2rem;
   line-height: 1.8rem;
 }
-/** COPY **/
+/** Copy
+	******************************************************************/
 p {
   -webkit-hyphens: auto;
   -epub-hyphens: auto;
@@ -618,15 +617,13 @@ acronym {
   border-bottom: 1px dotted #757575;
   cursor: help;
 }
-/** ELEMENTS
+/*==================================================================
+
+	=ELEMENTS
+	
+==================================================================*/
+/** Lists and hr
 	******************************************************************/
-hr {
-  background-color: #757575;
-  border: 0;
-  height: 1px;
-  height: 0.1rem;
-}
-/** Lists **/
 ul,
 ol {
   list-style: none;
@@ -652,7 +649,15 @@ ul ol {
 dl dt {
   font-weight: bold;
 }
-/** Tables **/
+/** HR **/
+hr {
+  background-color: #757575;
+  border: 0;
+  height: 1px;
+  height: 0.1rem;
+}
+/** Tables
+	******************************************************************/
 table {
   border-bottom: 1px solid #757575;
   color: #757575;
@@ -692,7 +697,8 @@ table tr td {
   font-weight: normal;
   text-align: left;
 }
-/** Forms **/
+/** Forms
+	******************************************************************/
 button,
 input,
 select,
@@ -725,7 +731,8 @@ input[type="color"] {
   border-radius: 0;
   padding: 0;
 }
-/** Buttons **/
+/** Buttons
+	******************************************************************/
 button,
 input[type="button"],
 input[type="reset"],
@@ -788,7 +795,8 @@ button[disabled],
 input[disabled] {
   cursor: default;
 }
-/** Links **/
+/** Links
+	******************************************************************/
 a {
   color: #21759b;
 }
@@ -800,17 +808,19 @@ a :hover,
 a :focus {
   color: #195875;
 }
-/** MEDIA
+/*==================================================================
+
+	=MEDIA
+	
+==================================================================*/
+/** Images
 	******************************************************************/
-/** Images **/
 img {
   height: auto;
   /* Make sure images are scaled correctly. */
   max-width: 100%;
   /* Adhere to container width. */
 }
-/** Responsive images 
--------------------------------------------------------------- */
 .entry-content img,
 .comment-content img,
 .widget img {
@@ -820,14 +830,6 @@ img {
 img[class*="align"],
 img[class*="wp-image-"],
 img[class*="attachment-"] {
-  height: auto;
-  /* Make sure images with WordPress-added height and width attributes are scaled correctly */
-}
-img.size-full,
-img.size-large,
-img.header-image,
-img.wp-post-image {
-  max-width: 100%;
   height: auto;
   /* Make sure images with WordPress-added height and width attributes are scaled correctly */
 }
@@ -850,7 +852,8 @@ img.wp-smiley,
   margin-top: 0;
   padding: 0;
 }
-/** Galleries **/
+/** Galleries 
+	******************************************************************/
 .gallery {
   margin-bottom: 1.5em;
 }
@@ -887,7 +890,8 @@ img.wp-smiley,
 .gallery-caption {
   display: block;
 }
-/** Captions **/
+/** Captions 
+	******************************************************************/
 .wp-caption {
   padding: 4px;
   padding: 0.4rem;
@@ -904,7 +908,8 @@ img.wp-smiley,
   color: #757575;
   text-align: center;
 }
-/** Videos **/
+/** Videos 
+	******************************************************************/
 /* Make sure videos and embeds fit their containers */
 embed,
 iframe,
@@ -1561,6 +1566,7 @@ Stylesheet: Print Stylesheet
 
 Sources:
 http://www.webdesignerdepot.com/2010/01/10-tips-for-better-print-style-sheets/
+http://www.smashingmagazine.com/2013/03/08/tips-and-tricks-for-print-style-sheets/
 ******************************************************************/
   * {
     background: transparent !important;
@@ -1584,7 +1590,7 @@ http://www.webdesignerdepot.com/2010/01/10-tips-for-better-print-style-sheets/
   a:after,
   a:visited:after {
     content: " (" attr(href) ")";
-    font-size: 12px;
+    font-size: 14px;
     font-weight: normal;
     color: #06c;
   }
