@@ -1,32 +1,27 @@
-//Change colors to mod admin theme
 // core variables
-
 @import "../mixins/_mixins-settings.less"; 
 
-
-//@admin-text-color: #fff;
-//@admin-base-color: #222;
-//@admin-icon-color: hsl( hue( @admin-base-color ), 7%, 95% );
-//@admin-highlight-color: #0074a2;
-//@admin-notification-color: #d54e21;
-//@admin-action-color: @admin-highlight-color;
+@admin-text-color: @text-color;
+@admin-base-color: @prim-color;
+@admin-icon-color: hsl( hue( @admin-base-color ), 7%, 95% );
+@admin-highlight-color: @sec-color;
+@admin-notification-color: #d54e21;
+@admin-action-color: @admin-highlight-color;
 
 // global 
- 
 @body-background: #f3f3f3;
 
-@link: #0074a2;
-@link-focus: lighten( @link, 10% );
+@link: @link-color;
+@link-focus: @link-hover;
 
-@prim-button-color: @admin-action-color;
+@prim-button-color: @sec-color;
 @prim-button-text-color: @admin-text-color;
-@sec-button-color: #CCC;
-@sec-button-text-color: #555;
+@sec-button-color: @sec-color;
+@sec-button-text-color: @admin-text-color;
 @form-checked: @admin-highlight-color;
 
 
 // admin menu & admin-bar
-
 @menu-text: @admin-text-color;
 @menu-icon: @admin-icon-color;
 @menu-background: @admin-base-color;
@@ -63,6 +58,6 @@
 
 //Modules
 @module: #fff;
-@module-header: @module;
+@module-header: @sec-color;
 @module-tabs: #FDFDFD;
 @module-tabs-panel: @module-tabs;
