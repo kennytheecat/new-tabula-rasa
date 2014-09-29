@@ -26,7 +26,7 @@ a, a:visited {
 	color: #06c;
 
 	// show links on printed pages
-	&:after {
+	&:not([href*="sandbox"]):after {
 		content: " (" attr(href) ")";
 		font-size: 14px;
 		font-weight: normal;
@@ -99,6 +99,7 @@ h3 {
 nav {
 	display: none;
 }
+	 
 
 @media print and (color) {
    * {
