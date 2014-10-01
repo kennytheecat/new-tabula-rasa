@@ -40,7 +40,8 @@
 				<i class="fa fa-bars"></i>
 				<a href="#menu-container" class="screen-reader-text"><?php _e( 'Menu', 'tabula-rasa' ); ?></a>
 		</div>
-		<div class="site-branding">
+		
+		<div class="site-branding">	
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 		</div>
@@ -48,6 +49,16 @@
 			<i class="fa fa-search"></i>
 			<a href="#search-container" class="screen-reader-text"><?php _e( 'Search', 'tabula-rasa' ); ?></a>		
 		</div>
+		<div class="QRprintonly">
+			<?php
+			$permalink = "http" . ((!empty($_SERVER['HTTPS'])) ? "s" : "") . "://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+			// QR code url
+			$qr_code_url = 'http://chart.apis.google.com/chart?chs=100x100&cht=qr&chld=|0&chl='.urlencode($permalink);
+			?>
+			<p>Scan to visit this page:</p>
+			<img src="<?php echo $qr_code_url; ?>
+			" />
+		</div>	
 		<nav id="site-navigation" class="main-navigation" role="navigation">
 			<!-- used to use tr_main_nav() from bones. switched back to _s. unneeded arguments -->
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container_class' => 'mmenu-toggle', 'menu_class' => 'nav-menu') ); ?>

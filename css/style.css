@@ -1049,6 +1049,9 @@ header#masthead .site-header
 					li 
 						.children
 -------------------------------------------------------------- */
+.QRprintonly {
+  display: none;
+}
 .site-branding {
   width: 80%;
   display: inline;
@@ -1658,6 +1661,21 @@ http://www.smashingmagazine.com/2013/03/08/tips-and-tricks-for-print-style-sheet
   .site-footer,
   nav {
     display: none;
+  }
+  .site-branding {
+    margin-top: 50px;
+    margin-top: 5rem;
+    width: 75%;
+    float: left;
+  }
+  .site-branding .site-title {
+    font-size: 28pt;
+    text-align: left;
+  }
+  .QRprintonly {
+    display: inline-block !important;
+    width: 25%;
+    float: left;
   }
 }
 @media print and print and (color) {
