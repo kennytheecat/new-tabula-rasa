@@ -407,4 +407,22 @@ class Clean_404_Email {
 	}
  
 } // Clean_404_Email
+// Add Rel External To External Links
+function add_nofollow_content($content) {
+	$content = preg_replace_callback(
+	'/<a[^>]*href=["|\']([^"|\']*)["|\'][^>]*>([^<]*)<\/a>/i',
+	
+	function($m) {
+		$site_link = get_bloginfo('url');
+		if (strpos($m[1], $site_link) === false)
+		return '<a href="'.$m[1].'" rel="external" target="_blank">'.$m[2].'</a>';
+		else
+		return '<a href="'.$m[1].'" target="_blank">'.$m[2].'</a>';
+	},
+	
+	$content);
+	
+	return $content;
+}
+add_filter('the_content', 'add_nofollow_content');
 ?>

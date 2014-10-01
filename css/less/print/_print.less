@@ -26,24 +26,21 @@ a, a:visited {
 	color: #06c;
 
 	// show links on printed pages
-	&:not([href*="sandbox"]):after {
+	&:[rel="external"]:after {
 		content: " (" attr(href) ")";
 		font-size: 14px;
 		font-weight: normal;
 		color: #06c;
-	}
+	}	
+}
 
-	// show title too
-	abbr[title]:after {
+.entry-title:after {
 		content: " (" attr(title) ")";
-	}
+		font-size: 14px;
+		font-weight: normal;
+		color: #06c;
 }
 
-.ir a:after,
-a[href^="javascript:"]:after,
-a[href^="#"]:after {
-	content: "";
-}
 a:link { 
 	font-weight: bolder; 
 	text-decoration: none; 
@@ -116,8 +113,6 @@ nav {
 	width: 25%;
 	float: left;	
 }
-
-
 
 @media print and (color) {
    * {

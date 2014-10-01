@@ -1597,14 +1597,11 @@ http://www.smashingmagazine.com/2013/03/08/tips-and-tricks-for-print-style-sheet
     font-weight: normal;
     color: #06c;
   }
-  a abbr[title]:after,
-  a:visited abbr[title]:after {
+  .entry-title:after {
     content: " (" attr(title) ")";
-  }
-  .ir a:after,
-  a[href^="javascript:"]:after,
-  a[href^="#"]:after {
-    content: "";
+    font-size: 14px;
+    font-weight: normal;
+    color: #06c;
   }
   a:link {
     font-weight: bolder;
