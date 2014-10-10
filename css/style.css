@@ -798,15 +798,15 @@ input[disabled] {
 /** Links
 	******************************************************************/
 a {
-  color: #ffff00;
+  color: #810000;
 }
 a:visited {
-  color: #ffff00;
+  color: #810000;
 }
 a:active,
 a :hover,
 a :focus {
-  color: #d1d100;
+  color: #530000;
 }
 /*==================================================================
 
@@ -820,18 +820,17 @@ img {
   /* Make sure images are scaled correctly. */
   max-width: 100%;
   /* Adhere to container width. */
-}
-.entry-content img,
-.comment-content img,
-.widget img {
-  max-width: 100%;
-  /* Fluid images for posts, comments, and widgets */
-}
-img[class*="align"],
-img[class*="wp-image-"],
-img[class*="attachment-"] {
-  height: auto;
-  /* Make sure images with WordPress-added height and width attributes are scaled correctly */
+  /*
+	.wp-smiley,
+	.rsswidget img {
+		border: 0;
+		border-radius: 0;
+		box-shadow: none;
+		margin-bottom: 0;
+		margin-top: 0;
+		.padding(0);
+	}	
+	*/
 }
 .entry-content img,
 .comment-content img,
@@ -843,14 +842,23 @@ img.wp-post-image {
   border-radius: 3px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
-img.wp-smiley,
-.rsswidget img {
-  border: 0;
-  border-radius: 0;
-  box-shadow: none;
-  margin-bottom: 0;
-  margin-top: 0;
-  padding: 0;
+.entry-content img.alignleft,
+.comment-content img.alignleft,
+.widget img.alignleft,
+img.header-image.alignleft,
+.author-avatar img.alignleft,
+img.wp-post-image.alignleft {
+  margin-right: 10px;
+  margin-right: 1rem;
+}
+.entry-content img.alignright,
+.comment-content img.alignright,
+.widget img.alignright,
+img.header-image.alignright,
+.author-avatar img.alignright,
+img.wp-post-image.alignright {
+  margin-left: 10px;
+  margin-left: 1rem;
 }
 /** Galleries 
 	******************************************************************/
@@ -920,7 +928,7 @@ object {
 }
 /* Responsiveness for Youtube and Vimeo */
 /* Must wrap frame in <div class="responsive-iframe-container"> */
-.video-container {
+.responsive-iframe-container {
   position: relative;
   padding-bottom: 56.25%;
   padding-top: 30px;
@@ -928,9 +936,9 @@ object {
   height: 0;
   overflow: hidden;
 }
-.video-container iframe,
-.video-container object,
-.video-container embed {
+.responsive-iframe-container iframe,
+.responsive-iframe-container object,
+.responsive-iframe-container embed {
   position: absolute;
   top: 0;
   left: 0;
@@ -950,7 +958,7 @@ html {
   /* Keeps page centered in all browsers regardless of content height */
 }
 body {
-  background: #ff0000;
+  background: #6688aa;
   /* Fallback for when there is no custom background color defined. */
   font-size: 16px;
   line-height: 24px;
@@ -1167,7 +1175,7 @@ header#masthead .site-header
 }
 .nav-menu li:hover > a {
   background: #757575;
-  color: #ffff00;
+  color: #810000;
 }
 .nav-menu li.current-menu-item > a,
 .nav-menu li.current_page_item > a,
@@ -1361,7 +1369,7 @@ input[type="search"] {
   word-wrap: break-word;
 }
 .widget-area .widget a {
-  color: #ffff00;
+  color: #810000;
 }
 .widget-area .widget ul {
   list-style: none;
@@ -1505,6 +1513,10 @@ footer#colophon .site-footer
   font-size: 1.6rem;
   line-height: 2.4rem;
 }
+.comments-area .comment-list {
+  margin: 0;
+  padding: 0;
+}
 .comments-area .comment-list li.comment {
   position: relative;
   clear: both;
@@ -1513,6 +1525,10 @@ footer#colophon .site-footer
 }
 .comments-area .comment-list li.comment:last-child {
   margin-bottom: 0;
+}
+.comments-area .comment-list li.comment .comment-body {
+  padding: 5px;
+  padding: 0.5rem;
 }
 .comments-area .odd {
   background: #757575;
@@ -1590,8 +1606,8 @@ http://www.smashingmagazine.com/2013/03/08/tips-and-tricks-for-print-style-sheet
     text-decoration: none;
     color: #06c;
   }
-  a:not([href*="sandbox"]):after,
-  a:visited:not([href*="sandbox"]):after {
+  a[rel="external"]:after,
+  a:visited[rel="external"]:after {
     content: " (" attr(href) ")";
     font-size: 14px;
     font-weight: normal;

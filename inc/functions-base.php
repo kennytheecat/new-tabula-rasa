@@ -408,6 +408,7 @@ class Clean_404_Email {
  
 } // Clean_404_Email
 // Add Rel External To External Links
+//http://digitizor.com/2014/07/05/add-nofollow-external-wordpress/
 function add_nofollow_content($content) {
 	$content = preg_replace_callback(
 	'/<a[^>]*href=["|\']([^"|\']*)["|\'][^>]*>([^<]*)<\/a>/i',
