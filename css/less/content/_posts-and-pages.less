@@ -2,7 +2,7 @@
 #primary .content-area
 	main#main .site-main
 		article .post
-			.entry-header
+			.entry-header 
 			.entry-content
 			.entry-footer
 		.post-navigation	
@@ -13,8 +13,13 @@
 	}
 }
 .entry-header {
-	.entry-title {}
+	.entry-title {
+		margin-bottom: 0;
+	}
 	.entry-meta {
+		.font-size(14px);
+		display: inline-block;
+		
 		.posted-on {
 			time {}
 		}
@@ -24,6 +29,9 @@
 			}
 		}
 	}
+	.cat-links {
+		.font-size(14px);
+	}	
 }
 .entry-content {
 	p {}
