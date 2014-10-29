@@ -142,6 +142,9 @@ function post_formats() {
 }
 add_action( 'after_setup_theme', 'post_formats' );
 
+/************************************************
+EXCERPTS
+*************************************************/
 // This removes the annoying […] to a Read More link
 function tr_excerpt_more($more) {
 	global $post;
@@ -149,6 +152,16 @@ function tr_excerpt_more($more) {
 	return '...  <a class="excerpt-read-more" href="'. get_permalink($post->ID) . '" title="'. __('Read', 'tabula_rasa') . get_the_title($post->ID).'">'. __('Read more &raquo;', 'tabula_rasa') .'</a>';
 }	
 add_filter('excerpt_more', 'tr_excerpt_more');
+
+//Excerpt length
+function tr_excerpt_length( $length ) {
+	if ( is_archive() || is_page('recent-articles') ) {
+		return 50;	
+	} else {
+		return 55;
+	}
+}
+add_filter( 'excerpt_length', 'tr_excerpt_length' );
 
 /*************************************************************
 POST THUMBNAILS
