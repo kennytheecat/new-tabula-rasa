@@ -8,10 +8,10 @@ I am sure this is an actual term for this that I should add later
 // BORDER-BOX ALL THE THINGS! (http://paulirish.com/2012/box-sizing-border-box-ftw/)
 *,
 *:before,
-*:after  { 
-	-webkit-box-sizing: border-box; /* Not needed for modern webkit but still used by Blackberry Browser 7.0; see http://caniuse.com/#search=box-sizing */
-	-moz-box-sizing:    border-box; /* Still needed for Firefox 28; see http://caniuse.com/#search=box-sizing */
-	box-sizing:         border-box;
+*:after  { //switched to inherit because of ... https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+	-webkit-box-sizing: inherit; /* Not needed for modern webkit but still used by Blackberry Browser 7.0; see http://caniuse.com/#search=box-sizing */
+	-moz-box-sizing:    inherit; /* Still needed for Firefox 28; see http://caniuse.com/#search=box-sizing */
+	box-sizing:         inherit;
 }
 
 //BORDER RADIUS 
