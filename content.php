@@ -52,7 +52,7 @@
 		<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'tabula-rasa' ), __( '1 Comment', 'tabula-rasa' ), __( '% Comments', 'tabula-rasa' ) ); ?></span>
 		<?php endif; ?>
 
-		kenny
+		kenny Scott
 		
 		<?php edit_post_link( __( 'Edit', 'tabula-rasa' ), '<span class="edit-link">', '</span>' ); ?>
 	</footer><!-- .entry-footer -->
