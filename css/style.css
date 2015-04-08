@@ -65,11 +65,11 @@ I am sure this is an actual term for this that I should add later
 *,
 *:before,
 *:after {
-  -webkit-box-sizing: border-box;
+  -webkit-box-sizing: inherit;
   /* Not needed for modern webkit but still used by Blackberry Browser 7.0; see http://caniuse.com/#search=box-sizing */
-  -moz-box-sizing: border-box;
+  -moz-box-sizing: inherit;
   /* Still needed for Firefox 28; see http://caniuse.com/#search=box-sizing */
-  box-sizing: border-box;
+  box-sizing: inherit;
 }
 /** MIXINS-GRID
 	******************************************************************/
@@ -442,9 +442,7 @@ th {
 .screen-reader-text {
   clip: rect(1px, 1px, 1px, 1px);
   position: absolute !important;
-  height: 1px;
   height: 0.1rem;
-  width: 1px;
   width: 0.1rem;
   overflow: hidden;
   right: 0;
@@ -458,20 +456,13 @@ th {
   clip: auto !important;
   color: #21759b;
   display: block;
-  font-size: 14px;
-  line-height: 21px;
   font-size: 1.4rem;
   line-height: 2.1rem;
   font-weight: bold;
   height: auto;
-  left: 5px;
   left: 0.5rem;
-  padding: 15px 23px;
-  padding: 1.5rem 23px;
-  padding: 15px 2.3rem;
   padding: 1.5rem 2.3rem;
   text-decoration: none;
-  top: 5px;
   top: 0.5rem;
   width: auto;
   z-index: 100000;
@@ -529,43 +520,31 @@ h6 a,
 }
 h1,
 .h1 {
-  font-size: 21px;
-  line-height: 31.5px;
   font-size: 2.1rem;
   line-height: 3.1rem;
 }
 h2,
 .h2 {
-  font-size: 18px;
-  line-height: 27px;
   font-size: 1.8rem;
   line-height: 2.7rem;
 }
 h3,
 .h3 {
-  font-size: 16px;
-  line-height: 24px;
   font-size: 1.6rem;
   line-height: 2.4rem;
 }
 h4,
 .h4 {
-  font-size: 14px;
-  line-height: 21px;
   font-size: 1.4rem;
   line-height: 2.1rem;
 }
 h5,
 .h5 {
-  font-size: 13px;
-  line-height: 19.5px;
   font-size: 1.3rem;
   line-height: 1.9rem;
 }
 h6,
 .h6 {
-  font-size: 12px;
-  line-height: 18px;
   font-size: 1.2rem;
   line-height: 1.8rem;
 }
@@ -578,16 +557,12 @@ p {
   hyphens: auto;
 }
 blockquote {
-  margin-bottom: 12px;
   margin-bottom: 1.2rem;
-  padding: 12px;
   padding: 1.2rem;
   font-style: italic;
 }
 code {
   font-family: Consolas, Monaco, Lucida Console, monospace;
-  font-size: 12px;
-  line-height: 18px;
   font-size: 1.2rem;
   line-height: 1.8rem;
 }
@@ -598,8 +573,6 @@ pre {
   border: 1px solid #757575;
   color: #757575;
   font-family: Consolas, Monaco, Lucida Console, monospace;
-  font-size: 12px;
-  line-height: 18px;
   font-size: 1.2rem;
   line-height: 1.8rem;
   overflow: auto;
@@ -653,7 +626,6 @@ dl dt {
 hr {
   background-color: #757575;
   border: 0;
-  height: 1px;
   height: 0.1rem;
 }
 /** Tables
@@ -661,23 +633,17 @@ hr {
 table {
   border-bottom: 1px solid #757575;
   color: #757575;
-  font-size: 12px;
-  line-height: 18px;
   font-size: 1.2rem;
   line-height: 1.8rem;
   width: 100%;
 }
 table caption {
-  font-size: 16px;
-  line-height: 24px;
   font-size: 1.6rem;
   line-height: 2.4rem;
   font-weight: normal;
   text-align: left;
 }
 table tr th {
-  font-size: 11px;
-  line-height: 16.5px;
   font-size: 1.1rem;
   line-height: 1.6rem;
   font-weight: bold;
@@ -687,11 +653,8 @@ table tr th {
 }
 table tr td {
   border-top: 1px solid #757575;
-  padding-top: 6px;
   padding-top: 0.6rem;
-  padding-right: 10px;
   padding-right: 1rem;
-  padding-bottom: 6px;
   padding-bottom: 0.6rem;
   padding-left: 0;
   font-weight: normal;
@@ -708,7 +671,6 @@ textarea {
   -moz-border-radius: 3px;
   border-radius: 3px;
   font-family: inherit;
-  padding: 6px;
   padding: 0.6rem;
 }
 button,
@@ -848,7 +810,6 @@ img.wp-post-image {
 img.header-image.alignleft,
 .author-avatar img.alignleft,
 img.wp-post-image.alignleft {
-  margin-right: 10px;
   margin-right: 1rem;
 }
 .entry-content img.alignright,
@@ -857,7 +818,6 @@ img.wp-post-image.alignleft {
 img.header-image.alignright,
 .author-avatar img.alignright,
 img.wp-post-image.alignright {
-  margin-left: 10px;
   margin-left: 1rem;
 }
 /** Galleries 
@@ -901,7 +861,6 @@ img.wp-post-image.alignright {
 /** Captions 
 	******************************************************************/
 .wp-caption {
-  padding: 4px;
   padding: 0.4rem;
   max-width: 100%;
 }
@@ -909,8 +868,6 @@ img.wp-post-image.alignright {
 .gallery-caption,
 .entry-caption {
   font-style: italic;
-  font-size: 12px;
-  line-height: 18px;
   font-size: 1.2rem;
   line-height: 1.8rem;
   color: #757575;
@@ -931,7 +888,6 @@ object {
 .responsive-iframe-container {
   position: relative;
   padding-bottom: 56.25%;
-  padding-top: 30px;
   padding-top: 3rem;
   height: 0;
   overflow: hidden;
@@ -960,8 +916,6 @@ html {
 body {
   background: #6688aa;
   /* Fallback for when there is no custom background color defined. */
-  font-size: 16px;
-  line-height: 24px;
   font-size: 1.6rem;
   line-height: 2.4rem;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
@@ -997,12 +951,10 @@ body
 /** Breakpoint - 600 **/
 @media only screen and (min-width: 600px) {
   .wrap {
-    max-width: 1000px;
     max-width: 100rem;
     margin: 0 auto 0;
   }
   .site {
-    max-width: 1000px;
     max-width: 100rem;
     margin: 0 auto 0;
   }
@@ -1028,7 +980,6 @@ body
     width: 23.5%;
     margin: 0 1%;
     margin-right: 9.5%;
-    padding: 10px;
     padding: 1rem;
     list-style: none;
   }
@@ -1078,14 +1029,11 @@ header#masthead .site-header
 /** Breakpoint - 600 **/
 @media only screen and (min-width: 600px) {
   .site-header {
-    margin-top: 20px;
     margin-top: 2rem;
   }
   .site-branding {
     background: url(../images/buffy-banner.png) no-repeat;
-    height: 150px;
     height: 15rem;
-    padding: 10px;
     padding: 1rem;
     width: 100%;
     color: #ffffff;
@@ -1125,7 +1073,6 @@ header#masthead .site-header
 .nav-menu li a {
   display: block;
   text-decoration: none;
-  padding: 10px;
   padding: 1rem;
 }
 .nav-menu li .sub-menu,
@@ -1142,7 +1089,6 @@ header#masthead .site-header
 }
 .nav-menu li .sub-menu li a,
 .nav-menu li .children li a {
-  width: 200px;
   width: 20rem;
 }
 .nav-menu li .sub-menu li a:hover,
@@ -1186,7 +1132,6 @@ header#masthead .site-header
 /** Breakpoint - 600 **/
 @media only screen and (min-width: 600px) {
   .main-navigation {
-    margin-top: 20px;
     margin-top: 2rem;
     display: inline-block;
     width: 100%;
@@ -1194,7 +1139,6 @@ header#masthead .site-header
     border-bottom: 2px solid #757575;
   }
   .main-navigation .mmenu-toggle {
-    height: 44px;
     height: 4.4rem;
     display: inline;
   }
@@ -1209,7 +1153,6 @@ header#masthead .site-header
   .main-navigation .search-not-mobile {
     display: inline-block;
     float: right;
-    padding-top: 5px;
     padding-top: 0.5rem;
   }
 }
@@ -1217,8 +1160,6 @@ header#masthead .site-header
 .mobile-menu {
   display: block;
   text-decoration: none;
-  font-size: 21px;
-  line-height: 31.5px;
   font-size: 2.1rem;
   line-height: 3.1rem;
   width: 10%;
@@ -1316,8 +1257,6 @@ header#masthead .site-header
   float: right;
   color: #757575;
   cursor: pointer;
-  font-size: 21px;
-  line-height: 31.5px;
   font-size: 2.1rem;
   line-height: 3.1rem;
   width: 10%;
@@ -1336,15 +1275,11 @@ input[type="search"] {
   width: 100%;
 }
 .search-box {
-  padding: 5px;
   padding: 0.5rem;
   background: #757575;
 }
 .search-box .search-field {
-  padding: 5px;
   padding: 0.5rem;
-  font-size: 16px;
-  line-height: 24px;
   font-size: 1.6rem;
   line-height: 2.4rem;
   background-color: #ffffff;
@@ -1422,15 +1357,11 @@ footer#colophon .site-footer
   margin-bottom: 0;
 }
 .entry-header .entry-meta {
-  font-size: 14px;
-  line-height: 21px;
   font-size: 1.4rem;
   line-height: 2.1rem;
   display: inline-block;
 }
 .entry-header .cat-links {
-  font-size: 14px;
-  line-height: 21px;
   font-size: 1.4rem;
   line-height: 2.1rem;
 }
@@ -1439,10 +1370,8 @@ footer#colophon .site-footer
 .comment-navigation,
 .paging-navigation,
 .post-navigation {
-  padding: 10px 0;
   padding: 1rem 0;
   margin: 0;
-  margin-bottom: 20px;
   margin-bottom: 2rem;
   list-style-type: none;
   border-top: 1px solid #757575;
@@ -1465,9 +1394,6 @@ footer#colophon .site-footer
 .comment-navigation span.page-numbers,
 .paging-navigation span.page-numbers,
 .post-navigation span.page-numbers {
-  padding: 3px 7px;
-  padding: 0.3rem 7px;
-  padding: 3px 0.7rem;
   padding: 0.3rem 0.7rem;
   color: #ffffff;
 }
@@ -1497,7 +1423,6 @@ footer#colophon .site-footer
 .comment-navigation .nav-indicator,
 .paging-navigation .nav-indicator,
 .post-navigation .nav-indicator {
-  margin-bottom: 5px;
   margin-bottom: 0.5rem;
 }
 .comment-navigation .nav-title,
@@ -1536,8 +1461,6 @@ footer#colophon .site-footer
   /** Comments Response Area **/
 }
 .comments-area .comments-title {
-  font-size: 16px;
-  line-height: 24px;
   font-size: 1.6rem;
   line-height: 2.4rem;
 }
@@ -1555,7 +1478,6 @@ footer#colophon .site-footer
   margin-bottom: 0;
 }
 .comments-area .comment-list li.comment .comment-body {
-  padding: 5px;
   padding: 0.5rem;
 }
 .comments-area .odd {
@@ -1596,7 +1518,6 @@ footer#colophon .site-footer
   overflow: hidden;
 }
 .blog .entry-header {
-  margin-bottom: 10px;
   margin-bottom: 1rem;
 }
 .blog .entry-content p {
@@ -1606,11 +1527,9 @@ footer#colophon .site-footer
 -------------------------------------------------------------- */
 .archive article {
   overflow: hidden;
-  margin-bottom: 10px;
   margin-bottom: 1rem;
 }
 .archive .entry-header {
-  margin-bottom: 10px;
   margin-bottom: 1rem;
 }
 .archive .entry-header .entry-title {
@@ -1731,7 +1650,6 @@ http://www.smashingmagazine.com/2013/03/08/tips-and-tricks-for-print-style-sheet
     display: none;
   }
   .site-branding {
-    margin-top: 50px;
     margin-top: 5rem;
     width: 75%;
     float: left;
