@@ -582,6 +582,46 @@ h6,
   font-size: 12px;
   line-height: 18px;
 }
+/**
+LESS CSS mixins for a golden ratio typography rhythm based on Chris Pearson formulas http://www.pearsonified.com/2011/12/golden-ratio-typography.php
+http://washmatique.fr/blog/2014/04/05/golden-ratio-typography-less-css-mixins.html
+
+		
+**/
+/** required: value in pixel with no units ***/
+/**
+http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/
+**/
+article h1.entry-title {
+  font-size: 39px;
+  font-size: 3.9em;
+  line-height: 3.49221816;
+}
+article h1 {
+  font-size: 24px;
+  font-size: 2.4em;
+  line-height: 2.27016223;
+}
+article h2 {
+  font-size: 19px;
+  font-size: 1.9em;
+  line-height: 1.8891154;
+}
+article h3 {
+  font-size: 15px;
+  font-size: 1.5em;
+  line-height: 1.60889957;
+}
+article h4 {
+  font-size: 12px;
+  font-size: 1.2em;
+  line-height: 1.42746293;
+}
+article p {
+  font-size: 15px;
+  font-size: 1.5em;
+  line-height: 1.60889957;
+}
 /** Copy
 	******************************************************************/
 p {
@@ -950,8 +990,6 @@ html {
 body {
   background: #6688aa;
   /* Fallback for when there is no custom background color defined. */
-  font-size: 16px;
-  line-height: 24px;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   text-rendering: optimizeLegibility;
   color: #444444;
