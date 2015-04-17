@@ -288,6 +288,11 @@ function load_custom_wp_admin_style() {
 }
 add_action( 'admin_enqueue_scripts', 'load_custom_wp_admin_style' );
 
+function cd_add_editor_styles() {
+	add_editor_style( get_stylesheet_directory_uri() . '/css/style.css' );
+}
+add_action( 'init', 'cd_add_editor_styles' );
+
 /**  Custom Backend Footer
 **************************************************************/
 function tr_custom_admin_footer() {
