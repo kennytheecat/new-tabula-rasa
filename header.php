@@ -32,23 +32,31 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="hfeed site">
+<div class="site-wrapper">
+<div id="page" class="hfeed site site-canvas">
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'tabula-rasa' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
+        
+        <!-- Mobile Only -->
 		<div class="mobile-menu">
 				<i class="fa fa-bars"></i>
 				<a href="#menu-container" class="screen-reader-text"><?php _e( 'Menu', 'tabula-rasa' ); ?></a>
 		</div>
 		
+        <!-- Both Mobile and Desktop -->
 		<div class="site-branding">	
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 		</div>
+        
+        <!-- Mobile Only -->
 		<div class="search-mobile">
 			<i class="fa fa-search"></i>
 			<a href="#search-container" class="screen-reader-text"><?php _e( 'Search', 'tabula-rasa' ); ?></a>		
 		</div>
+        
+        <!-- Print Only -->
 		<div class="QRprintonly">
 			<?php
 			$permalink = "http" . ((!empty($_SERVER['HTTPS'])) ? "s" : "") . "://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
@@ -59,6 +67,8 @@
 			<img src="<?php echo $qr_code_url; ?>
 			" />
 		</div>	
+        
+        <!-- Both Mobile and Desktop -->
 		<nav id="site-navigation" class="main-navigation" role="navigation">
 			<!-- used to use tr_main_nav() from bones. switched back to _s. unneeded arguments -->
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container_class' => 'mmenu-toggle', 'menu_class' => 'nav-menu') ); ?>
@@ -68,11 +78,14 @@
 			</div>				
 			<?php //tr_social_menu(); ?>
 		</nav><!-- #site-navigation -->
+        
+        <!-- Desktop Only -->
 		<div id="search-container" class="search-box-wrapper">
 			<div class="search-box">
 				<?php get_search_form(); ?>
 			</div>
 		</div>
+        
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

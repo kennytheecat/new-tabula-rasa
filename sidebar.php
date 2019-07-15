@@ -1,28 +1,17 @@
 <?php
 /**
- * The Sidebar containing the main widget areas.
+ * The sidebar containing the main widget area
  *
- * @package tabula-rasa
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package Tabula_Rasa_Fire_Portal
  */
+
+if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+	return;
+}
 ?>
-	<div id="secondary" class="widget-area" role="complementary">
-		<?php if ( ! dynamic_sidebar( 'sidebar-1' ) ) : ?>
 
-			<aside id="archives" class="widget">
-				<h1 class="widget-title"><?php _e( 'Archives', 'tabula-rasa' ); ?></h1>
-				<ul>
-					<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
-				</ul>
-			</aside>
-
-			<aside id="meta" class="widget">
-				<h1 class="widget-title"><?php _e( 'Meta', 'tabula-rasa' ); ?></h1>
-				<ul>
-					<?php wp_register(); ?>
-					<li><?php wp_loginout(); ?></li>
-					<?php wp_meta(); ?>
-				</ul>
-			</aside>
-
-		<?php endif; // end sidebar widget area ?>
-	</div><!-- #secondary -->
+<aside id="secondary" class="widget-area">
+	<?php dynamic_sidebar( 'sidebar-1' ); ?>
+</aside><!-- #secondary -->

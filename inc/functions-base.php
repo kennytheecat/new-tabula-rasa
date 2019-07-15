@@ -105,7 +105,7 @@ function tr_setup() {
 	tr_theme_support();
 
 	// adding sidebars to Wordpress (these are created in functions.php)
-	add_action( 'widgets_init', 'tr_register_sidebars' );
+	//add_action( 'widgets_init', 'tr_register_sidebars' );
 
 	// cleaning up random code around images
 	add_filter('the_content', 'tr_filter_ptags_on_images');
@@ -179,30 +179,16 @@ THEME SUPPORT
 
 // Adding WP 3+ Functions & Theme Support
 function tr_theme_support() {
-
-	// Make theme available for translation.
-	// Translations can be filed in the /languages/ directory.
-	load_theme_textdomain( 'tabula-rasa', get_template_directory() . '/languages' );
-
-	// Add default posts and comments RSS feed links to head.
-	add_theme_support( 'automatic-feed-links' );
-
 	//Enable support for Post Thumbnails on posts and pages.
 	//@link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	add_theme_support( 'post-thumbnails' );
 	
-	//Switch default core markup for search form, comment form, and comments to output valid HTML5.
-	add_theme_support( 'html5', array(
-		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
-	) );
-
 	// wp menus
 	add_theme_support( 'menus' );
 
 	// registering wp3+ menus
 	register_nav_menus(
 		array(
-			'primary' => __( 'Primary Menu', 'tabula-rasa' ),   // main nav in header
 			'social' => __( 'Social Menu', 'tabula-rasa'),
 			'sec-nav' => __( 'The Secondary Menu', 'tabula-rasa' ),   // secondary nav in header
 			'footer-links' => __( 'Footer Links', 'tabula-rasa' ) // secondary nav in footer
@@ -215,25 +201,6 @@ function tr_theme_support() {
 } /* end tr_theme_support() */
 
 /*************************************************************
-ACTIVE SIDEBARS
-**************************************************************/
-//@link http://codex.wordpress.org/Function_Reference/register_sidebar
-// Sidebars & Widgetizes Areas
-function tr_register_sidebars() {
-	register_sidebar( array(
-		'name' => __( 'Main Sidebar', 'tabula-rasa' ),
-		'id' => 'sidebar-1',
-		'description' => __( 'Appears on posts and pages except the optional Front Page template, which has its own widgets', 'tabula-rasa' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget' => '</aside>',
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-	) );
-	
-	// 	to add more sidebars or widgetized areas, just copy and edit the above sidebar code.
-}
-
-/*************************************************************
 MISC
 **************************************************************/
 
@@ -242,36 +209,6 @@ function tr_filter_ptags_on_images($content){
    return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
 }
 
-/** FROM _S EXTRAS
-**************************************************************//**
- * Filters wp_title to print a neat <title> tag based on what is being viewed.
- *
- * @param string $title Default title text for current view.
- * @param string $sep Optional separator.
- * @return string The filtered title.
- */
-function tr_wp_title( $title, $sep ) {
-	if ( is_feed() ) {
-		return $title;
-	}
-	global $page, $paged;
-
-	// Add the blog name
-	$title .= get_bloginfo( 'name', 'display' );
-
-	// Add the blog description for the home/front page.
-	$site_description = get_bloginfo( 'description', 'display' );
-	if ( $site_description && ( is_home() || is_front_page() ) ) {
-		$title .= " $sep $site_description";
-	}
-
-	// Add a page number if necessary:
-	if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
-		$title .= " $sep " . sprintf( __( 'Page %s', 'tabula-rasa' ), max( $paged, $page ) );
-	}
-	return $title;
-}
-add_filter( 'wp_title', 'tr_wp_title', 10, 2 );
 
 /** 404 Page Auto Emailer
 **************************************************************/
