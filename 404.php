@@ -5,10 +5,6 @@
  * @package tabula-rasa
  */
 ?>
-<?php 
-if ( class_exists( 'Clean_404_Email' ) )
-	new Clean_404_Email;
-?>	
 <?php get_header(); ?>
 
 	<div id="primary" class="content-area">

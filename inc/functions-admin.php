@@ -311,5 +311,5 @@ function my_help_menu() {
 function help_options() {
 	include('theme-options-inc/help.php');
 }
-add_action( 'admin_menu', 'my_help_menu' );
+//add_action( 'admin_menu', 'my_help_menu' );
 ?>

@@ -71,7 +71,7 @@
         <!-- Both Mobile and Desktop -->
 		<nav id="site-navigation" class="main-navigation" role="navigation">
 			<!-- used to use tr_main_nav() from bones. switched back to _s. unneeded arguments -->
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container_class' => 'mmenu-toggle', 'menu_class' => 'nav-menu') ); ?>
+			<?php wp_nav_menu( array( 'menu' => 'Primary', 'theme_location' => 'primary', 'container_class' => 'mmenu-toggle', 'menu_class' => 'nav-menu') ); ?>
 			<div class="search-not-mobile">
 			<i class="fa fa-search"></i>
 			<a href="#search-container" class="screen-reader-text"><?php _e( 'Search', 'tabula-rasa' ); ?></a>
