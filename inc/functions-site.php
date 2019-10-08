@@ -1,4 +1,0 @@
-<?php
-
-//checking inhh
-?>

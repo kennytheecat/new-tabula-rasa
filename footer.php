@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package Tabula_Rasa_Fire_Portal
+ * @package Tabula_Rasa
  */
 
 ?>
@@ -15,16 +15,16 @@
 
 	<footer id="colophon" class="site-footer">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'tabula_rasa' ) ); ?>">
+			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'tabula_rasa_tabularasa' ) ); ?>">
 				<?php
 				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'tabula_rasa' ), 'WordPress' );
+				printf( esc_html__( 'Proudly powered by %s', 'tabula_rasa_tabularasa' ), 'WordPress' );
 				?>
 			</a>
 			<span class="sep"> | </span>
 				<?php
 				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'tabula_rasa' ), 'tabula_rasa', '<a href="http://www.third-law.com/">Me</a>' );
+				printf( esc_html__( 'Theme: %1$s by %2$s.', 'tabula_rasa_tabularasa' ), 'tabula_rasa_tabularasa', '<a href="http://third-law.com">Third Law Web Design</a>' );
 				?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->

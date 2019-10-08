@@ -70,7 +70,7 @@ require_once('inc/functions-settings.php');
 SITE SPECIFIC FUNCTIONS
 	- tr_site_specific_support()
 	- tr_excerpt_more()
-		// This removes the annoying […] to a Read More link
+		// This removes the annoying [ï¿½] to a Read More link
 	- tr_register_site_specific_sidebars()
 	- tr_entry_meta()
 COMMENT LAYOUT 
@@ -78,11 +78,6 @@ COMMENT LAYOUT
 MISC
 	 - remove_default_post_formats()
 	 - Google Analytics
-------------------------------------------------------------------*/
-
-require_once('inc/functions-_s.php');
-/*------------------------------------------------------------------
-Functions that come with _s
 ------------------------------------------------------------------*/
 
 require_once('inc/functions-site.php');

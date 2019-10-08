@@ -9,7 +9,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Tabula_Rasa_Fire_Portal
+ * @package Tabula_Rasa
  */
 
 get_header();

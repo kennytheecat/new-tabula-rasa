@@ -4,7 +4,7 @@
  *
  * @link https://jetpack.com/
  *
- * @package Tabula_Rasa_Fire_Portal
+ * @package Tabula_Rasa
  */
 
 /**
@@ -14,11 +14,11 @@
  * See: https://jetpack.com/support/responsive-videos/
  * See: https://jetpack.com/support/content-options/
  */
-function tabula_rasa_jetpack_setup() {
+function tabula_rasa_tabularasa_jetpack_setup() {
 	// Add theme support for Infinite Scroll.
 	add_theme_support( 'infinite-scroll', array(
 		'container' => 'main',
-		'render'    => 'tabula_rasa_infinite_scroll_render',
+		'render'    => 'tabula_rasa_tabularasa_infinite_scroll_render',
 		'footer'    => 'page',
 	) );
 
@@ -28,7 +28,7 @@ function tabula_rasa_jetpack_setup() {
 	// Add theme support for Content Options.
 	add_theme_support( 'jetpack-content-options', array(
 		'post-details'    => array(
-			'stylesheet' => 'tabula_rasa-style',
+			'stylesheet' => 'tabula_rasa_tabularasa-style',
 			'date'       => '.posted-on',
 			'categories' => '.cat-links',
 			'tags'       => '.tags-links',
@@ -42,12 +42,12 @@ function tabula_rasa_jetpack_setup() {
 		),
 	) );
 }
-add_action( 'after_setup_theme', 'tabula_rasa_jetpack_setup' );
+add_action( 'after_setup_theme', 'tabula_rasa_tabularasa_jetpack_setup' );
 
 /**
  * Custom render function for Infinite Scroll.
  */
-function tabula_rasa_infinite_scroll_render() {
+function tabula_rasa_tabularasa_infinite_scroll_render() {
 	while ( have_posts() ) {
 		the_post();
 		if ( is_search() ) :

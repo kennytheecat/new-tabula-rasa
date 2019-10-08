@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package Tabula_Rasa_Fire_Portal
+ * @package Tabula_Rasa
  */
 
 if ( ! is_active_sidebar( 'sidebar-1' ) ) {

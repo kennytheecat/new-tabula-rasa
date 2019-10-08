@@ -30,7 +30,7 @@ SITE SPECIFIC FUNCTIONS
 	- set content width
 	- tr_site_specific_support()
 	- tr_excerpt_more()
-		// This removes the annoying […] to a Read More link
+		// This removes the annoying [ï¿½] to a Read More link
 	- tr_register_site_specific_sidebars()
 	- tr_entry_meta()
 COMMENT LAYOUT 
@@ -53,7 +53,7 @@ function tr_scripts_and_styles() {
 	
 	// FONTS
   wp_enqueue_style( 'google-fonts', 'http://fonts.googleapis.com/css?family=PT+Serif|Open+Sans:400,700|Open+Sans+Condensed:700' );
-  wp_enqueue_style( 'font-awesome',  'http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');		
+  //wp_enqueue_style( 'font-awesome',  'http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');		
   
 	if (!is_admin()) {
 
@@ -123,7 +123,7 @@ INCLUDES
 /************************************************
 EXCERPTS
 *************************************************/
-// This removes the annoying […] to a Read More link
+// This removes the annoying [ï¿½] to a Read More link
 function tr_excerpt_more($more) {
 	global $post;
 	// edit here if you like

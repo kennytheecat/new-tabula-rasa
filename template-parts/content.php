@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Tabula_Rasa_Fire_Portal
+ * @package Tabula_Rasa
  */
 
 ?>
@@ -22,21 +22,21 @@
 			?>
 			<div class="entry-meta">
 				<?php
-				tabula_rasa_posted_on();
-				tabula_rasa_posted_by();
+				tabula_rasa_tabularasa_posted_on();
+				tabula_rasa_tabularasa_posted_by();
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php tabula_rasa_post_thumbnail(); ?>
+	<?php tabula_rasa_tabularasa_post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php
 		the_content( sprintf(
 			wp_kses(
 				/* translators: %s: Name of current post. Only visible to screen readers */
-				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'tabula_rasa' ),
+				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'tabula_rasa_tabularasa' ),
 				array(
 					'span' => array(
 						'class' => array(),
@@ -47,13 +47,13 @@
 		) );
 
 		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'tabula_rasa' ),
+			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'tabula_rasa_tabularasa' ),
 			'after'  => '</div>',
 		) );
 		?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php tabula_rasa_entry_footer(); ?>
+		<?php tabula_rasa_tabularasa_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
