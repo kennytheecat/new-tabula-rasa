@@ -95,20 +95,16 @@
 	.main-navigation {
 		margin-top: 20px;
 		width: 100%;
-		border-top: 2px solid $grey;
-		border-bottom: 2px solid $grey;	
         position: static;
 		display: block;
-        height: 47px;
         
-		.mmenu-toggle {
-			//height: 44px;
-			//display: inline;
+		.wrapper {
+			@include wrap;
 		}
 		.nav-menu {
-			display: inline-block;
-			float: left;
-			width: auto;
+			border-top: 2px solid $grey;
+			border-bottom: 2px solid $grey;	
+			height: 47px;
 			
 			a {
 				color: $white;

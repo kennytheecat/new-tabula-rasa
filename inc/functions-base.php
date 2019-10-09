@@ -356,4 +356,15 @@ function tabula_rasa_tabularasa_content_width() {
 	$GLOBALS['content_width'] = apply_filters( 'tabula_rasa_tabularasa_content_width', 640 );
 }
 //add_action( 'after_setup_theme', 'tabula_rasa_tabularasa_content_width', 0 );
+
+// adds the default buffy icon, 
+// unless overrrided by a new favicon
+function add_default_favicon( $url ) {
+    $site_icon_id = get_option( 'site_icon' );
+    if (!$site_icon_id ) {
+        $url = get_template_directory_uri() . '/favicon.ico';
+    }
+    return $url;
+}
+add_filter( 'get_site_icon_url', 'add_default_favicon', 1 );
 ?>

@@ -41,18 +41,25 @@ header#masthead .site-header
 
 /** Breakpoint - 600 **/
 @media only screen and (min-width: 600px) {
+
+	.header-top {
+		background: #000;
+
+		.wrapper {
+			@include wrap;
+		}
+	}
 	.site-header {
-		margin-top: 20px;
         background: 0;
         border: 0;
-        padding: 0;
+		padding: 0;
 	}	
 	.site-branding {
 		background: url(../images/buffy-banner.png) no-repeat;
-		height: 150px;
+		height: 33rem;
 		width: 100%;
 		color: $white;
-        background-size: cover;    
+        background-size: contain;    
         display: block;
         float: none;
 			

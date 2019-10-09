@@ -4,6 +4,8 @@ Sets up the main variables for the site.
 Colors, text, and fonts
 */
 
+@import "mixins/_mixins-colors";  
+
 // Font Sizes
 $base-font-size: 62.5%;
 
@@ -27,13 +29,13 @@ $base-z-index: 0;
 $base-border: 1px;
 
 // COLORS
-$prim-color:      	#6688AA; //
-$sec-color:         #810000; //green
-$tert-color:      	#0000FF; //blue
-
 $black:             #444;
 $grey:				#757575;
-$white:             #fff; 
+$white:             color(white); 
+
+$prim-color:      	$white; //
+$sec-color:         $grey; //green
+$tert-color:      	$black; //blue
  
 $color__text:				$black;
     

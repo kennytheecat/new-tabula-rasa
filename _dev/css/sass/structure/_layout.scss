@@ -54,7 +54,7 @@ body
 @media only screen and (min-width: 600px) {
 
 	.site {
-		@include wrap;
+		//@include wrap;
 	}
 }
 
@@ -62,10 +62,15 @@ body
 @media only screen and (min-width: 768px) {
 	.site {}
 	.site-header {
-        padding: 0;
+		padding: 0;
+		
+		.wrapper {
+			//@include wrap;
+		}
     }
 	.site-content {
-        padding: 0;
+		@include wrap;
+		padding: $base-spacing;
         
 		.content-area {
 			@include column(8); 

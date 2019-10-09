@@ -14,6 +14,9 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
+		<div class="wrapper">
+		<div class="footer-top">
+		<div class="wrapper">
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'tabula_rasa_tabularasa' ) ); ?>">
 				<?php
@@ -27,6 +30,14 @@
 				printf( esc_html__( 'Theme: %1$s by %2$s.', 'tabula_rasa_tabularasa' ), 'tabula_rasa_tabularasa', '<a href="http://third-law.com">Third Law Web Design</a>' );
 				?>
 		</div><!-- .site-info -->
+		</div><!-- end .wrapper -->
+		</div><!-- end .footer-top -->
+		<div class="footer-bottom">
+		<div class="wrapper">
+		</div><!-- end .wrapper -->
+		</div><!-- end .footer-bottom -->
+		
+		</div><!-- end .wrapper -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

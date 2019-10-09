@@ -9,55 +9,16 @@ For more info, check out the codex:
 http://codex.wordpress.org/Creating_Admin_Themes
 
 ******************************************************************/
-/* the form box */
-body.login {
-  /*
-	This is the Wordpress logo in the admin area.
-	You'll have to load your own images and mess
-	with the width and height.
-	*/
-  /*
-	You'll have to override some of the default styles
-	but since we're referencing the id, it should be easy.
-	*/
-  /* login button*/ }
-  body.login h1 a {
-    background: url(../images/login-logo.png) no-repeat top center;
-    /* make sure to replace this! */
-    width: 32.6rem;
-    height: 6.7rem;
-    text-indent: -9999px;
-    overflow: hidden;
-    padding-bottom: 1.5rem;
-    display: block; }
-  body.login form {
-    margin-left: 0.8rem;
-    padding: 2.6rem 2.4rem 4.6rem;
-    font-weight: normal;
-    background: white;
-    border: 1px solid #E5E5E5;
-    -webkit-border-radius: 3px;
-    -khtml-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    -webkit-box-shadow: none;
-    -khtml-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none; }
-  body.login form .input {
-    font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",sans-serif;
-    font-weight: 200;
-    font-size: 2.4rem;
-    width: 97%;
-    padding: 0.3rem;
-    margin-top: 0.2rem;
-    margin-right: 0.6rem;
-    margin-bottom: 1.6rem;
-    border: 1px solid #E5E5E5;
-    background: #FBFBFB;
-    outline: none;
-    -webkit-box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.2);
-    -moz-box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.2);
-    box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.2); }
+/* 
+Sets up the main variables for the site.
+Colors, text, and fonts
+*/
+body.login { /* This is the Wordpress logo in the admin area. You'll have to load your own images and mess with the width and height. */ background: #fffefc; /* You'll have to override some of the default styles but since we're referencing the id, it should be easy. */ /* login button*/ }
 
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6L3dhbXAvd3d3L3NhbmRib3gvd3AtY29udGVudC90aGVtZXMvZ3VscHRlc3Q3L19kZXYvY3NzL3Nhc3MvbG9naW4uc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7OzttRUFVbUU7QUFFekQsa0JBQWtCO0FBRXhCLElBQUksTUFBTSxDQUFIO0VBQ1Y7Ozs7R0FJRTtFQTRDRjs7O0dBR0U7RUFDWSxpQkFBaUIsRUFyRHBCO0VBTVIsSUFBSSxNQUFNLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FBYjtJQUNKLFVBQVUsRUFBRSw2QkFBRyxDQUEyQixTQUFTLENBQUMsR0FBRyxDQUFDLE1BQU07SUFBRSxnQ0FBZ0M7SUFDaEcsS0FBSyxFQUFFLEtBQU07SUFDYixNQUFNLEVBQUUsSUFBSztJQUNiLFdBQVcsRUFBRSxPQUFRO0lBQ3JCLFFBQVEsRUFBRSxNQUFPO0lBQ2pCLGNBQWMsRUFBRSxJQUFLO0lBQ3JCLE9BQU8sRUFBRSxLQUFNLEdBUFY7RUFVTixJQUFJLE1BQU0sQ0FBQyxJQUFJLENBQVY7SUFDSixXQUFXLEVBQUUsR0FBSTtJQUNqQixPQUFPLEVBQUUsSUFBSSxDQUFDLElBQUksQ0FBQyxJQUFJO0lBQ3ZCLFdBQVcsRUFBRSxNQUFPO0lBQ3BCLFVBQVUsRUFBRSxLQUFNO0lBQ2xCLE1BQU0sRUFBRSxpQkFBa0I7SUFDMUIscUJBQXFCLEVBQUUsR0FBSTtJQUMxQixvQkFBb0IsRUFBRSxHQUFJO0lBQ3hCLGtCQUFrQixFQUFFLEdBQUk7SUFDekIsYUFBYSxFQUFFLEdBQUk7SUFDckIsa0JBQWtCLEVBQUUsSUFBSztJQUN4QixpQkFBaUIsRUFBRSxJQUFLO0lBQ3RCLGVBQWUsRUFBRSxJQUFLO0lBQ3ZCLFVBQVUsRUFBRSxJQUFLLEdBYmQ7RUFnQkQsSUFBSSxNQUFNLENBQUMsSUFBSSxDQUFDLE1BQU0sQ0FBZjtJQUNYLFdBQVcsRUFBRSx3RUFBeUU7SUFDdEYsV0FBVyxFQUFFLEdBQUk7SUFDakIsU0FBUyxFQUFFLElBQUs7SUFDaEIsS0FBSyxFQUFFLEdBQUk7SUFDWCxPQUFPLEVBQUUsR0FBSTtJQUNiLFVBQVUsRUFBRSxHQUFJO0lBQ2hCLFlBQVksRUFBRSxHQUFJO0lBQ2xCLGFBQWEsRUFBRSxJQUFLO0lBQ3BCLE1BQU0sRUFBRSxpQkFBa0I7SUFDMUIsVUFBVSxFQUFFLE9BQVE7SUFDcEIsT0FBTyxFQUFFLElBQUs7SUFDZCxrQkFBa0IsRUFBRSxLQUFLLENBQUMsR0FBRyxDQUFDLEdBQUcsQ0FBQyxHQUFHLENBQUMsd0JBQUk7SUFDdkMsZUFBZSxFQUFFLEtBQUssQ0FBQyxHQUFHLENBQUMsR0FBRyxDQUFDLEdBQUcsQ0FBQyx3QkFBSTtJQUN6QyxVQUFVLEVBQUUsS0FBSyxDQUFDLEdBQUcsQ0FBQyxHQUFHLENBQUMsR0FBRyxDQUFDLHdCQUFJLEdBZHZCIiwiZmlsZSI6ImxvZ2luLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKipcclxuU2l0ZSBOYW1lOiBcclxuQXV0aG9yOiBcclxuU3R5bGVzaGVldDogTG9naW4gU3R5bGVzaGVldFxyXG5cclxuVGhpcyBzdHlsZXNoZWV0IG9ubHkgYWZmZWN0cyB0aGUgbG9naW4gcGFnZSBub3QgYWRtaW4gb3IgZnJvbnQtZW5kLlxyXG5cclxuRm9yIG1vcmUgaW5mbywgY2hlY2sgb3V0IHRoZSBjb2RleDpcclxuaHR0cDovL2NvZGV4LndvcmRwcmVzcy5vcmcvQ3JlYXRpbmdfQWRtaW5fVGhlbWVzXHJcblxyXG4qKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKiovXHJcblxyXG4jbG9naW4ge30gLyogdGhlIGZvcm0gYm94ICovXHJcblxyXG5ib2R5LmxvZ2luIHtcclxuXHQvKlxyXG5cdFRoaXMgaXMgdGhlIFdvcmRwcmVzcyBsb2dvIGluIHRoZSBhZG1pbiBhcmVhLlxyXG5cdFlvdSdsbCBoYXZlIHRvIGxvYWQgeW91ciBvd24gaW1hZ2VzIGFuZCBtZXNzXHJcblx0d2l0aCB0aGUgd2lkdGggYW5kIGhlaWdodC5cclxuXHQqL1xyXG5cdGgxIGEge1xyXG5cdFx0YmFja2dyb3VuZDogdXJsKC4uL2ltYWdlcy9sb2dpbi1sb2dvLnBuZykgbm8tcmVwZWF0IHRvcCBjZW50ZXI7IC8qIG1ha2Ugc3VyZSB0byByZXBsYWNlIHRoaXMhICovXHJcblx0XHR3aWR0aDogMzI2cHg7XHJcblx0XHRoZWlnaHQ6IDY3cHg7XHJcblx0XHR0ZXh0LWluZGVudDogLTk5OTlweDtcclxuXHRcdG92ZXJmbG93OiBoaWRkZW47XHJcblx0XHRwYWRkaW5nLWJvdHRvbTogMTVweDtcclxuXHRcdGRpc3BsYXk6IGJsb2NrO1xyXG5cdH1cclxuXHRcclxuXHRmb3JtIHtcclxuXHRcdG1hcmdpbi1sZWZ0OiA4cHg7XHJcblx0XHRwYWRkaW5nOiAyNnB4IDI0cHggNDZweDtcclxuXHRcdGZvbnQtd2VpZ2h0OiBub3JtYWw7XHJcblx0XHRiYWNrZ3JvdW5kOiB3aGl0ZTtcclxuXHRcdGJvcmRlcjogMXB4IHNvbGlkICNFNUU1RTU7XHJcblx0XHQtd2Via2l0LWJvcmRlci1yYWRpdXM6IDNweDtcclxuXHRcdCAta2h0bWwtYm9yZGVyLXJhZGl1czogM3B4O1xyXG5cdFx0ICAgLW1vei1ib3JkZXItcmFkaXVzOiAzcHg7XHJcblx0XHRcdFx0Ym9yZGVyLXJhZGl1czogM3B4O1xyXG5cdFx0LXdlYmtpdC1ib3gtc2hhZG93OiBub25lO1xyXG5cdFx0IC1raHRtbC1ib3gtc2hhZG93OiBub25lO1xyXG5cdFx0ICAgLW1vei1ib3gtc2hhZG93OiBub25lO1xyXG5cdFx0XHRcdGJveC1zaGFkb3c6IG5vbmU7XHJcblx0fVxyXG5cdFxyXG5cdGZvcm0gLmlucHV0IHtcclxuXHRcdGZvbnQtZmFtaWx5OiBcIkhlbHZldGljYU5ldWUtTGlnaHRcIixcIkhlbHZldGljYSBOZXVlIExpZ2h0XCIsXCJIZWx2ZXRpY2EgTmV1ZVwiLHNhbnMtc2VyaWY7XHJcblx0XHRmb250LXdlaWdodDogMjAwO1xyXG5cdFx0Zm9udC1zaXplOiAyNHB4O1xyXG5cdFx0d2lkdGg6IDk3JTtcclxuXHRcdHBhZGRpbmc6IDNweDtcclxuXHRcdG1hcmdpbi10b3A6IDJweDtcclxuXHRcdG1hcmdpbi1yaWdodDogNnB4O1xyXG5cdFx0bWFyZ2luLWJvdHRvbTogMTZweDtcclxuXHRcdGJvcmRlcjogMXB4IHNvbGlkICNFNUU1RTU7XHJcblx0XHRiYWNrZ3JvdW5kOiAjRkJGQkZCO1xyXG5cdFx0b3V0bGluZTogbm9uZTtcclxuXHRcdC13ZWJraXQtYm94LXNoYWRvdzogaW5zZXQgMXB4IDFweCAycHggcmdiYSgyMDAsMjAwLDIwMCwwLjIpO1xyXG5cdFx0ICAgLW1vei1ib3gtc2hhZG93OiBpbnNldCAxcHggMXB4IDJweCByZ2JhKDIwMCwyMDAsMjAwLDAuMik7XHJcblx0XHRcdGJveC1zaGFkb3c6IGluc2V0IDFweCAxcHggMnB4IHJnYmEoMjAwLDIwMCwyMDAsMC4yKTtcclxuXHR9XHJcblx0XHJcblx0LypcclxuXHRZb3UnbGwgaGF2ZSB0byBvdmVycmlkZSBzb21lIG9mIHRoZSBkZWZhdWx0IHN0eWxlc1xyXG5cdGJ1dCBzaW5jZSB3ZSdyZSByZWZlcmVuY2luZyB0aGUgaWQsIGl0IHNob3VsZCBiZSBlYXN5LlxyXG5cdCovXHJcblx0I3dwLXN1Ym1pdCB7fSAvKiBsb2dpbiBidXR0b24qL1xyXG59ICJdLCJzb3VyY2VSb290IjoiL3NvdXJjZS8ifQ== */
+body.login h1 a { background: url(../images/login-logo.png) no-repeat top center; /* make sure to replace this! */ width: 100%; height: 12rem; text-indent: -9999px; overflow: hidden; padding-bottom: 15px; display: block; background-size: contain; }
+
+body.login form { background: white; }
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibG9naW4uY3NzIiwic291cmNlcyI6WyJsb2dpbi5zY3NzIiwibWl4aW5zL19taXhpbnMtc2V0dGluZ3Muc2NzcyIsIm1peGlucy9fbWl4aW5zLWNvbG9ycy5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7Ozs7O21FQVVtRTtBQ1RuRTs7O0VBR0U7QURVRixBQUFBLElBQUksQUFBQSxNQUFNLENBQUMsRUFDViwySEFJRSxDQUVGLFVBQVUsRUVQSixPQUFPLEVGMkJiLCtHQUdFLENBQ1ksaUJBQWlCLEVBQy9COztBQWhDRCxBQVNDLElBVEcsQUFBQSxNQUFNLENBU1QsRUFBRSxDQUFDLENBQUMsQ0FBQyxFQUNKLFVBQVUsRUFBRSw2QkFBNkIsQ0FBQyxTQUFTLENBQUMsR0FBRyxDQUFDLE1BQU0sRUFBRSxnQ0FBZ0MsQ0FDaEcsS0FBSyxFQUFFLElBQUksRUFDWCxNQUFNLEVBQUUsS0FBSyxFQUNiLFdBQVcsRUFBRSxPQUFPLEVBQ3BCLFFBQVEsRUFBRSxNQUFNLEVBQ2hCLGNBQWMsRUFBRSxJQUFJLEVBQ3BCLE9BQU8sRUFBRSxLQUFLLEVBQ2QsZUFBZSxFQUFFLE9BQU8sR0FDeEI7O0FBbEJGLEFBb0JDLElBcEJHLEFBQUEsTUFBTSxDQW9CVCxJQUFJLENBQUMsRUFDSixVQUFVLEVBQUUsS0FBSyxHQUdqQiJ9 */
+
+/*# sourceMappingURL=login.css.map */

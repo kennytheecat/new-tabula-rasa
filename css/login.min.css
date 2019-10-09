@@ -1,0 +1,3 @@
+body.login{background:#fffefc}
+body.login h1 a{background:url(../images/login-logo.png) no-repeat top center;width:100%;height:12rem;text-indent:-9999px;overflow:hidden;padding-bottom:15px;display:block;background-size:contain}
+body.login form{background:white}

@@ -36,7 +36,11 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'tabula-rasa' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
-        
+		<div class="wrapper">
+		
+		<div class="header-top">
+		<div class="wrapper">
+
         <!-- Mobile Only -->
 		<div class="mobile-menu">
 				<i class="fa fa-bars"></i>
@@ -66,9 +70,15 @@
 			<img src="<?php echo $qr_code_url; ?>
 			" />
 		</div>	
-        
-        <!-- Both Mobile and Desktop -->
+
+		</div><!-- end .wrapper --> 
+		</div><!-- end . header-top -->
+		
+		<!-- Both Mobile and Desktop -->
 		<nav id="site-navigation" class="main-navigation" role="navigation">
+
+		<div class="wrapper">
+
 			<!-- used to use tr_main_nav() from bones. switched back to _s. unneeded arguments -->
 			<?php wp_nav_menu( array( 'menu' => 'Primary', 'theme_location' => 'primary', 'container_class' => 'mmenu-toggle', 'menu_class' => 'nav-menu') ); ?>
 			<div class="search-not-mobile">
@@ -76,15 +86,23 @@
 			<a href="#search-container" class="screen-reader-text"><?php _e( 'Search', 'tabula-rasa' ); ?></a>
 			</div>				
 			<?php //tr_social_menu(); ?>
+
+		</div><!-- end .wrapper --> 
+
 		</nav><!-- #site-navigation -->
         
         <!-- Desktop Only -->
 		<div id="search-container" class="search-box-wrapper">
-			<div class="search-box">
-				<?php get_search_form(); ?>
-			</div>
+			<div class="wrapper">
+
+				<div class="search-box">
+					<?php get_search_form(); ?>
+				</div>
+
+			</div><!-- end .wrapper --> 
 		</div>
-        
+		
+		</div><!-- end .wrapper --> 
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

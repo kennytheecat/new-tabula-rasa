@@ -4,7 +4,19 @@ footer#colophon .site-footer
 -------------------------------------------------------------- */
 .site-footer {
 	clear: both;
-	
+	background: $sec-color;
+
+	.wrapper {
+		@include wrap;
+	}
+
+	.footer-top {
+		padding: $base-spacing;
+		text-align: center;
+	}
+	.footer-bottom {
+
+	}
 	.inner-footer {}
 	.entry-meta {	}
 	a {}	
