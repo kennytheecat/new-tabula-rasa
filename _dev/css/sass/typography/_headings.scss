@@ -2,17 +2,6 @@
 //LESS CSS mixins for a golden scale typography rhythm based on Chris Pearson formulas http://www.pearsonified.com/2011/12/golden-scale-typography.php
 //http://washmatique.fr/blog/2014/04/05/golden-scale-typography-less-css-mixins.html
 	
-
-
-// this si show wse choose the golden fontsize
-// take the width of the content area (800) 
-// do some maths / divide it by teh scale(pi)
-// and we get either the font sixe of the line height
-// i am not sure which
-//$primary-font-size: round(sqrt($line-width) / $scale);
-//$base-num: sqrt( $content-width ) / $scale;
-//$base-num-rounded: round( $base-num );
-
 $font-size: $base-num / $scale;
 $line-height: $base-num * .1rem; 
 
