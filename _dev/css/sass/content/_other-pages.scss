@@ -9,11 +9,11 @@
 		overflow: hidden;
 	}
 	.entry-header {
-		margin-bottom: 10px;
+		margin-bottom: $small-spacing;
 	}
 	.entry-content {
 		p {
-			margin: 0;
+			//margin: 0;
 		}
 	}	
 }
@@ -22,10 +22,10 @@
 .archive {
 	article {
 		overflow: hidden;
-		margin-bottom: 10px;
+		margin-bottom: $small-spacing;
 	}
 	.entry-header {
-		margin-bottom: 10px;
+		margin-bottom: $small-spacing;
 		
 		.entry-title {
 			margin-top: 0;
@@ -33,7 +33,7 @@
 	}
 	.entry-content {
 		p {
-			margin: 0;
+			//margin: 0; 
 		}
 	}	
 }

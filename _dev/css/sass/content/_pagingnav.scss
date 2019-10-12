@@ -2,9 +2,9 @@
 .paging-navigation,
 .post-navigation,
 .posts-navigation {
-	padding: 10px 0;
+	padding: $small-spacing 0;
 	margin: 0;
-	margin-bottom: 20px;
+	margin-bottom: $base-spacing;
 	list-style-type: none;
 	border-top: 1px solid $grey;
 	border-bottom: 1px solid $grey;
@@ -37,7 +37,7 @@
 		text-align: right;	
 	}
 	.nav-indicator {
-		margin-bottom: 5px;
+		margin-bottom: $small-spacing;
 	}
 	.nav-title {
 		font-weight: bold;

@@ -4,7 +4,7 @@
 	color: $grey; 
 	text-align: center;
 	cursor: pointer;
-	font-size: 21px;
+	@include sub-headline();
 	width: 10%;
 	display: inline;
 	text-align: center; 
@@ -30,8 +30,8 @@ input[type="search"] {
     padding-top: 10px;
 	
 	.search-field {
-		padding: 5px;
-		font-size: 16px;
+		padding: $small-spacing;
+		@include content-text();
 		background-color: $white;
 		border: 0;
 	}

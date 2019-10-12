@@ -9,10 +9,10 @@
 
     a:before {
 	    display: inline-block;
-	    padding: 0 5px;
+	    padding: 0 $small-spacing;
 	    vertical-align: top;
 	    font-family: 'FontAwesome';
-	    font-size: 20px;
+	    @include sub-headline();
 	    color: $grey;
 	    -webkit-font-smoothing: antialiased;
 	    content: '\f0c0';

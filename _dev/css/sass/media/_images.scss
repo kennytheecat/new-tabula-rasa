@@ -9,17 +9,6 @@ picture {
 	[class*="attachment-"] {
 		//height: auto; /* Make sure images with WordPress-added height and width attributes are scaled correctly */
 	}
-	/*
-	.wp-smiley,
-	.rsswidget img {
-		border: 0;
-		border-radius: 0;
-		box-shadow: none;
-		margin-bottom: 0;
-		margin-top: 0;
-		padding: 0;
-	}	
-	*/
 }
 .entry-content img,
 .comment-content img,
@@ -33,12 +22,12 @@ img.header-image,
 .author-avatar img,
 img.wp-post-image {
 	/* Add fancy borders to all WordPress-added images but not things like badges and icons and the like */
-	border-radius: 3px;
+	border-radius: $border-radius;
 	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 	&.alignleft {
-		margin-right: 10px;
+		margin-right: $small-spacing;
 	}
 	&.alignright {
-		margin-left: 10px;
+		margin-left: $small-spacing;
 	}	
 }

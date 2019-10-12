@@ -1,6 +1,19 @@
 /////////////////
-// Semantic.gs // for LESS: http://lesscss.org/
+// https://github.com/tylertate/semantic.gs/blob/master/stylesheets/scss/grid.scss
+// https://dbwebb-se.github.io/semantic.gs/webroot/
 /////////////////
+
+// Creates a grid of a 102%. 
+//Then strips off the last 2% gutter for a total of 100%
+$column-width: 6.5%;
+$gutter-width: 2%;
+$columns: 12;
+
+// Set $total-width to 102% for a fluid layout
+$total-width: 100%;
+$column-width: ((100 - ($ratio * ($columns - 1))) /12) * 1%;
+$gutter-width: $ratio;
+
 
 // Utility function — you should never need to modify this
 @function gridsystem-width($columns:$columns) {
@@ -30,17 +43,14 @@
 	display: block;
 	width: $total-width*(($gutter-width + gridsystem-width($columns))/gridsystem-width($columns));
 	margin: 0 $total-width*((($gutter-width*.5)/gridsystem-width($columns))*-1);
-	// *width: $total-width*(($gutter-width + gridsystem-width($columns))/gridsystem-width($columns))-$correction;
-	// *margin: 0 $total-width*((($gutter-width*.5)/gridsystem-width($columns))*-1)-$correction;
 	@include clearfix();
 }
 @mixin column($x,$columns:$columns) {
 	display: inline;
 	float: left;
 	width: $total-width*(((($gutter-width+$column-width)*$x)-$gutter-width) / gridsystem-width($columns));
-	margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns));
-	// *width: $total-width*(((($gutter-width+$column-width)*$x)-$gutter-width) / gridsystem-width($columns))-$correction;
-	// *margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns))-$correction;
+	//margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns));
+	margin: 0 ($total-width*(($gutter-width*.5)/gridsystem-width($columns))) * 1%;
 }
 @mixin first() {
     margin-left: 0;

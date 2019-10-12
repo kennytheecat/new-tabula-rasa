@@ -6,9 +6,6 @@ Colors, text, and fonts
 
 @import "mixins/_mixins-colors";  
 
-// Font Sizes
-$base-font-size: 62.5%;
-
 // TYPOGRAPHY
 $sans-serif:        "Open Sans", Helvetica, Arial, sans-serif;
 $serif:             "PT Serif", Georgia, Cambria, Times New Roman, Times, serif; 
@@ -16,17 +13,6 @@ $body-font:			$sans-serif;
 $heading-font:	    "Open Sans Condensed", Helvetica, Arial, sans-serif;
 $font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font__pre: "Courier 10 Pitch", Courier, monospace;
-
-// Line height
-$base-line-height: 1.5;
-$heading-line-height: 1.2;
-
-// Other Sizes
-$border-radius: 3px;
-$base-spacing: $base-line-height * 1em;
-$small-spacing: $base-spacing / 2;
-$base-z-index: 0;
-$base-border: 1px;
 
 // COLORS
 $black:             #444;
@@ -38,6 +24,9 @@ $sec-color:         $grey; //green
 $tert-color:      	$black; //blue
  
 $color__text:				$black;
+
+$menu-color: 			$sec-color;
+$menu-bground: 			$sec-color;
     
 $link-color:         #810000; 
 $link-hover:         darken($link-color, 9%);
@@ -56,26 +45,7 @@ $mobile__header-bground: darken($prim-color, 10%);
 $mobile__menu-color: $white;
 $mobile__menu-bground: darken($prim-color, 10%);
 
-//Grid
-$max-width:		    1200px; 
-$article-width:		800;
-
-@mixin wrap {
-	max-width: $max-width; 
-	margin: 0 auto 0; 
-}  
-
-// Creates a grid of a 102%. 
-//Then strips off the last 2% gutter for a total of 100%
-$column-width: 6.5%;
-$gutter-width: 2%;
-$columns: 12;
-
-// Set $total-width to 102% for a fluid layout
-$total-width: 102%;
-
 //Other ratios 
-$phi:               1.618;
 $double-octave:     4;
 $major-twelfth:     3;
 $major-eleventh:    2.667;
@@ -84,6 +54,7 @@ $octave:            2;
 $major-seventh:     1.875;
 $minor-seventh:     1.778;
 $major-sixth:       1.667;
+$phi:               1.618;
 $minor-sixth:       1.6;
 $fifth:             1.5;
 $augmented-fourth:  1.414;
@@ -94,3 +65,44 @@ $major-second:      1.125;
 $minor-second:      1.067;
 
 $ratio: $phi;
+
+// Font Sizes
+$base-font-size: 62.5%;
+
+//Grid
+$max-width:		    1200px; 
+$content-width:		770;
+
+// Line height
+//$base-line-height: 1.5;
+//$base-line-height: 1rem * $ratio;
+//$heading-line-height: 1.2;
+
+// Other Sizes
+@function sqrt($r) {
+	$x0: 1;
+	$x1: $x0;
+   
+	@for $i from 1 through 10 {
+	  $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
+	  $x0: $x1;
+	}
+   
+	@return $x1;
+  }
+
+$golden-font-size: sqrt( $content-width ) / $ratio;
+$base-spacing: round( $golden-font-size * $ratio ) * .1rem; 
+
+
+$border-radius: 3px;
+$small-spacing: $base-spacing / 2; 
+$base-z-index: 0; 
+$base-border: 1px; 
+
+
+
+@mixin wrap {
+	max-width: $max-width; 
+	margin: 0 auto 0; 
+}  

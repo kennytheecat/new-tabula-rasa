@@ -27,7 +27,7 @@ body
 -------------------------------------------------------------- */
 .site {}
 .site-header {
-	padding: 0 10px;
+	padding: 0 $small-spacing;
 }
 .site-content {
 	clear: both;
@@ -42,12 +42,12 @@ body
 	
 	.widget-area {
 		display: none;
-        padding: 0 0 0 10px;
+        padding: 0 0 0 $small-spacing;
 	}
 }
 .site-footer {
 	clear: both;
-	padding: 0 10px;
+	padding: 0 $base-spacing;
 }
 
 /** Breakpoint - 600 **/
@@ -70,12 +70,12 @@ body
     }
 	.site-content {
 		@include wrap;
-		padding: $base-spacing;
+		padding: 0;
         
 		.content-area {
 			@include column(8); 
 			@include first;
-			padding: 0 10px 0 0;   
+			padding: 0 $small-spacing 0 0;   
             
             .site-main {
                  

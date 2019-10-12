@@ -17,7 +17,7 @@
 		//margin-bottom: 0;
 	}
 	.entry-meta {
-		font-size: 14px;
+		@include secondary-text();
 		display: inline-block;
 		
 		.posted-on {
@@ -30,7 +30,7 @@
 		}
 	}
 	.cat-links {
-		font-size: 14px;
+		@include secondary-text(); 
 	}	
 }
 .entry-content {

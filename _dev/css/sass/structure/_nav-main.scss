@@ -8,16 +8,17 @@
 	padding-left: 0;	
 	width: 100%;
 	display: inline-block;
-	
+
 	li {
 		float: left;
 		position: relative;
 		display: inline-block;
+		font-weight: bold;
 		
 		a {
 			display: block;
 			text-decoration: none;	
-			padding: 10px;
+			padding: $small-spacing;;
 		}
 		&:first-child {}
 		&:last-child {}
@@ -30,49 +31,25 @@
 			display: none;
 			float: left;
 			padding: 0;
-			background: $grey;
+			background: $menu-bground;
 			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);	
-			border-top: 2px solid $grey;		
+			border-top: 2px solid darken($menu-bground, 10%);		
 			
 			li {
 					
 				a {
 					width: 200px;
 					
-					&:hover,
-					&:focus {
-						background: darken($grey, 10%);
-					}
+
 					&:link {}
 				}
 				&:first-child {}
 				&:last-child {}
 				
-				ul {
-					left: 100%;
-					top: 0;
-				}
-				&:hover > ul {
-					left: 100%;
-					top: 0;
-					border: none;
-				}
-				&:hover > a {
-					font-weight: normal;
-				}				
+			
 			}
 		}
-		&:hover > ul,
-		&:active > ul,
-		&:focus > ul {
-			display: block;
-			left: auto;
-			top: auto;
-		}
-		&:hover > a {
-			background: darken($grey, 10%);
-			color: $white;
-		}
+
 	} /* end .nav-menu li */
 	
 	/* highlight current page */
@@ -81,11 +58,12 @@
 	li.current_page_ancestor {
 		& > a {
 			font-weight: bold;
+			color: $prim-color;
 		}
 	}  
 	ul .current_page_parent,
 	.current_page_parent .current_page_item > a {
-		//background: $grey;
+		color: $prim-color;
 	}
 	/* end current highlighters */			
 } /* end .nav-menu ul */
@@ -93,7 +71,7 @@
 /** Breakpoint - 600 **/
 @media only screen and (min-width: 600px) {
 	.main-navigation {
-		margin-top: 20px;
+		margin-top: $base-spacing;
 		width: 100%;
         position: static;
 		display: block;
@@ -102,18 +80,70 @@
 			@include wrap;
 		}
 		.nav-menu {
-			border-top: 2px solid $grey;
-			border-bottom: 2px solid $grey;	
-			height: 47px;
-			
-			a {
+			border-top: 2px solid darken($menu-bground, 10%);
+			border-bottom: 2px solid darken($menu-bground, 10%);			
+			//height: 47px;
+
+			li {
+				a {
+					color: $menu-color;
+				}
+
+				&:hover,
+				&:focus {
+					background: darken($menu-bground, 10%);
+
+					a {
+						color: $prim-color;
+					}
+				}
+							
+					
+
+				&:hover > ul,
+				&:active > ul,
+				&:focus > ul {
+					display: block;
+					left: auto;
+					top: auto;
+
+					a {
+						color: $prim-color;
+					}
+				}
+			}
+			.sub-menu,
+			.children {
+
+				li {
+
+				
+					ul {
+						left: 100%;
+						top: 0;
+					}
+					&:hover > ul {
+						left: 100%;
+						top: 0;
+						border: none;
+					}
+					&:hover > a {
+						font-weight: normal;
+					}						
+
+				}
+
+			}
+
+			&:hover > a {
+				background: darken($grey, 10%);
 				color: $white;
 			}			
 		}
 		.search-not-mobile {
 			display: inline-block;
 			float: right;
-			padding-top: 5px;
+			padding-top: $small-spacing;
 		}
 	}
 }

@@ -8,7 +8,7 @@ article.post-password-required input[type=submit] {
 	border: 1px solid darken($button-color, 13%);
 	border-top-color: darken($button-color, 7%);
 	border-left-color: darken($button-color, 7%);
-	padding: 0.75em 1em;
+	padding: $small-spacing $base-spacing;
 	color: $button-text;
     display: inline-block;
 	@include content-text();
