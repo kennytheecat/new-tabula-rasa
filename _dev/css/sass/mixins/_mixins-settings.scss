@@ -45,7 +45,20 @@ $mobile__header-bground: darken($prim-color, 10%);
 $mobile__menu-color: $white;
 $mobile__menu-bground: darken($prim-color, 10%);
 
-//Other ratios 
+// Square Root function to get line height
+@function sqrt($r) {
+	$x0: 1;
+	$x1: $x0;
+   
+	@for $i from 1 through 10 {
+	  $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
+	  $x0: $x1;
+	}
+   
+	@return $x1;
+}
+
+// Scale Optinos 
 $double-octave:     4;
 $major-twelfth:     3;
 $major-eleventh:    2.667;
@@ -64,45 +77,30 @@ $minor-third:       1.2;
 $major-second:      1.125;
 $minor-second:      1.067;
 
-$ratio: $phi;
-
-// Font Sizes
-$base-font-size: 62.5%;
-
 //Grid
 $max-width:		    1200px; 
+$max-width-2:		1000px; 
 $content-width:		770;
+$scale: 			$phi;
 
-// Line height
-//$base-line-height: 1.5;
-//$base-line-height: 1rem * $ratio;
-//$heading-line-height: 1.2;
+$base-num: sqrt( $content-width );
 
-// Other Sizes
-@function sqrt($r) {
-	$x0: 1;
-	$x1: $x0;
-   
-	@for $i from 1 through 10 {
-	  $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
-	  $x0: $x1;
-	}
-   
-	@return $x1;
-  }
-
-$golden-font-size: sqrt( $content-width ) / $ratio;
-$base-spacing: round( $golden-font-size * $ratio ) * .1rem; 
-
+$base-spacing: $base-num * .1rem; 
+$small-spacing: $base-spacing / $scale;
 
 $border-radius: 3px;
-$small-spacing: $base-spacing / 2; 
 $base-z-index: 0; 
 $base-border: 1px; 
 
-
-
+///////////////////////////////////////////
+// Mixins
+///////////////////////////////////////////
 @mixin wrap {
 	max-width: $max-width; 
+	margin: 0 auto 0; 
+}  
+
+@mixin wrap-2 {
+	max-width: $max-width-2; 
 	margin: 0 auto 0; 
 }  

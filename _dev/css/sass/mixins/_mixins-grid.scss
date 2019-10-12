@@ -5,14 +5,14 @@
 
 // Creates a grid of a 102%. 
 //Then strips off the last 2% gutter for a total of 100%
-$column-width: 6.5%;
-$gutter-width: 2%;
+//$column-width: 6.5%;
+//$gutter-width: 2%;
 $columns: 12;
 
 // Set $total-width to 102% for a fluid layout
-$total-width: 100%;
-$column-width: ((100 - ($ratio * ($columns - 1))) /12) * 1%;
-$gutter-width: $ratio;
+$gutter-width:  ($base-num) * .1;
+$column-width: ((100 - ($gutter-width * ($columns - 1))) / $columns ) * 1%;
+$total-width: 100% + ($gutter-width * 1%);
 
 
 // Utility function — you should never need to modify this
@@ -49,7 +49,6 @@ $gutter-width: $ratio;
 	display: inline;
 	float: left;
 	width: $total-width*(((($gutter-width+$column-width)*$x)-$gutter-width) / gridsystem-width($columns));
-	//margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns));
 	margin: 0 ($total-width*(($gutter-width*.5)/gridsystem-width($columns))) * 1%;
 }
 @mixin first() {
