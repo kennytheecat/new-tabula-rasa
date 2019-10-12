@@ -2,21 +2,115 @@
 //LESS CSS mixins for a golden ratio typography rhythm based on Chris Pearson formulas http://www.pearsonified.com/2011/12/golden-ratio-typography.php
 //http://washmatique.fr/blog/2014/04/05/golden-ratio-typography-less-css-mixins.html
 	
-@import "node_modules/mathsass/dist/math";
+
+
+// this si show wse choose the golden fontsize
+// take the width of the content area (800) 
+// do some maths / divide it by teh ratio(pi)
+// and we get either the font sixe of the line height
+// i am not sure which
+//$primary-font-size: round(sqrt($line-width) / $ratio);
+$golden-font-size: sqrt( $content-width ) / $ratio;
+$golden-font-rounded: round( $golden-font-size );
+
+ 
+@mixin golden-text($mag) {
+	font-size: round( $golden-font-size * $mag ) * 1px;
+	font-size: round( $golden-font-size * $mag ) * .1rem;
+	line-height: round( ( $golden-font-size * $mag ) * $ratio ) * 1px;
+	line-height: round( ( $golden-font-size * $mag ) * $ratio ) * .1rem;
+}
+
+$mag0: 1;
+$mag1: $ratio;
+$mag2: $ratio * $ratio;
+$mag3: $ratio * $ratio * $ratio;
+$mag-1: $ratio / $ratio;
+
+@mixin content-text() {
+	@include golden-text($mag0);
+}
+ 
+@mixin title() {
+	@include golden-text($mag3);	 
+} 
+  
+@mixin headline() {
+	@include golden-text($mag2);
+ 
+}
+ 
+@mixin sub-headline() {
+	@include golden-text($mag1);
+}
+ 
+@mixin secondary-text() {
+	@include golden-text($mag-1);
+}
+
+@mixin custom-ratio( $content-width, $ratio, $mag ) {
+	$golden-font-size: round(sqrt($content-width) / $ratio);
+	@include golden-text($mag,$golden-font-size);
+}
+
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+	font-family: $heading-font;
+	text-rendering: optimizelegibility;
+	clear: both;
+    margin: $base-spacing 0 $small-spacing;
+    
+	a {
+		text-decoration: none;
+	}
+} 
+
+h1.entry-title{
+    line-height: 1;
+}
+
+h1 {
+    @include title();
+}
+h2 {
+    @include headline();
+}
+h3 {
+    @include sub-headline();
+}
+h4 {
+    @include content-text();
+}
+h5 {
+    @include secondary-text();
+}
+
+
+//*-------------------------------
+// Stuff From before that I dont think we need
+//----------------------------------*/
+//@import "node_modules/mathsass/dist/math";
 
 /** required: value in pixel with no units ***/
-$line-width: $article-width;
+//$line-width: $article-width;
 
-$xoo: 1 / (2 * $ratio);
-$primary-font-size: round(sqrt($line-width) / $ratio);
+//dont know what xoo does
+//$xoo: 1 / (2 * $ratio);
 
-/**
-http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/
-**/
+// this si show wse choose the golden fontsize
+// take the width of the content area (800) 
+// do some maths / divide it by teh ratio(pi)
+// and we get either the font sixe of the line height
+// i am not sure which
+//$primary-font-size: round(sqrt($line-width) / $ratio);
+//$golden-font-size: sqrt($line-width) / $ratio;
 
+//17/800 sr of 800=28.2842 / 1618 = 17.48
+/*
 @mixin line-height($font-size,$line-width){
 	$x1:sqrt($line-width) / $ratio;
 	$x2:$font-size * ($ratio - $xoo * (1 - ($line-width / pow($font-size * $ratio, 2))));
+	//17 * ( 1.618 - 
 	line-height:$x2/$x1;
 }
  
@@ -25,80 +119,56 @@ http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/
 	//font-size: 0rem + $font-size/$base-font-size;
 	font-size: 0rem + $font-size*.10;
 	$current-font-size:$font-size;
-	@include line-height($current-font-size,$line-width);
+	//@include line-height($current-font-size,$line-width);
+	line-height: round($font-size * $ratio ) * 1px;
+	line-height: round($font-size * $ratio) * .1rem;
 }
  
- 
-$mag0: $primary-font-size;
-$mag1: round($primary-font-size * sqrt($ratio));
-$mag2: round($primary-font-size*$ratio);
-$mag3: round($primary-font-size*pow($ratio, 2));
-$mag-1: round($primary-font-size/ sqrt($ratio));
+//$mag1: round($primary-font-size * sqrt($ratio));
+//$mag2: round($primary-font-size*$ratio);
+//$mag3: round($primary-font-size*pow($ratio, 2));
+//$mag-1: round($primary-font-size/ sqrt($ratio));
 
+$mag0: round($golden-font-size);
+$mag1: round($golden-font-size * $ratio * $ratio / 2);
+$mag2: round($mag1 * ($ratio * $ratio / 2));
+$mag3: round($mag2 * ($ratio * $ratio / 2));
+$mag-1: round($golden-font-size / ($ratio / $ratio *  2));
+*/
+/*
 @mixin content-text() {
-	@include golden-text($mag0,$primary-font-size);
+	@include golden-text($mag0,$golden-font-size);
 }
- 
+ //mag0 = 17 or 1.7rem
+
  
 @mixin title() {
 	//$current-font-size: round($primary-font-size*pow($ratio, 2));
-	@include golden-text($mag3, $primary-font-size);	 
+	@include golden-text($mag3, $golden-font-size);	 
 }
  
  
  @mixin headline() {
 	 //$current-font-size: round($primary-font-size*$ratio);
-	@include golden-text($mag2, $primary-font-size);
+	@include golden-text($mag2, $golden-font-size);
  
 }
   
  
  @mixin sub-headline() {
 	 //$current-font-size: round($primary-font-size * sqrt($ratio));
-	@include golden-text($mag1, $primary-font-size);
+	@include golden-text($mag1, $golden-font-size);
 }
  
  
  
  @mixin secondary-text() {
 	 //$current-font-size:round($primary-font-size/ sqrt($ratio));
-	@include golden-text($mag-1, $primary-font-size);
+	@include golden-text($mag-1, $golden-font-size);
 }
 
 @mixin custom-ratio( $content-width, $ratio, $mag ) {
-	$primary-font-size: round(sqrt($content-width) / $ratio);
-	@include golden-text($mag,$primary-font-size);
+	$golden-font-size: round(sqrt($content-width) / $ratio);
+	@include golden-text($mag,$golden-font-size);
 }
-
-
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-	font-family: $heading-font;
-	text-rendering: optimizelegibility;
-	clear: both;
-    margin: 0 0 $small-spacing;
-    
-	a {
-		text-decoration: none;
-	}
-} 
-
-h1.entry-title{
-    @include title();
-    line-height: 1;
-     margin: $small-spacing 0 $small-spacing; 
-    
-}
-
-h1 {
-    @include headline();
-}
-h2 {
-    @include sub-headline();
-}
-h3 {
-    @include content-text();
-
-}
-h4 {
-    @include secondary-text();
-}
+*/
