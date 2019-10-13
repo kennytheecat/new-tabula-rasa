@@ -5,18 +5,26 @@
 $font-size: $base-num / $scale;
 $line-height: $base-num * .1rem; 
 
-@mixin golden-text($mag) {
-	font-size: round( $font-size * $mag ) * 1px;
-	font-size: round( $font-size * $mag ) * .1rem;
-	line-height: round( ( $font-size * $mag ) * $scale ) * 1px;
-	line-height: round( ( $font-size * $mag ) * $scale ) * .1rem;
-}
+// Jumping from octave to octave can be jarring
+// So "notes" werere added
+// http://spencermortensen.com/articles/typographic-scale/
+// https://www.layoutgridcalculator.com/typographic-scale/
+
+$base-scale: $scale;
+$scale: sqrt($scale);
 
 $mag0: 1;
 $mag1: $scale;
 $mag2: $scale * $scale;
 $mag3: $scale * $scale * $scale;
 $mag-1: $scale / $scale;
+
+@mixin golden-text($mag) {
+	font-size: round( $font-size * $mag ) * 1px;
+	font-size: round( $font-size * $mag ) * .1rem;
+	line-height: round( ( $font-size * $mag ) * $base-scale ) * 1px;
+	line-height: round( ( $font-size * $mag ) * $base-scale ) * .1rem;
+}
 
 @mixin content-text() {
 	@include golden-text($mag0);
