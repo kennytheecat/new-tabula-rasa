@@ -30,7 +30,7 @@ input[type="search"] {
     padding-top: 10px;
 	
 	.search-field {
-		padding: $small-spacing;
+		padding: $scale-1;
 		@include content-text();
 		background-color: $white;
 		border: 0;

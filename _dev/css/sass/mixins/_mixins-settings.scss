@@ -27,6 +27,7 @@ $color__text:				$black;
 
 $menu-color: 			$sec-color;
 $menu-bground: 			$sec-color;
+$sidebar-bground:		$tert-color;
     
 $link-color:         #810000; 
 $link-hover:         darken($link-color, 9%);
@@ -85,10 +86,30 @@ $scale: 			$phi;
 
 $base-num: sqrt( $content-width );
 
-$base-spacing: $base-num * .1rem; 
-$small-spacing: $base-spacing / $scale;
+$mag0: 1;
+$mag1: $scale;
+$mag2: $scale * $scale;
+$mag3: $scale * $scale * $scale;
+$mag4: $scale * $scale * $scale * $scale;
+$mag-1: $scale / $scale;
+$mag-2: $scale / $scale / $scale;
+$mag-3: $scale / $scale / $scale / $scale;
+$mag-4: $scale / $scale / $scale / $scale / $scale;
+$mag-5: $scale / $scale / $scale / $scale / $scale  / $scale;
 
-$border-radius: 3px;
+$scale0: $base-num * .1rem;  
+
+$scale1:  $base-num * $mag1 * .1rem;
+$scale2:  $base-num * $mag2 * .1rem;
+$scale3:  $base-num * $mag3 * .1rem;
+$scale4:  $base-num * $mag4 * .1rem;
+
+$scale-1:  $base-num * $mag-2 * .1rem;
+$scale-2:  $base-num * $mag-3 * .1rem;
+$scale-3:  $base-num * $mag-4 * .1rem;
+$scale-4:  $base-num * $mag-5 * .1rem;
+
+$border-radius: 10px;
 $base-z-index: 0; 
 $base-border: 1px; 
 

@@ -1,8 +1,8 @@
 fieldset {
   background-color: $sec-color;
   border: $base-border;
-  margin: 0 0 $small-spacing;
-  padding: $base-spacing;
+  margin: 0 0 $scale-1;
+  padding: $scale0;
 }
 input,
 label,
@@ -11,14 +11,14 @@ textarea {
     display: block;
 	border-radius: $border-radius;
 	font-family: inherit;
-	padding: $base-spacing;
+	padding: $scale0;
 }
 input {
     line-height: normal;
 }
 label {
   font-weight: 600;
-  margin-bottom: $small-spacing / 2;
+  margin-bottom: $scale-2;
     padding: 0;
 
   &.required::after {
@@ -31,7 +31,7 @@ label {
 }
 
 select {
-  margin-bottom: $base-spacing;
+  margin-bottom: $scale0;
   max-width: 100%;
   width: auto;
 }
@@ -53,8 +53,8 @@ select[multiple=multiple],
 textarea {
   background-color: $sec-color;
   border: $base-border;
-  margin-bottom: $small-spacing;
-  padding: $base-spacing / 3;
+  margin-bottom: $scale-1;
+  padding: $scale-2;
   width: 100%;
 
   &:hover {
@@ -95,11 +95,11 @@ input[type="search"] {
 input[type="checkbox"],
 input[type="radio"] {
   display: inline;
-  margin-right: $small-spacing / 2;
+  margin-right: $scale-2;
 }
 
 input[type="file"] {
-  margin-bottom: $small-spacing;
+  margin-bottom: $scale-1;
   width: 100%;
 }
 

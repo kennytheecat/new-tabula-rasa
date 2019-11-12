@@ -9,7 +9,7 @@
 		overflow: hidden;
 	}
 	.entry-header {
-		margin-bottom: $small-spacing;
+		margin-bottom: $scale-1;
 	}
 	.entry-content {
 		p {
@@ -22,10 +22,10 @@
 .archive {
 	article {
 		overflow: hidden;
-		margin-bottom: $small-spacing;
+		margin-bottom: $scale-1;
 	}
 	.entry-header {
-		margin-bottom: $small-spacing;
+		margin-bottom: $scale-1;
 		
 		.entry-title {
 			margin-top: 0;

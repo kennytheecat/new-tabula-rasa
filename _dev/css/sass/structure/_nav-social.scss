@@ -9,7 +9,7 @@
 
     a:before {
 	    display: inline-block;
-	    padding: 0 $small-spacing;
+	    padding: 0 $scale-1;
 	    vertical-align: top;
 	    font-family: 'FontAwesome';
 	    @include sub-headline();

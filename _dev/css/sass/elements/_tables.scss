@@ -1,7 +1,7 @@
 table {
   border-collapse: collapse;
   font-feature-settings: "kern", "liga", "tnum";
-  margin: $small-spacing 0;
+  margin: $scale-1 0;
   table-layout: fixed;
   width: 100%;
 	
@@ -15,13 +15,13 @@ table {
 			@include secondary-text();
 			font-weight: bold;
             border-bottom: 1px solid shade($tert-color, 25%);
-            padding: $small-spacing 0;
+            padding: $scale-1 0;
             text-align: left;
 		}
 		td {
             @include secondary-text();
             border-bottom: $tert-color;
-            padding: $small-spacing 0;
+            padding: $scale-1 0;
 		}
 		.even {}
 		.odd{}

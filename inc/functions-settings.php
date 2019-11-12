@@ -123,13 +123,19 @@ INCLUDES
 /************************************************
 EXCERPTS
 *************************************************/
-// This removes the annoying [�] to a Read More link
-function tr_excerpt_more($more) {
-	global $post;
-	// edit here if you like
-	return '...  <a class="excerpt-read-more" href="'. get_permalink($post->ID) . '" title="'. __('Read', 'tabula_rasa') . get_the_title($post->ID).'">'. __('Read more &raquo;', 'tabula_rasa') .'</a>';
-}	
-add_filter('excerpt_more', 'tr_excerpt_more');
+function tr_excerpt_metabox_more( $excerpt ) {
+	$output = $excerpt;
+	
+
+	$output = sprintf( '%1$s <p class="read-more-container"><a href="%2$s"  title="%3$s">Read more</a></p>',
+		$excerpt,
+		get_permalink(),
+		get_the_title()
+	);	
+	
+	return $output;
+}
+add_filter( 'wp_trim_excerpt', 'tr_excerpt_metabox_more' );
 
 //Excerpt length
 function tr_excerpt_length( $length ) {

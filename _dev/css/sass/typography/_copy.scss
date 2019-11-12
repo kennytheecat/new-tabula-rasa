@@ -7,13 +7,13 @@ p {
 }
 p{
     @include content-text();
-    margin: 0 0 $small-spacing;
+    margin: 0 0 $scale-1;
 }
 dfn, cite, em, i {
 	font-style: italic;
 }
 blockquote {
-	margin: 0 $small-spacing;	
+	margin: 0 $scale-1;	
 }
 code, kbd, tt, var {
 	font-family: $font__code;
@@ -26,7 +26,7 @@ pre {
 	background: $color__background-pre;
 	font-family: $font__pre;
 	@include secondary-text();
-	margin-bottom: $base-spacing;
+	margin-bottom: $scale0;
 	max-width: 100%;
 	overflow: auto;
 
@@ -35,7 +35,7 @@ pre {
 	}
 } 
 address {
-    margin: 0 0 $base-spacing;
+    margin: 0 0 $scale0;
 }	
 mark, ins {
 	background: $color__background-ins;

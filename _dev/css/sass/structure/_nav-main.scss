@@ -18,7 +18,7 @@
 		a {
 			display: block;
 			text-decoration: none;	
-			padding: $small-spacing;;
+			padding: $scale-1;;
 		}
 		&:first-child {}
 		&:last-child {}
@@ -71,7 +71,7 @@
 /** Breakpoint - 600 **/
 @media only screen and (min-width: 600px) {
 	.main-navigation {
-		margin-top: $base-spacing;
+		margin-top: $scale0;
 		width: 100%;
         position: static;
 		display: block;
@@ -143,7 +143,7 @@
 		.search-not-mobile {
 			display: inline-block;
 			float: right;
-			padding-top: $small-spacing;
+			padding-top: $scale-1;
 		}
 	}
 }

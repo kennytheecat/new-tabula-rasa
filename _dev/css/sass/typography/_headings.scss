@@ -11,13 +11,19 @@ $line-height: $base-num * .1rem;
 // https://www.layoutgridcalculator.com/typographic-scale/
 
 $base-scale: $scale;
-$scale: sqrt($scale);
+$note: sqrt($scale);
 
 $mag0: 1;
-$mag1: $scale;
-$mag2: $scale * $scale;
-$mag3: $scale * $scale * $scale;
-$mag-1: $scale / $scale;
+$mag1: $note;
+$mag2: $note * $note;
+$mag3: $note * $note * $note;
+$mag4: $note * $note * $note * $note;
+$mag5: $note * $note * $note * $note * $note;
+$mag6: $note * $note * $note * $note * $note * $note;
+
+$mag-1: $note / $note / $note;
+$mag-2: $note / $note / $note / $note;
+$mag-3: $note / $note / $note / $note / $note; 
 
 @mixin golden-text($mag) {
 	font-size: round( $font-size * $mag ) * 1px;
@@ -31,33 +37,33 @@ $mag-1: $scale / $scale;
 }
  
 @mixin title() {
-	@include golden-text($mag3);	 
+	@include golden-text($mag5);	 
 } 
   
 @mixin headline() {
-	@include golden-text($mag2);
- 
+	@include golden-text($mag4);
 }
  
 @mixin sub-headline() {
-	@include golden-text($mag1);
+	@include golden-text($mag3);
 }
  
 @mixin secondary-text() {
 	@include golden-text($mag-1);
 }
 
+/*
 @mixin custom-ratio( $content-width, $scale, $mag ) {
 	$base-num: round(sqrt($content-width) / $scale);
 	@include golden-text($mag,$base-num);
 }
-
+*/
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 	font-family: $heading-font;
 	text-rendering: optimizelegibility;
 	clear: both;
-    margin: $base-spacing 0 $small-spacing;
+    margin: $scale0 0 $scale-1;
     
 	a {
 		text-decoration: none;
@@ -68,7 +74,7 @@ h1.entry-title{
     line-height: 1;
 }
 
-h1 {
+h1 { 
     @include title();
 }
 h2 {
@@ -78,8 +84,11 @@ h3 {
     @include sub-headline();
 }
 h4 {
-    @include content-text();
+    @include golden-text($mag2);
 }
 h5 {
-    @include secondary-text();
+	@include golden-text($mag1);
 }
+h6 {
+	@include golden-text($mag1);
+ }
